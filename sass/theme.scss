@@ -1,5 +1,11 @@
+@import 'hds-design-tokens/lib/color/brand.scss';
+
 $hel-grotesk: 'HelsinkiGrotesk', Arial, -apple-system, BlinkMacSystemFont,
 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
 'Droid Sans', 'Helvetica Neue', sans-serif;
 
+// Fonts
 $font-family-base: $hel-grotesk;
+
+// Colors
+$light-blue: $color-fog;

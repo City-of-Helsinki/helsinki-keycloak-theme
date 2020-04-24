@@ -4,3 +4,11 @@
 * {
   font-family: $font-family-base;
 }
+
+// Override the default background image with a solid color
+.login-pf {
+  background: $light-blue;
+}
+.login-pf body {
+  background: none;
+}
