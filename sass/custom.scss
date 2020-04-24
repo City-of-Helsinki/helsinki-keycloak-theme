@@ -1,0 +1,6 @@
+@import 'theme';
+
+// Override globally all text to use Helsinki font.
+* {
+  font-family: $font-family-base;
+}
