@@ -228,3 +228,12 @@ a.hds-button--supplementary {
   font-size: $font-size-5;
   font-weight: bold;
 }
+
+// Custom button wrapper
+// A wrapping block element that positions two button side by side with
+// margin in between.
+.hs-button-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: $spacing-xs;
+}
