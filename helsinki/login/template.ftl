@@ -61,12 +61,12 @@
                         <span class="subtitle"><span class="required">*</span> ${msg("requiredFields")}</span>
                     </div>
                     <div class="col-md-10">
-                        <img class="${properties.hsLogo!}" src="${url.resourcesPath}/img/helsinki-logo.svg">
+                        <img class="${properties.hsLogo!}" src="${url.resourcesPath}/img/${msg("helsinkiLogo")}.svg">
                         <h1 id="kc-page-title"><#nested "header"></h1>
                     </div>
                 </div>
             <#else>
-                <img class="${properties.hsLogo!}" src="${url.resourcesPath}/img/helsinki-logo.svg">
+                <img class="${properties.hsLogo!}" src="${url.resourcesPath}/img/${msg("helsinkiLogo")}.svg">
                 <h1 id="kc-page-title"><#nested "header"></h1>
             </#if>
         <#else>

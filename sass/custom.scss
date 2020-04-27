@@ -89,11 +89,15 @@ html {
 
 // Helsinki logo
 .helsinki-logo {
-  height: 44px;
-  width: 95px;
+  max-height: 44px;
+  // width: 95px;
   // This margin is 8px. the design has 6px, but it no such spacing
   // exists
   margin-bottom: $spacing-2xs;
+  // Sets image within the img element to be anchored into the top left
+  // corner instead of centering.
+  object-fit: contain;
+  object-position: 0 0;
 }
 
 // Input
