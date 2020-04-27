@@ -12,6 +12,11 @@ $spacing-xs: 0.75rem;
 $spacing-s: 1rem;
 // End can be found from HDS at some point
 
+// Overrides outdated HDS values
+$color-error: #b01038;
+$color-error-light: #ffe9ed;
+// End overrides outdated HDS value
+
 $hel-grotesk: 'HelsinkiGrotesk', Arial, -apple-system, BlinkMacSystemFont,
 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
 'Droid Sans', 'Helvetica Neue', sans-serif;

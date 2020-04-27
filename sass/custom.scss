@@ -73,6 +73,18 @@ html {
   margin-bottom: unset;
 }
 
+// Set alert icon size to match that in design files
+.hds-notification .pficon {
+  position: relative;
+  bottom: -4px; // Center vertically
+  width: 24px;
+  height: 24px;
+  margin-right: $spacing-s;
+
+  font-size: 24px;
+}
+
+
 // CUSTOM STYLES
 
 // Helsinki logo
@@ -111,7 +123,7 @@ html {
   }
 }
 
-// Input label
+// Overriding HDS  Input label
 // HDS provides styles for the label element, but they are out of sync
 // with the definitions in the design side. These overrides fill the
 // gaps.
@@ -119,7 +131,7 @@ html {
   font-size: $font-size-body-small;
 }
 
-// Button
+// Overriding HDS Button
 // The styles for HDS button seem are not precise enough to reproduce
 // the buttons authentically in this application. On top of this issue,
 // the buttons in the design files for this application use different
@@ -180,4 +192,22 @@ a.hds-button--supplementary {
   &:not(:last-child) {
     margin-bottom: $spacing-s;
   }
+}
+
+// Overriding HDS notification
+// The notification component uses the incorrect colours and font sizes
+
+.hds-notification {
+  padding: $spacing-s;
+
+  background-color: $color-error-light;
+  border-left-width: 0.25rem;
+  border-color: $color-error;
+}
+
+.hds-notification__label {
+  // This colour was in the design file, but it does not exists in HDS.
+  color: $color-error;
+  font-size: $font-size-5;
+  font-weight: bold;
 }
