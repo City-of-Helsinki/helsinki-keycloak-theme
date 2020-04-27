@@ -6,8 +6,10 @@
 $font-size-2: 2.25rem;
 $font-size-5: 1.125rem;
 $font-size-body-small: 0.875rem;
+$font-size-body-default: 1rem;
 $spacing-2xs: 0.5rem;
 $spacing-xs: 0.75rem;
+$spacing-s: 1rem;
 // End can be found from HDS at some point
 
 $hel-grotesk: 'HelsinkiGrotesk', Arial, -apple-system, BlinkMacSystemFont,
@@ -19,3 +21,5 @@ $font-family-base: $hel-grotesk;
 
 // Colors
 $light-blue: $color-fog;
+$color-primary: $color-bus;
+$color-primary-dark: $color-bus-dark-50;

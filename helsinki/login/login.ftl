@@ -22,9 +22,9 @@
                     <input tabindex="2" id="password" class="${properties.kcInputClass!}" name="password" type="password" autocomplete="off" />
                 </div>
 
-                <div class="${properties.kcFormGroupClass!} ${properties.kcFormSettingClass!}">
-                    <div id="kc-form-options">
-                        <#if realm.rememberMe && !usernameEditDisabled??>
+                <#if realm.rememberMe && !usernameEditDisabled??>
+                    <div class="${properties.kcFormGroupClass!} ${properties.kcFormSettingClass!}">
+                        <div id="kc-form-options">
                             <div class="checkbox">
                                 <label>
                                     <#if login.rememberMe??>
@@ -34,20 +34,21 @@
                                     </#if>
                                 </label>
                             </div>
-                        </#if>
                         </div>
-                        <div class="${properties.kcFormOptionsWrapperClass!}">
-                            <#if realm.resetPasswordAllowed>
-                                <span><a tabindex="5" href="${url.loginResetCredentialsUrl}">${msg("doForgotPassword")}</a></span>
-                            </#if>
-                        </div>
-
-                  </div>
+                    </div>
+                </#if>
 
                   <div id="kc-form-buttons" class="${properties.kcFormGroupClass!}">
                       <input type="hidden" id="id-hidden-input" name="credentialId" <#if auth.selectedCredential?has_content>value="${auth.selectedCredential}"</#if>/>
                       <input tabindex="4" class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" name="login" id="kc-login" type="submit" value="${msg("doLogIn")}"/>
                   </div>
+
+                  <#if realm.resetPasswordAllowed>
+                      <div id="hs-reset-password" class="${properties.kcFormGroupClass!}">
+                          <span class="${properties.hsSubtitle!}">${msg("forgotPassword")}</span>
+                          <a tabindex="4" class="${properties.kcButtonClass!} ${properties.kcButtonDefaultClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" href="${url.loginResetCredentialsUrl}">${msg("doForgotPassword")}</a>
+                      </div>
+                  </#if>
             </form>
         </#if>
         </div>

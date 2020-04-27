@@ -11,6 +11,8 @@ html {
   color: $color-black-90;
 }
 
+// OVERRIDES
+
 // Override the default background image with a solid color
 .login-pf {
   background: $light-blue;
@@ -42,7 +44,12 @@ html {
   max-width: 580px;
 }
 
-// Custom styles
+// Use correct whitespace for button container
+#kc-form-buttons {
+  margin-top: $spacing-layout-m;
+}
+
+// CUSTOM STYLES
 
 // Helsinki logo
 .helsinki-logo {
@@ -86,4 +93,64 @@ html {
 // gaps.
 .hds-text-input__label {
   font-size: $font-size-body-small;
+}
+
+// Button
+// The styles for HDS button seem are not precise enough to reproduce
+// the buttons authentically in this application. On top of this issue,
+// the buttons in the design files for this application use different
+// colours compared to what buttons in HDS use.
+
+// I've increased specificity for anchor elements because the base theme
+// uses naive selector that target all links within the login page that
+// break theme colours.
+
+.hds-button,
+a.hds-button {
+  font-size: $font-size-body-default;
+  font-weight: 600;
+  line-height: 1.625;
+}
+
+.hds-button--primary,
+a.hds-button--primary {
+  background-color: $color-primary;
+}
+
+.hds-button--supplementary,
+a.hds-button--supplementary {
+  color: $color-primary;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: $color-primary-dark;
+  }
+}
+
+// Form group
+// Sets whitespace according to HDS
+.hs-form-group {
+  margin-bottom: $spacing-layout-s;
+}
+
+// Custom block 
+// On the login form that contains a password reset button.
+#hs-reset-password {
+  padding-bottom: $spacing-layout-s;
+
+  border-bottom: 2px solid $color-black-20;
+}
+
+// Custom typography
+// A subtitle text that can be used to label sections/blocks
+.hs-subtitle {
+  display: inline-block;
+
+  font-size: $font-size-5;
+  color: $color-black-90;
+
+  &:not(:last-child) {
+    margin-bottom: $spacing-s;
+  }
 }
