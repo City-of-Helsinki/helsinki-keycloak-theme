@@ -12,3 +12,14 @@
 .login-pf body {
   background: none;
 }
+
+// Custom styles
+
+// Helsinki logo
+.helsinki-logo {
+  height: 44px;
+  width: 95px;
+  // This margin is 8px. the design has 6px, but it no such spacing
+  // exists
+  margin-bottom: $spacing-2xs;
+}
