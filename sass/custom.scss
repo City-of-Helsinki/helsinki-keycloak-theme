@@ -5,12 +5,41 @@
   font-family: $font-family-base;
 }
 
+// Set root font to a value that HDS expects
+html {
+  font-size: 16px;
+  color: $color-black-90;
+}
+
 // Override the default background image with a solid color
 .login-pf {
   background: $light-blue;
 }
 .login-pf body {
   background: none;
+}
+
+// Use correct typography for page title
+#kc-page-title {
+  margin-top: 0;
+  margin-bottom: $spacing-layout-xs;
+
+  font-size: $font-size-2;
+  font-weight: bold;
+  text-align: unset;
+}
+
+// Use correct whitespace for login page
+.login-pf-page .card-pf {
+  padding: $spacing-layout-m;
+}
+
+.login-pf-page .login-pf-header {
+  margin-bottom: 0;
+}
+
+.card-pf {
+  max-width: 580px;
 }
 
 // Custom styles
@@ -22,4 +51,39 @@
   // This margin is 8px. the design has 6px, but it no such spacing
   // exists
   margin-bottom: $spacing-2xs;
+}
+
+// Input
+// NOTE: These styles will be available through HDS. Please refactor the
+// theme to use those when possible. I've used a class that should match
+// the class name in HDS, meaning that simply removing this rule should
+// be enough.
+.hds-text-input__input {
+  width: 100%;
+  padding: $spacing-xs 0.888em; // 0.888em = ~16px (not available through hds)
+
+  font-size: $font-size-5;
+  line-height: 1.666; // ~30px
+
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 1px;
+  border-color: $color-black-20;
+  background-color: inherit;
+
+  &:focus {
+    border-color: $color-black-90;
+  }
+
+  &::placeholder {
+    color: $color-black-30;
+  }
+}
+
+// Input label
+// HDS provides styles for the label element, but they are out of sync
+// with the definitions in the design side. These overrides fill the
+// gaps.
+.hds-text-input__label {
+  font-size: $font-size-body-small;
 }

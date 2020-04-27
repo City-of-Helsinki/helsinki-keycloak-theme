@@ -1,4 +1,14 @@
 @import 'hds-design-tokens/lib/color/brand.scss';
+@import 'hds-design-tokens/lib/color/ui.scss';
+@import 'hds-design-tokens/lib/spacing/layout.scss';
+
+// Can be found from HDS at some point
+$font-size-2: 2.25rem;
+$font-size-5: 1.125rem;
+$font-size-body-small: 0.875rem;
+$spacing-2xs: 0.5rem;
+$spacing-xs: 0.75rem;
+// End can be found from HDS at some point
 
 $hel-grotesk: 'HelsinkiGrotesk', Arial, -apple-system, BlinkMacSystemFont,
 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
