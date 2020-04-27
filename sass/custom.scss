@@ -171,7 +171,9 @@ a.hds-button--supplementary {
 // Form group
 // Sets whitespace according to HDS
 .hs-form-group {
-  margin-bottom: $spacing-layout-s;
+  &:not(:last-child) {
+    margin-bottom: $spacing-layout-s;
+  }
 }
 
 // Custom block 
