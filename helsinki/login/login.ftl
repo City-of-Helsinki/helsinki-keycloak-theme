@@ -65,7 +65,8 @@
     <#elseif section = "info" >
         <#if realm.password && realm.registrationAllowed && !registrationDisabled??>
             <div id="kc-registration">
-                <span>${msg("noAccount")} <a tabindex="6" href="${url.registrationUrl}">${msg("doRegister")}</a></span>
+                <span class="${properties.hsSubtitle!}">${msg("noAccount")}</span>
+                <a tabindex="6" class="${properties.kcButtonClass!} ${properties.kcButtonDefaultClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" href="${url.registrationUrl}">${msg("doRegister")}</a>
             </div>
         </#if>
     </#if>

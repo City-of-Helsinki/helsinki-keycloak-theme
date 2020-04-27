@@ -49,6 +49,30 @@ html {
   margin-top: $spacing-layout-m;
 }
 
+// Unset text-align in order to ignore centered text
+.login-pf-page .login-pf-signup {
+  text-align: unset;
+}
+
+// Ignore margin that is used for inlined elements in original theme.
+// In the helsinki theme these elements are no longer inlined.
+.login-pf-page .login-pf-signup a {
+  margin-left: unset;
+}
+
+// Ignore margin that is used to separate form elements from info
+// elements
+.login-pf-page .login-pf-signup {
+  margin: unset;
+}
+
+// Ignore margin that breaks padding. It's on an element that should be 
+// the last element on pages. If it ends up not being that, set a margin
+// with &:not(:last-child).
+#kc-registration {
+  margin-bottom: unset;
+}
+
 // CUSTOM STYLES
 
 // Helsinki logo
@@ -138,6 +162,9 @@ a.hds-button--supplementary {
 // On the login form that contains a password reset button.
 #hs-reset-password {
   padding-bottom: $spacing-layout-s;
+  // Overrides default margin for form-group. This may end up being a
+  // naive solution in the long run.
+  margin-bottom: $spacing-s;
 
   border-bottom: 2px solid $color-black-20;
 }
