@@ -70,6 +70,16 @@
             </div>
             </#if>
 
+            <!-- This element is only used with custom validation. Its value is ephemeral. -->
+            <!-- 1. It doesn't get saved into server -->
+            <!-- 2. It doesn't persist over page reloads -->
+            <div id="hs-acknowledgements-form-group" class="${properties.kcFormGroupClass!}">
+                <div class="hs-checkbox">
+                    <input class="hs-checkbox__box" type="checkbox" name="acknowledgements" id="hs-acknowledgements" />
+                    <label for="acknowledgements" class="hs-checkbox__label">${kcSanitize(msg("doAcknowledgeResources"))}</label>
+                </div>
+            </div>
+
             <div class="${properties.kcFormGroupClass!}">
                 <div id="kc-form-buttons" class="${properties.kcFormButtonsClass!}">
                     <a class="${properties.kcButtonClass!} ${properties.kcButtonDefaultClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" href="${url.loginUrl}">${kcSanitize(msg("backToLogin"))?no_esc}</a>
