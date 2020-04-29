@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "scripts": {
     "build": "npm run build:sass",
-    "build:sass": "mkdir -p helsinki/login/resources/css && npm run build:sass:hds && npm run build:sass:custom && npm run build:sass:helsinkiGrotesk",
+    "build:sass": "mkdir -p helsinki/login/resources/css && npm run build:sass:hds && npm run build:sass:custom && npm run build:sass:helsinkiGrotesk && npm run build:sass:keycloakOverrides && npm run build:sass:hdsOverrides",
     "build:sass:hds": "npm-sass sass/hds.scss > helsinki/login/resources/css/hds.css",
     "build:sass:custom": "npm-sass sass/custom.scss > helsinki/login/resources/css/custom.css",
     "build:sass:helsinkiGrotesk": "npm-sass sass/helsinki-grotesk.scss > helsinki/login/resources/css/helsinki-grotesk.css",
+    "build:sass:keycloakOverrides": "npm-sass sass/keycloak-overrides.scss > helsinki/login/resources/css/keycloak-overrides.css",
+    "build:sass:hdsOverrides": "npm-sass sass/hds-overrides.scss > helsinki/login/resources/css/hds-overrides.css",
     "clean": "rm -rf helsinki/login/resources/css/"
   },
   "dependencies": {

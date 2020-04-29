@@ -1,0 +1,72 @@
+@import 'theme';
+
+// Override the default background image with a solid color
+.login-pf {
+  background: $light-blue;
+}
+.login-pf body {
+  background: none;
+}
+
+// Use correct typography for page title
+#kc-page-title {
+  margin-top: 0;
+  margin-bottom: $spacing-layout-xs;
+
+  font-size: $font-size-2;
+  font-weight: bold;
+  text-align: unset;
+}
+
+// Use correct whitespace for login page
+.login-pf-page .card-pf {
+  padding: $spacing-layout-m;
+}
+
+.login-pf-page .login-pf-header {
+  margin-bottom: 0;
+}
+
+.card-pf {
+  max-width: 580px;
+}
+
+// Use correct whitespace for button container
+#kc-form-buttons {
+  margin-top: $spacing-layout-m;
+}
+
+// Unset text-align in order to ignore centered text
+.login-pf-page .login-pf-signup {
+  text-align: unset;
+}
+
+// Ignore margin that is used for inlined elements in original theme.
+// In the helsinki theme these elements are no longer inlined.
+.login-pf-page .login-pf-signup a {
+  margin-left: unset;
+}
+
+// Ignore margin that is used to separate form elements from info
+// elements
+.login-pf-page .login-pf-signup {
+  margin: unset;
+}
+
+// Ignore margin that breaks padding. It's on an element that should be 
+// the last element on pages. If it ends up not being that, set a margin
+// with &:not(:last-child).
+#kc-registration {
+  margin-bottom: unset;
+}
+
+// Set alert icon size to match that in design files
+.hds-notification .pficon {
+  position: relative;
+  bottom: -4px; // Center vertically
+  width: 24px;
+  height: 24px;
+  margin-right: $spacing-s;
+
+  font-size: 24px;
+}

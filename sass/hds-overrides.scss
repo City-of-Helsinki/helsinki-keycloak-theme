@@ -1,0 +1,85 @@
+@import 'theme';
+
+// Input
+// NOTE: These styles will be available through HDS. Please refactor the
+// theme to use those when possible. I've used a class that should match
+// the class name in HDS, meaning that simply removing this rule should
+// be enough.
+.hds-text-input__input {
+  width: 100%;
+  padding: $spacing-xs 0.888em; // 0.888em = ~16px (not available through hds)
+
+  font-size: $font-size-5;
+  line-height: 1.666; // ~30px
+
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 1px;
+  border-color: $color-black-20;
+  background-color: inherit;
+
+  &:focus {
+    border-color: $color-black-90;
+  }
+
+  &::placeholder {
+    color: $color-black-30;
+  }
+}
+
+// Input label
+// HDS provides styles for the label element, but they are out of sync
+// with the definitions in the design side. These overrides fill the
+// gaps.
+.hds-text-input__label {
+  font-size: $font-size-body-small;
+}
+
+// Button
+// The styles for HDS button seem are not precise enough to reproduce
+// the buttons authentically in this application. On top of this issue,
+// the buttons in the design files for this application use different
+// colours compared to what buttons in HDS use.
+
+// I've increased specificity for anchor elements because the base theme
+// uses naive selector that target all links within the login page that
+// break theme colours.
+.hds-button,
+a.hds-button {
+  font-size: $font-size-body-default;
+  font-weight: 600;
+  line-height: 1.625;
+}
+
+.hds-button--primary,
+a.hds-button--primary {
+  background-color: $color-primary;
+}
+
+.hds-button--supplementary,
+a.hds-button--supplementary {
+  color: $color-primary;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: $color-primary-dark;
+  }
+}
+
+
+// Notification
+// The notification component uses the incorrect colours and font sizes
+.hds-notification {
+  padding: $spacing-s;
+
+  background-color: $color-error-light;
+  border-left-width: 0.25rem;
+  border-color: $color-error;
+}
+.hds-notification__label {
+  // This colour was in the design file, but it does not exists in HDS.
+  color: $color-error;
+  font-size: $font-size-5;
+  font-weight: bold;
+}
