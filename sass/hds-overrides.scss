@@ -25,6 +25,11 @@
   &::placeholder {
     color: $color-black-30;
   }
+
+  // Use red border when the form group is in an error state.
+  .hs-has-error & {
+    border-color: $color-error;
+  }
 }
 
 // Input label
@@ -34,6 +39,18 @@
 .hds-text-input__label {
   font-size: $font-size-body-small;
 }
+
+// Input helper text
+// HDS provides some styles, but they are out of date.
+.hds-text-input__helper-text {
+  font-size: $font-size-body-small;
+
+  // Use red colour when the form group is in an error state.
+  .hs-has-error & {
+    color: $color-error;
+  }
+}
+
 
 // Button
 // The styles for HDS button seem are not precise enough to reproduce
@@ -82,4 +99,16 @@ a.hds-button--supplementary {
   color: $color-error;
   font-size: $font-size-5;
   font-weight: bold;
+}
+
+// Icons
+// Extend default styles to position icons correctly in input wrapper
+.hs-input-wrapper .hds-icon {
+  position: absolute;
+  right: $spacing-xs;
+  top: 50%;
+  width: $spacing-layout-xs;
+  height: $spacing-layout-xs;
+
+  transform: translateY(-50%);
 }
