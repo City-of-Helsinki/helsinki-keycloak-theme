@@ -169,9 +169,27 @@ a.hds-button--supplementary {
 }
 
 // Form group
+
 // Sets whitespace according to HDS
 .hs-form-group {
-  margin-bottom: $spacing-layout-s;
+  &:not(:last-child) {
+    margin-bottom: $spacing-layout-s;
+  }
+}
+
+// Apply error colours
+.hs-has-error.hs-form-group {
+  color: $color-error;
+}
+
+// Tee registration page has a longer form, which is why the designer
+// has used a smaller spacing for it. Most forms in this app are short
+// so we are treating the condensed form as a special case.
+
+#kc-register-form .hs-form-group {
+  &:not(:last-child) {
+    margin-bottom: $spacing-layout-xs;
+  }
 }
 
 // Custom block 
@@ -214,4 +232,67 @@ a.hds-button--supplementary {
   color: $color-error;
   font-size: $font-size-5;
   font-weight: bold;
+}
+
+// Custom button wrapper
+// A wrapping block element that positions two button side by side with
+// margin in between.
+.hs-button-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: $spacing-xs;
+}
+
+// Custom checkbox component copied from open-city-profile
+.hs-checkbox {
+  margin: 10px 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  &__box {
+    margin: 0 !important;
+    position: relative;
+    min-width: 20px;
+    min-height: 20px;
+    -webkit-appearance: none;
+
+    background-color: $color-white;
+    // Custom colour that does not exist in the style system yet (?)
+    border: 2px solid #c4c4c4;
+    border-radius: 1px;
+
+    // If the form group has an error, set checkbox into error state.
+    .hs-has-error & {
+      border-color: $color-error;
+    }
+
+    &:checked {
+      color: $color-white;
+
+      background-color: $color-bus-dark-50;
+      border-color: $color-bus-dark-50;
+      
+      &:after {
+        content: '\2714';
+        position: absolute;
+        top: -1px;
+        left: 2px;
+
+        font-size: $font-size-body-default;
+        color: $color-white;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  &__label {
+    margin:  0 0 0 $spacing-xs;
+
+    font-size: $font-size-body-default;
+    font-weight: normal;
+  }
 }
