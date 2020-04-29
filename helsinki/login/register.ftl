@@ -123,7 +123,10 @@
             <!-- 2. It doesn't persist over page reloads -->
             <div id="hs-acknowledgements-form-group" class="${properties.kcFormGroupClass!}">
                 <div class="hs-checkbox">
-                    <input class="hs-checkbox__box" type="checkbox" name="acknowledgements" id="hs-acknowledgements" />
+                    <div class="hs-checkbox__box-wrapper">
+                        <input class="hs-checkbox__box" type="checkbox" name="acknowledgements" id="hs-acknowledgements" />
+                        <span class="${properties.hsIconClass!} ${properties.hsCheckIconClass!} hs-checkbox__tick"></span>
+                    </div>
                     <label for="acknowledgements" class="hs-checkbox__label">${kcSanitize(msg("doAcknowledgeResources"))}</label>
                 </div>
             </div>

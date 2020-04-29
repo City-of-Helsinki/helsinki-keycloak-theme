@@ -91,17 +91,23 @@ html {
   display: flex;
   align-items: center;
 
+  &__box-wrapper {
+    position: relative;
+  }
+
   &__box {
     margin: 0 !important;
     position: relative;
-    min-width: 20px;
-    min-height: 20px;
+    width: $spacing-layout-xs;
+    height: $spacing-layout-xs;
     -webkit-appearance: none;
 
-    background-color: $color-white;
+    // background-color: $color-white;
     // Custom colour that does not exist in the style system yet (?)
     border: 2px solid #c4c4c4;
     border-radius: 1px;
+    // mask-image: none;
+    // -webkit-mask-image: none;
 
     // If the form group has an error, set checkbox into error state.
     .hs-has-error & {
@@ -113,20 +119,29 @@ html {
 
       background-color: $color-bus-dark-50;
       border-color: $color-bus-dark-50;
-      
-      &:after {
-        content: '\2714';
-        position: absolute;
-        top: -1px;
-        left: 2px;
-
-        font-size: $font-size-body-default;
-        color: $color-white;
-      }
+      mask-image: initial;
+      -webkit-mask-image: initial;
 
       &:focus {
         outline: none;
       }
+    }
+  }
+
+  &__tick {
+    position: absolute;
+    left: 3px;
+    top: 5px;
+    width: 18px;
+    height: 14px;
+    display: none;
+
+    color: $color-white;
+
+    pointer-events: none;
+
+    .hs-checkbox__box:checked ~ & {
+      display: inline-block;
     }
   }
 
