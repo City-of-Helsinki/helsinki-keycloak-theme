@@ -35,7 +35,7 @@
   <div class="${properties.kcLoginClass!}">
     <#if properties.showHeader == "true">
       <div id="kc-header" class="${properties.kcHeaderClass!}">
-        <div id="kc-header-wrapper" class="${properties.kcHeaderWrapperClass!}">${kcSanitize(msg("loginTitleHtml",(realm.displayNameHtml!'')))?no_esc}df</div>
+        <div id="kc-header-wrapper" class="${properties.kcHeaderWrapperClass!}">${kcSanitize(msg("loginTitleHtml",(realm.displayNameHtml!'')))?no_esc}</div>
       </div>
     </#if>
     <div class="${properties.kcFormCardClass!} <#if displayWide>${properties.kcFormCardAccountClass!}</#if>">
