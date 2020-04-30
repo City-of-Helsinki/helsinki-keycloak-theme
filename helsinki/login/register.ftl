@@ -1,5 +1,5 @@
 <#import "template.ftl" as layout>
-<@layout.registrationLayout; section>
+<@layout.registrationLayout showAlerts=false; section>
     <#if section = "header">
         ${msg("registerTitle")}
     <#elseif section = "form">
@@ -9,7 +9,15 @@
                     <label for="firstName" class="${properties.kcLabelClass!}">${msg("firstName")}</label>
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
-                    <input type="text" id="firstName" class="${properties.kcInputClass!}" name="firstName" value="${(register.formData.firstName!'')}" />
+                    <div class="${properties.hsInputwrapperClass!}">
+                        <input type="text" id="firstName" class="${properties.kcInputClass!}" name="firstName" value="${(register.formData.firstName!'')}" />
+                        <#if messagesPerField.firstName != "">
+                            <span class="${properties.hsIconClass!} ${properties.hsAttentionIconClass!}"></span>
+                        </#if>
+                    </div>
+                    <#if messagesPerField.firstName != "">
+                        <div class="${properties.hsInputHelperText!}">${messagesPerField.firstName}</div>
+                    </#if>
                 </div>
             </div>
 
@@ -18,7 +26,15 @@
                     <label for="lastName" class="${properties.kcLabelClass!}">${msg("lastName")}</label>
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
-                    <input type="text" id="lastName" class="${properties.kcInputClass!}" name="lastName" value="${(register.formData.lastName!'')}" />
+                    <div class="${properties.hsInputwrapperClass!}">
+                        <input type="text" id="lastName" class="${properties.kcInputClass!}" name="lastName" value="${(register.formData.lastName!'')}" />
+                        <#if messagesPerField.lastName != "">
+                            <span class="${properties.hsIconClass!} ${properties.hsAttentionIconClass!}"></span>
+                        </#if>
+                    </div>
+                    <#if messagesPerField.lastName != "">
+                        <div class="${properties.hsInputHelperText!}">${messagesPerField.lastName}</div>
+                    </#if>
                 </div>
             </div>
 
@@ -27,7 +43,15 @@
                     <label for="email" class="${properties.kcLabelClass!}">${msg("email")}</label>
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
-                    <input type="text" id="email" class="${properties.kcInputClass!}" name="email" value="${(register.formData.email!'')}" autocomplete="email" />
+                    <div class="${properties.hsInputwrapperClass!}">
+                        <input type="text" id="email" class="${properties.kcInputClass!}" name="email" value="${(register.formData.email!'')}" autocomplete="email" />
+                        <#if messagesPerField.email != "">
+                            <span class="${properties.hsIconClass!} ${properties.hsAttentionIconClass!}"></span>
+                        </#if>
+                    </div>
+                    <#if messagesPerField.email != "">
+                        <div class="${properties.hsInputHelperText!}">${messagesPerField.email}</div>
+                    </#if>
                 </div>
             </div>
 
@@ -37,7 +61,15 @@
                     <label for="username" class="${properties.kcLabelClass!}">${msg("username")}</label>
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
-                    <input type="text" id="username" class="${properties.kcInputClass!}" name="username" value="${(register.formData.username!'')}" autocomplete="username" />
+                    <div class="${properties.hsInputwrapperClass!}">
+                        <input type="text" id="username" class="${properties.kcInputClass!}" name="username" value="${(register.formData.username!'')}" autocomplete="username" />
+                        <#if messagesPerField.username != "">
+                            <span class="${properties.hsIconClass!} ${properties.hsAttentionIconClass!}"></span>
+                        </#if>
+                    </div>
+                    <#if messagesPerField.username != "">
+                        <div class="${properties.hsInputHelperText!}">${messagesPerField.username}</div>
+                    </#if>
                 </div>
             </div>
           </#if>
@@ -48,7 +80,15 @@
                     <label for="password" class="${properties.kcLabelClass!}">${msg("password")}</label>
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
-                    <input type="password" id="password" class="${properties.kcInputClass!}" name="password" autocomplete="new-password"/>
+                    <div class="${properties.hsInputwrapperClass!}">
+                        <input type="password" id="password" class="${properties.kcInputClass!}" name="password" autocomplete="new-password"/>
+                        <#if messagesPerField.password != "">
+                            <span class="${properties.hsIconClass!} ${properties.hsAttentionIconClass!}"></span>
+                        </#if>
+                    </div>
+                    <#if messagesPerField.password != "">
+                        <div class="${properties.hsInputHelperText!}">${messagesPerField.password}</div>
+                    </#if>
                 </div>
             </div>
 
@@ -57,7 +97,15 @@
                     <label for="password-confirm" class="${properties.kcLabelClass!}">${msg("passwordConfirm")}</label>
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
-                    <input type="password" id="password-confirm" class="${properties.kcInputClass!}" name="password-confirm" />
+                    <div class="${properties.hsInputwrapperClass!}">
+                        <input type="password" id="password-confirm" class="${properties.kcInputClass!}" name="password-confirm" />
+                        <#if messagesPerField["password-confirm"] != "">
+                            <span class="${properties.hsIconClass!} ${properties.hsAttentionIconClass!}"></span>
+                        </#if>
+                    </div>
+                    <#if messagesPerField["password-confirm"] != "">
+                        <div class="${properties.hsInputHelperText!}">${messagesPerField["password-confirm"]}</div>
+                    </#if>
                 </div>
             </div>
             </#if>
@@ -75,7 +123,10 @@
             <!-- 2. It doesn't persist over page reloads -->
             <div id="hs-acknowledgements-form-group" class="${properties.kcFormGroupClass!}">
                 <div class="hs-checkbox">
-                    <input class="hs-checkbox__box" type="checkbox" name="acknowledgements" id="hs-acknowledgements" />
+                    <div class="hs-checkbox__box-wrapper">
+                        <input class="hs-checkbox__box" type="checkbox" name="acknowledgements" id="hs-acknowledgements" />
+                        <span class="${properties.hsIconClass!} ${properties.hsCheckIconClass!} hs-checkbox__tick"></span>
+                    </div>
                     <label for="acknowledgements" class="hs-checkbox__label">${kcSanitize(msg("doAcknowledgeResources"))}</label>
                 </div>
             </div>
