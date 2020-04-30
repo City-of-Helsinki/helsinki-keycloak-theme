@@ -64,24 +64,37 @@
   // --> Handlers
 
   document.addEventListener("DOMContentLoaded", function (event) {
-    getRegistrationForm().addEventListener(
-      "submit",
-      handleRegistrationFormSubmit
-    );
-    getHsAcknowledgementsInput().addEventListener(
-      "change",
-      handleHsAcknowledgementsChange
-    );
+    var registrationForm = getRegistrationForm();
+    var hsAcknowledgementsInput = getHsAcknowledgementsInput();
+
+    if (registrationForm) {
+      registrationForm.addEventListener("submit", handleRegistrationFormSubmit);
+    }
+
+    if (hsAcknowledgementsInput) {
+      hsAcknowledgementsInput.addEventListener(
+        "change",
+        handleHsAcknowledgementsChange
+      );
+    }
   });
 
   window.onunload = function () {
-    getRegistrationForm().removeEventListener(
-      "submit",
-      handleRegistrationFormSubmit
-    );
-    getHsAcknowledgementsInput().removeEventListener(
-      "change",
-      handleHsAcknowledgementsChange
-    );
+    var registrationForm = getRegistrationForm();
+    var hsAcknowledgementsInput = getHsAcknowledgementsInput();
+
+    if (registrationForm) {
+      registrationForm.removeEventListener(
+        "submit",
+        handleRegistrationFormSubmit
+      );
+    }
+
+    if (hsAcknowledgementsInput) {
+      hsAcknowledgementsInput.removeEventListener(
+        "change",
+        handleHsAcknowledgementsChange
+      );
+    }
   };
 })();
