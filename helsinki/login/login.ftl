@@ -45,8 +45,7 @@
 
                   <#if realm.resetPasswordAllowed>
                       <div id="hs-reset-password" class="${properties.kcFormGroupClass!}">
-                          <span class="${properties.hsSubtitle!}">${msg("forgotPassword")}</span>
-                          <a tabindex="4" class="${properties.kcButtonClass!} ${properties.kcButtonDefaultClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" href="${url.loginResetCredentialsUrl}">${msg("doForgotPassword")}</a>
+                          <a tabindex="4" class="${properties.hsLinkClass!}" href="${url.loginResetCredentialsUrl}">${msg("forgotPassword")}</a>
                       </div>
                   </#if>
             </form>

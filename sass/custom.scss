@@ -54,7 +54,7 @@ html {
 // Custom block 
 // On the login form that contains a password reset button.
 #hs-reset-password {
-  padding-bottom: $spacing-layout-s;
+  padding-bottom: $spacing-layout-xs;
   // Overrides default margin for form-group. This may end up being a
   // naive solution in the long run.
   margin-bottom: $spacing-s;
@@ -157,4 +157,23 @@ html {
 // Is used for positioning error icons
 .hs-input-wrapper {
   position: relative;
+}
+
+// Link
+.hs-link,
+a.hs-link {
+  padding-bottom: 1px;
+
+  font-size: $font-size-5;
+  font-weight: normal;
+  color: $color-primary;
+  text-decoration: none;
+
+  border-bottom: 1px solid currentColor;
+
+  &:hover {
+    color: $color-primary;
+
+    border-bottom-color: transparent;
+  }
 }
