@@ -1,6 +1,8 @@
 # helsinki-keycloak-theme
 Helsinki theme for Keycloaks IAM
 
+To test this theme 1. Set up your local environment and then 2. build the theme.
+
 ## Setting up a local environment
 
 **1. Clone this repository**  
@@ -78,3 +80,17 @@ New Realm > Realm Settings > Theme
 | Setting | Value |
 |:-|:-|
 | Login Theme | helsinki |
+
+## Building the theme
+
+First, install `npm` dependencies
+
+```bash
+npm install
+```
+
+Then, build the project 
+
+```bash
+npm run build
+```

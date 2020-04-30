@@ -1,15 +1,13 @@
 @import 'hds-design-tokens/lib/color/brand.scss';
 @import 'hds-design-tokens/lib/color/ui.scss';
-@import 'hds-design-tokens/lib/spacing/layout.scss';
+@import 'hds-design-tokens/lib/spacing/all.scss';
 
 // Can be found from HDS at some point
 $font-size-2: 2.25rem;
 $font-size-5: 1.125rem;
 $font-size-body-small: 0.875rem;
 $font-size-body-default: 1rem;
-$spacing-2xs: 0.5rem;
-$spacing-xs: 0.75rem;
-$spacing-s: 1rem;
+$spacing-2xs: $spacing-2-xs;
 // End can be found from HDS at some point
 
 // Overrides outdated HDS values

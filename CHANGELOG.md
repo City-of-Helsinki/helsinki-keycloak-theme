@@ -10,3 +10,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Add HelsinkiGrotesk font family
 - Add support for login page
 - Add support for registration page
+- Add support for forgot password page
