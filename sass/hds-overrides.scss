@@ -90,13 +90,23 @@ a.hds-button--supplementary {
 .hds-notification {
   padding: $spacing-s;
 
-  background-color: $color-error-light;
   border-left-width: 0.25rem;
-  border-color: $color-error;
+  
+  &--error {
+    color: $color-error;
+
+    background-color: $color-error-light;
+    border-color: $color-error;
+  }
+
+  &--success {
+    color: #007293;
+
+    background-color: $color-info-light;
+    border-color: #007293;
+  }
 }
 .hds-notification__label {
-  // This colour was in the design file, but it does not exists in HDS.
-  color: $color-error;
   font-size: $font-size-5;
   font-weight: bold;
 }
