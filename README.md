@@ -1,6 +1,18 @@
 # helsinki-keycloak-theme
 Helsinki theme for Keycloaks IAM
 
+**Known issues**  
+- Build script does not work on windows
+
+**Requirements**  
+- npm
+- node
+
+**Commands**  
+| Name | Description |
+|:-|:-|
+| `npm run build` | Builds css files from scss sources |
+
 To test this theme 1. Set up your local environment and then 2. build the theme.
 
 ## Setting up a local environment
@@ -94,3 +106,7 @@ Then, build the project
 ```bash
 npm run build
 ```
+
+## For future developers
+
+The theme currently applies overrides to the HDS lib in order to reflect styles that are used in a newer iteration of the visual guidelines. These are located in the `sass/hds-overrides.scss` file and in `sass/theme.scss` files. Please do your best to remove these overrides when you are able.
