@@ -106,3 +106,7 @@ Then, build the project
 ```bash
 npm run build
 ```
+
+## For future developers
+
+The theme currently applies overrides to the HDS lib in order to reflect styles that are used in a newer iteration of the visual guidelines. These are located in the `sass/hds-overrides.scss` file and in `sass/theme.scss` files. Please do your best to remove these overrides when you are able.
