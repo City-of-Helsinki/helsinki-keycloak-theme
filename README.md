@@ -1,6 +1,10 @@
 # helsinki-keycloak-theme
 Helsinki theme for Keycloaks IAM
 
+**Requirements**  
+- npm
+- node
+
 To test this theme 1. Set up your local environment and then 2. build the theme.
 
 ## Setting up a local environment
