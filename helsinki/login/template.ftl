@@ -112,6 +112,9 @@
           <#-- App-initiated actions should not see warning messages about the need to complete the action -->
           <#-- during login.                                                                               -->
           <#if showAlerts && displayMessage && message?has_content && (message.type != 'warning' || !isAppInitiatedAction??)>
+            <#if message.type = 'warning'>
+                <p class="${properties.hsPClass}">${kcSanitize(message.summary)?no_esc}</p>
+            <#else>
               <div class="${properties.hsAlertClass!}<#if message.type = 'success'> ${properties.hsAlertSuccessClass!}</#if><#if message.type = 'warning'> ${properties.hsAlertWarningClass!}</#if><#if message.type = 'error'> ${properties.hsAlertErrorClass!}</#if><#if message.type = 'info'> ${properties.hsAlertInfoClass!}</#if>">
                 <div class="${properties.hsAlertLabelClass!}">
                     <#if message.type = 'success'><span class="${properties.kcFeedbackSuccessIcon!}"></span></#if>
@@ -121,6 +124,7 @@
                     ${kcSanitize(message.summary)?no_esc}
                     </div>
                 </div>
+            </#if>
           </#if>
 
           <#nested "form">

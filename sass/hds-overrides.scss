@@ -71,6 +71,15 @@ a.hds-button {
 .hds-button--primary,
 a.hds-button--primary {
   background-color: $color-primary;
+
+  &:hover {
+    color: $color-white;
+    text-decoration: none;
+  }
+
+  &:after {
+    border-color: $color-primary;
+  }
 }
 
 .hds-button--supplementary,
