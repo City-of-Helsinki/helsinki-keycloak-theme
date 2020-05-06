@@ -1,9 +1,6 @@
 # helsinki-keycloak-theme
 Helsinki theme for Keycloaks IAM
 
-**Known issues**  
-- Build script does not work on windows
-
 **Requirements**  
 - npm
 - node
@@ -12,6 +9,7 @@ Helsinki theme for Keycloaks IAM
 | Name | Description |
 |:-|:-|
 | `npm run build` | Builds css files from scss sources |
+| `npm run clean` | Removes files generated during build |
 
 To test this theme 1. Set up your local environment and then 2. build the theme.
 
