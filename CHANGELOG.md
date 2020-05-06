@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Add support for forgot password page
 - Add support for email confirmation page
 - Add support for Finnish language
+- Add script for packing project
 
 ### Fixed
 - Fix build script breaking on Windows
