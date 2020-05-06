@@ -1,19 +1,24 @@
 {
   "name": "helsinki-keycloak-theme",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "scripts": {
+    "make-pack": "npm run build && node ./scripts/pack-theme",
     "build": "npm run build:sass",
-    "build:sass": "mkdir -p helsinki/login/resources/css && npm run build:sass:hds && npm run build:sass:custom && npm run build:sass:helsinkiGrotesk && npm run build:sass:keycloakOverrides && npm run build:sass:hdsOverrides",
+    "build:sass": "mkdirp helsinki/login/resources/css && npm run build:sass:hds && npm run build:sass:custom && npm run build:sass:helsinkiGrotesk && npm run build:sass:keycloakOverrides && npm run build:sass:hdsOverrides",
     "build:sass:hds": "npm-sass sass/hds.scss > helsinki/login/resources/css/hds.css",
     "build:sass:custom": "npm-sass sass/custom.scss > helsinki/login/resources/css/custom.css",
     "build:sass:helsinkiGrotesk": "npm-sass sass/helsinki-grotesk.scss > helsinki/login/resources/css/helsinki-grotesk.css",
     "build:sass:keycloakOverrides": "npm-sass sass/keycloak-overrides.scss > helsinki/login/resources/css/keycloak-overrides.css",
     "build:sass:hdsOverrides": "npm-sass sass/hds-overrides.scss > helsinki/login/resources/css/hds-overrides.css",
-    "clean": "rm -rf helsinki/login/resources/css/"
+    "clean": "rm -rf helsinki/login/resources/css"
   },
   "dependencies": {
     "hds-core": "^0.5.0",
     "hds-design-tokens": "^0.1.0",
     "npm-sass": "^2.3.0"
+  },
+  "devDependencies": {
+    "mkdirp": "^1.0.4",
+    "tar": "^6.0.2"
   }
 }
