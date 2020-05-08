@@ -11,6 +11,8 @@ Helsinki theme for Keycloaks IAM
 | `npm run build` | Builds css files from scss sources |
 | `npm run clean` | Removes files generated during build |
 | `npm run make-pack` | Builds the project and packs the `/helsinki` folder into a `.tar.gz` file. The archive will be saved into project root with the name `helsinki.tag.gz`. |
+| `npm run export-translations` | Transforms message files into a csv format and saves them in project root in format `<module name>_<language>.csv`. |
+| `npm run update-translations` | Fetches current translations from a Google sheet source, parses them into `.properties` files and saves them under the correct module. |
 
 To test this theme 1. Set up your local environment and then 2. build the theme.
 
