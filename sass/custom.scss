@@ -183,9 +183,11 @@ a.hs-link {
 // styles
 .hs-p,
 .login-pf-page .card-pf .hs-p {
-  margin-bottom: $spacing-m;
-
   font-size: $font-size-5;
   color: $color-black-90;
   line-height: 1.5;
+
+  &:not(:last-child) {
+    margin-bottom: $spacing-m;
+  }
 }
