@@ -77,11 +77,24 @@ html {
 
 // Custom button wrapper
 // A wrapping block element that positions two button side by side with
-// margin in between.
+// margin in between or a single button spanning entire row.
 .hs-button-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: $spacing-xs;
+  display: flex;
+
+  // When flexbox begins to support column-gap, we can replace the below
+  // rules with column-gap: $spacing-xs;
+  & *:first-child {
+    margin-right: $spacing-xs / 2;
+  }
+
+  & *:last-child {
+    margin-left: $spacing-xs / 2;
+  }
+
+  // If the button is alone, apply no margin.
+  & *:only-child {
+    margin: 0;
+  }
 }
 
 // Custom checkbox component copied from open-city-profile
@@ -183,6 +196,8 @@ a.hs-link {
 // styles
 .hs-p,
 .login-pf-page .card-pf .hs-p {
+  margin-bottom: 0;
+
   font-size: $font-size-5;
   color: $color-black-90;
   line-height: 1.5;
