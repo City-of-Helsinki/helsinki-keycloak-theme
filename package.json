@@ -10,7 +10,9 @@
     "build:sass:helsinkiGrotesk": "npm-sass sass/helsinki-grotesk.scss > helsinki/login/resources/css/helsinki-grotesk.css",
     "build:sass:keycloakOverrides": "npm-sass sass/keycloak-overrides.scss > helsinki/login/resources/css/keycloak-overrides.css",
     "build:sass:hdsOverrides": "npm-sass sass/hds-overrides.scss > helsinki/login/resources/css/hds-overrides.css",
-    "clean": "rm -rf helsinki/login/resources/css"
+    "clean": "rm -rf helsinki/login/resources/css",
+    "export-translations": "node ./scripts/export-translations",
+    "update-translations": "node ./scripts/update-translations"
   },
   "dependencies": {
     "hds-core": "^0.5.0",
@@ -18,7 +20,10 @@
     "npm-sass": "^2.3.0"
   },
   "devDependencies": {
+    "csvtojson": "^2.0.10",
     "mkdirp": "^1.0.4",
+    "node-fetch": "^2.6.0",
+    "properties": "^1.2.1",
     "tar": "^6.0.2"
   }
 }
