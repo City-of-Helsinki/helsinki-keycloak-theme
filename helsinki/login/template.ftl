@@ -1,4 +1,4 @@
-<#macro registrationLayout bodyClass="" displayInfo=false displayMessage=true displayRequiredFields=false displayWide=false showAnotherWayIfPresent=true showAlerts=true>
+<#macro registrationLayout bodyClass="" displayInfo=false displayMessage=true displayRequiredFields=false displayWide=false showAnotherWayIfPresent=true showAlerts=true showWarnings=true>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" class="${properties.kcHtmlClass!}">
 
@@ -112,7 +112,11 @@
           <#-- App-initiated actions should not see warning messages about the need to complete the action -->
           <#-- during login.                                                                               -->
           <#if showAlerts && displayMessage && message?has_content && (message.type != 'warning' || !isAppInitiatedAction??)>
-            <#if message.type = 'warning'>
+            <#-- HS: Some views have warning messages which are styled as regular paragraphs in this theme. -->
+            <#-- When you downgrade some of the warnings messages into regular paragraphs, you end up with repeating content. -->
+            <#-- This flag allows us to toggle off those warning messages on a template-to-template basis. -->
+            <#if message.type = 'warning' && !showWarnings>
+            <#elseif message.type = 'warning' && showWarnings>
                 <p class="${properties.hsPClass}">${kcSanitize(message.summary)?no_esc}</p>
             <#else>
               <div class="${properties.hsAlertClass!}<#if message.type = 'success'> ${properties.hsAlertSuccessClass!}</#if><#if message.type = 'warning'> ${properties.hsAlertWarningClass!}</#if><#if message.type = 'error'> ${properties.hsAlertErrorClass!}</#if><#if message.type = 'info'> ${properties.hsAlertInfoClass!}</#if>">
