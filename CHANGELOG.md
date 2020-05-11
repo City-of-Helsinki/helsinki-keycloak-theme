@@ -16,5 +16,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Add script for packing project
 - Add scripts for managing translations
 
+### Changed
+- Hide all other links except account and password
+
 ### Fixed
 - Fix build script breaking on Windows
