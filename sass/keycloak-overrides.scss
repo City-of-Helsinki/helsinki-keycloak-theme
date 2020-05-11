@@ -1,4 +1,5 @@
 @import 'theme';
+@import 'custom';
 
 // Override the default background image with a solid color
 .login-pf {
@@ -73,4 +74,23 @@
   margin-right: $spacing-s;
 
   font-size: 24px;
+}
+
+// Use hs-p style for instructions
+.instruction {
+  @extend .hs-p;
+}
+
+// Remove bottom border that is applied by custom a rules
+#kc-current-locale-link {
+  border-bottom: none;
+}
+#kc-locale ul li a {
+  border-bottom: none;
+}
+
+// Resolve keycloak link styles that conflict with hs styles
+.login-pf a:hover {
+  color: $color-primary;
+  text-decoration: none;
 }

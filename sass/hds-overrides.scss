@@ -66,6 +66,8 @@ a.hds-button {
   font-size: $font-size-body-default;
   font-weight: 600;
   line-height: 1.625;
+  // Required for input[type="submit"] on Firefox
+  text-align: center;
 }
 
 .hds-button--primary,
