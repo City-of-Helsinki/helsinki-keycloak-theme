@@ -16,6 +16,12 @@ Helsinki theme for Keycloaks IAM
 
 To test this theme 1. Set up your local environment and then 2. build the theme.
 
+**Table of Contents**
+1. [Setting up a local environment](#setting-up-a-local-environment)
+1. [Building the theme](#building-the-theme)
+1. [Translations](#translations)
+1. [For future developers](#for-future-developers)
+
 ## Setting up a local environment
 
 **1. Clone this repository**  
@@ -107,6 +113,38 @@ Then, build the project
 ```bash
 npm run build
 ```
+
+## Translations
+
+This project uses a centralized translation management approach. Google spreadsheet is used as the tool for sharing and editing translations. All translations can be found from within a single Google spreadsheet that's accessible to developers, translators and other relevant roles. You can find this sheet's id from script configs.
+
+The spreadsheet is owned by an account that is managed by Helsinki City Executive Office's open source development group (Kanslian AOK, KAOK). If you need access to this file, please contact some of the key developer oriented people from KAOK. You will need your own Google account.
+
+**Example**  
+_Here's the recommended way for adding new translations_
+
+1. Notice a need for a new translation
+2. Open Google Spreadsheet
+3. Find the sheet for module you are editing (i.e. login, email, ...)
+4. Add a new row in a place that's logically sound (currently translations are grouped based on purpose)
+5. Initially fill the correct translations you know (leave the rest for translators)
+6. Go back to the `helsinki-keycloak-theme` project
+7. Run `npm run update-translations`
+8. The new translations should now be imported to the project!
+
+When a translator goes over the spreadsheet and adds or corrects existing translations, just run `npm run update-translations` again to pull the new changes.
+
+**More context**  
+The translations spreadsheet has two types of sheets: (1) module level sheets and (2) language level sheets.
+
+Module level sheets' names correspond to keycloak module names. In other words, the sheets "login" or "email" are module level sheets. These sheets are the actual translation sources. You should add and edit translations on these sheets.
+
+Language level sheets are named in the following fashion: `<module_name>_<language_code>`. So, the English language sheet for the login module is named like so: `login_en`. These sheets exist as an integration layer. They simply reproduce the content of the module sheet while separating each language to its own sheet. You should not edit these sheets directly.
+
+This setup conforms to a pattern that was used in for instance with [City-of-Helsinki/open-city-profile-ui](https://github.com/City-of-Helsinki/open-city-profile-ui).
+
+**Cons**  
+If you work on this theme alongside someone else, the translation spreadsheet may be edited from two different development branches at the same time. This may result in "dead" translations being pulled when making updates from the separate branches. Resolve these instances in the way you think is best.
 
 ## For future developers
 
