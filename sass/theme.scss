@@ -1,21 +1,9 @@
 @import 'node_modules/hds-design-tokens/lib/color/brand.scss';
 @import 'node_modules/hds-design-tokens/lib/color/ui.scss';
 @import 'node_modules/hds-design-tokens/lib/spacing/all.scss';
+@import 'node_modules/hds-design-tokens/lib/typography/all.scss';
 
-// Can be found from HDS at some point
-$font-size-2: 2.25rem;
-$font-size-5: 1.125rem;
-$font-size-body-small: 0.875rem;
-$font-size-body-default: 1rem;
-$spacing-2xs: $spacing-2-xs;
-// End can be found from HDS at some point
-
-// Overrides outdated HDS values
-$color-error: #b01038;
-$color-error-light: #ffe9ed;
-// End overrides outdated HDS value
-
-$hel-grotesk: 'HelsinkiGrotesk', Arial, -apple-system, BlinkMacSystemFont,
+$hel-grotesk: $font-default, Arial, -apple-system, BlinkMacSystemFont,
 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
 'Droid Sans', 'Helvetica Neue', sans-serif;
 
@@ -23,6 +11,6 @@ $hel-grotesk: 'HelsinkiGrotesk', Arial, -apple-system, BlinkMacSystemFont,
 $font-family-base: $hel-grotesk;
 
 // Colors
-$light-blue: $color-fog;
+$page-background: $color-fog;
 $color-primary: $color-bus;
 $color-primary-dark: $color-bus-dark-50;

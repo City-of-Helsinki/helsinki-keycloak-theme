@@ -15,8 +15,8 @@
     "update-translations": "node ./scripts/update-translations"
   },
   "dependencies": {
-    "hds-core": "^0.5.0",
-    "hds-design-tokens": "^0.1.0",
+    "hds-core": "^0.6.2",
+    "hds-design-tokens": "^0.2.0",
     "npm-sass": "^2.3.0"
   },
   "devDependencies": {
