@@ -13,27 +13,38 @@
 
 //-- Notification
 
-// The notification component uses the incorrect colours and font sizes
+// The design for this theme used a notification component that existed
+// on design side of HDS, but not on development side.
 .hds-notification {
   padding: $spacing-s;
 
-  border-left-width: 0.25rem;
-  
-  &--error {
-    color: $color-error;
-
-    background-color: $color-error-light;
-    border-color: $color-error;
-  }
-
-  &--success {
-    color: #007293;
-
-    background-color: $color-info-light;
-    border-color: #007293;
-  }
+  border-top-width: $spacing-2-xs;
+  border-left-width: 0;
 }
 .hds-notification__label {
   font-size: $fontsize-h-5;
   font-weight: bold;
+
+  // This hack adds extra padding to allow multi row titles to span
+  // rows more nicely.
+  //
+  // ♦ Text that
+  // spans multiple rows
+  // -->
+  // ♦ Text that
+  //   spans multiple rows
+  // start hack 1 -->
+  position: relative;
+  padding: 0 $spacing-layout-xs 0 $spacing-xl;
+  & .hds-icon {
+    position: absolute;
+    left: 0;
+  }
+  // <-- end hack 1
+}
+// The smiley icon isn't supported for use with notifications by
+// default.
+.hds-notification__label .hds-icon--smile {
+  width: 1.4375em;
+  height: 1.4375em;
 }
