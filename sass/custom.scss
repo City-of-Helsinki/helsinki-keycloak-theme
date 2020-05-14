@@ -5,9 +5,14 @@
   font-family: $font-family-base;
 }
 
-// Set root font to a value that HDS expects
-html {
+// Set root font size to a value that HDS expects. Apply to body to 
+// override a default font size patternfly applies to some elements.
+html, body {
   font-size: 16px;
+}
+
+// Set default font color
+html {
   color: $color-black-90;
 }
 
@@ -20,7 +25,7 @@ html {
   // width: 95px;
   // This margin is 8px. the design has 6px, but it no such spacing
   // exists
-  margin-bottom: $spacing-2xs;
+  margin-bottom: $spacing-2-xs;
   // Sets image within the img element to be anchored into the top left
   // corner instead of centering.
   object-fit: contain;
@@ -34,11 +39,6 @@ html {
   &:not(:last-child) {
     margin-bottom: $spacing-layout-s;
   }
-}
-
-// Apply error colours
-.hs-has-error.hs-form-group {
-  color: $color-error;
 }
 
 // Tee registration page has a longer form, which is why the designer
@@ -67,7 +67,7 @@ html {
 .hs-subtitle {
   display: inline-block;
 
-  font-size: $font-size-5;
+  font-size: $fontsize-h-5;
   color: $color-black-90;
 
   &:not(:last-child) {
@@ -97,88 +97,13 @@ html {
   }
 }
 
-// Custom checkbox component copied from open-city-profile
-.hs-checkbox {
-  margin: 10px 0;
-  width: 100%;
-  display: flex;
-  align-items: center;
-
-  &__box-wrapper {
-    position: relative;
-  }
-
-  &__box {
-    margin: 0 !important;
-    position: relative;
-    width: $spacing-layout-xs;
-    height: $spacing-layout-xs;
-    -webkit-appearance: none;
-
-    // background-color: $color-white;
-    // Custom colour that does not exist in the style system yet (?)
-    border: 2px solid #c4c4c4;
-    border-radius: 1px;
-    // mask-image: none;
-    // -webkit-mask-image: none;
-
-    // If the form group has an error, set checkbox into error state.
-    .hs-has-error & {
-      border-color: $color-error;
-    }
-
-    &:checked {
-      color: $color-white;
-
-      background-color: $color-bus-dark-50;
-      border-color: $color-bus-dark-50;
-      mask-image: initial;
-      -webkit-mask-image: initial;
-
-      &:focus {
-        outline: none;
-      }
-    }
-  }
-
-  &__tick {
-    position: absolute;
-    left: 3px;
-    top: 5px;
-    width: 18px;
-    height: 14px;
-    display: none;
-
-    color: $color-white;
-
-    pointer-events: none;
-
-    .hs-checkbox__box:checked ~ & {
-      display: inline-block;
-    }
-  }
-
-  &__label {
-    margin:  0 0 0 $spacing-xs;
-
-    font-size: $font-size-body-default;
-    font-weight: normal;
-  }
-}
-
-// Input wrapper
-// Is used for positioning error icons
-.hs-input-wrapper {
-  position: relative;
-}
-
 // Link
 .hs-link,
 a.hs-link,
 a {
   padding-bottom: 1px;
 
-  font-size: $font-size-5;
+  font-size: $fontsize-h-5;
   font-weight: normal;
   color: $color-primary;
   text-decoration: none;
@@ -199,7 +124,7 @@ a {
 .login-pf-page .card-pf .hs-p {
   margin-bottom: 0;
 
-  font-size: $font-size-5;
+  font-size: $fontsize-h-5;
   color: $color-black-90;
   line-height: 1.5;
 

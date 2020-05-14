@@ -3,7 +3,7 @@
 
 // Override the default background image with a solid color
 .login-pf {
-  background: $light-blue;
+  background: $page-background;
 }
 .login-pf body {
   background: none;
@@ -14,7 +14,7 @@
   margin-top: 0;
   margin-bottom: $spacing-layout-xs;
 
-  font-size: $font-size-2;
+  font-size: $fontsize-h-2;
   font-weight: bold;
   text-align: unset;
 }
@@ -93,4 +93,21 @@
 .login-pf a:hover {
   color: $color-primary;
   text-decoration: none;
+}
+
+// Ensure that patternfly does not set a bold font weight for checkbox
+// labels.
+label.hds-checkbox__label {
+  font-weight: normal;
+}
+
+// Make sure that button links get the correct font size.
+a.hds-button {
+  font-size: $fontsize-body-default;
+}
+
+// Make sure that patternfly doesn't add a margin to hds checkboxes
+// which break layout.
+input[type="checkbox"].hds-checkbox__input {
+  margin-top: 0;
 }

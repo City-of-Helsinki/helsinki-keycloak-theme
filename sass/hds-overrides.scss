@@ -1,102 +1,18 @@
 @import 'theme';
 
-// Input
-// NOTE: These styles will be available through HDS. Please refactor the
-// theme to use those when possible. I've used a class that should match
-// the class name in HDS, meaning that simply removing this rule should
-// be enough.
-.hds-text-input__input {
-  width: 100%;
-  padding: $spacing-xs 0.888em; // 0.888em = ~16px (not available through hds)
+//-- Form
 
-  font-size: $font-size-5;
-  line-height: 1.666; // ~30px
-
-  border-width: 2px;
-  border-style: solid;
-  border-radius: 1px;
-  border-color: $color-black-20;
-  background-color: inherit;
-
-  &:focus {
-    border-color: $color-black-90;
-  }
-
-  &::placeholder {
-    color: $color-black-30;
-  }
-
-  // Use red border when the form group is in an error state.
-  .hs-has-error & {
-    border-color: $color-error;
-  }
+// Apply error colours to checkboxes
+.hs-has-error.hs-form-group .hds-checkbox .hds-checkbox__label {
+  color: $color-error;
 }
-
-// Input label
-// HDS provides styles for the label element, but they are out of sync
-// with the definitions in the design side. These overrides fill the
-// gaps.
-.hds-text-input__label {
-  font-size: $font-size-body-small;
-}
-
-// Input helper text
-// HDS provides some styles, but they are out of date.
-.hds-text-input__helper-text {
-  font-size: $font-size-body-small;
-
-  // Use red colour when the form group is in an error state.
-  .hs-has-error & {
-    color: $color-error;
-  }
+.hs-has-error.hs-form-group .hds-checkbox .hds-checkbox__label::after {
+  border-color: $color-error;
 }
 
 
-// Button
-// The styles for HDS button seem are not precise enough to reproduce
-// the buttons authentically in this application. On top of this issue,
-// the buttons in the design files for this application use different
-// colours compared to what buttons in HDS use.
+//-- Notification
 
-// I've increased specificity for anchor elements because the base theme
-// uses naive selector that target all links within the login page that
-// break theme colours.
-.hds-button,
-a.hds-button {
-  font-size: $font-size-body-default;
-  font-weight: 600;
-  line-height: 1.625;
-  // Required for input[type="submit"] on Firefox
-  text-align: center;
-}
-
-.hds-button--primary,
-a.hds-button--primary {
-  background-color: $color-primary;
-
-  &:hover {
-    color: $color-white;
-    text-decoration: none;
-  }
-
-  &:after {
-    border-color: $color-primary;
-  }
-}
-
-.hds-button--supplementary,
-a.hds-button--supplementary {
-  color: $color-primary;
-
-  &:hover,
-  &:active,
-  &:focus {
-    color: $color-primary-dark;
-  }
-}
-
-
-// Notification
 // The notification component uses the incorrect colours and font sizes
 .hds-notification {
   padding: $spacing-s;
@@ -118,18 +34,6 @@ a.hds-button--supplementary {
   }
 }
 .hds-notification__label {
-  font-size: $font-size-5;
+  font-size: $fontsize-h-5;
   font-weight: bold;
-}
-
-// Icons
-// Extend default styles to position icons correctly in input wrapper
-.hs-input-wrapper .hds-icon {
-  position: absolute;
-  right: $spacing-xs;
-  top: 50%;
-  width: $spacing-layout-xs;
-  height: $spacing-layout-xs;
-
-  transform: translateY(-50%);
 }
