@@ -19,9 +19,20 @@
   text-align: unset;
 }
 
+// Ignore top padding on mobile views.
+.login-pf-page {
+  @media (max-width: $breakpoint-tablet) {
+    padding-top: 0;
+  }
+}
+
 // Use correct whitespace for login page
 .login-pf-page .card-pf {
-  padding: $spacing-layout-m;
+  padding: $spacing-layout-xs;
+
+  @media (min-width: $breakpoint-tablet) {
+    padding: $spacing-layout-m;
+  }
 }
 
 .login-pf-page .login-pf-header {
