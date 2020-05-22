@@ -10,6 +10,11 @@
   border-color: $color-error;
 }
 
+// Synchronize font size of anchors inside labels
+.hds-checkbox__label a {
+  font-size: $fontsize-body-default;
+}
+
 
 //-- Notification
 

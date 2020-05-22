@@ -106,7 +106,7 @@
             <div id="hs-acknowledgements-form-group" class="${properties.kcFormGroupClass!}">
                 <div class="hds-checkbox">
                     <input class="hds-checkbox__input" type="checkbox" name="acknowledgements" id="hs-acknowledgements" />
-                    <label for="hs-acknowledgements" class="hds-checkbox__label">${kcSanitize(msg("doAcknowledgeResources"))}</label>
+                    <label for="hs-acknowledgements" class="hds-checkbox__label">${msg("doAcknowledgeResources", kcSanitize(msg("doAcknowledgeResourcesPrivacyPolicyLink")), kcSanitize(msg("doAcknowledgeResourcesyDataProtectionLink")))?no_esc}</label>
                 </div>
             </div>
 
