@@ -4,6 +4,10 @@
   var KC_REGISTER_FORM_ID = "kc-register-form";
   var HS_ACKNOWLEDGEMENTS_FORM_GROUP_ID = "hs-acknowledgements-form-group";
   var HS_ACKNOWLEDGEMENTS_INPUT_ID = "hs-acknowledgements";
+  var HS_AGE_CHECK_FORM_GROUP_ID = "hs-age-check-form-group";
+  var HS_AGE_CHECK_INPUT_ID = "hs-age-check";
+  var HS_FORM_GROUP = "hs-form-group";
+  var HS_AGE_CHECK_ERROR_ID = "hs-age-check-error";
   // --> Constants
 
   // <-- Selectors
@@ -16,25 +20,47 @@
   function getHsAcknowledgementsInput() {
     return document.getElementById(HS_ACKNOWLEDGEMENTS_INPUT_ID);
   }
+  function getHsAgeCheckFormGroup() {
+    return document.getElementById(HS_AGE_CHECK_FORM_GROUP_ID);
+  }
+  function getHsAgeCheckInput() {
+    return document.getElementById(HS_AGE_CHECK_INPUT_ID);
+  }
+  function getClosesFormGroup(element) {
+    return element.closest("." + HS_FORM_GROUP);
+  }
+  function getAgeCheckError() {
+    return document.getElementById(HS_AGE_CHECK_ERROR_ID);
+  }
   // --> Selectors
 
   // <-- Utils
-  function getIsAcknowledgementsValid(acknowledgementsElement) {
-    return acknowledgementsElement.checked === true;
+  function getIsCheckboxChecked(checkboxElement) {
+    return checkboxElement.checked === true;
   }
   // --> Utils
 
   // <-- Handlers
   var handleRegistrationFormSubmit = function (event) {
-    var isAcknowledgedValid = getIsAcknowledgementsValid(
+    var isAcknowledgedValid = getIsCheckboxChecked(
       event.target.acknowledgements
     );
+    var isRequiredAge = getIsCheckboxChecked(event.target.ageCheck);
 
-    // Toggle the error class in the acknowledgement form group.
+    // Toggle the error class in the form groups.
     getHsAcknowledgementsFormGroup().classList.toggle(
       HS_HAS_ERROR_CLASS,
       !isAcknowledgedValid
     );
+    getHsAgeCheckFormGroup().classList.toggle(
+      HS_HAS_ERROR_CLASS,
+      !isRequiredAge
+    );
+
+    if (!isRequiredAge) {
+      // Toggle error messages
+      getAgeCheckError().style.display = "block";
+    }
 
     // If our custom conditions do not pass, we prevent the form from
     // submitting. Note that this behaviour will in essence create two
@@ -44,21 +70,26 @@
     //
     // This means that the user may have to fix errors twice. Not ideal
     // but this seemed like the most pragmatic approach.
-    if (!isAcknowledgedValid) {
+    if (!isAcknowledgedValid || !isRequiredAge) {
       event.preventDefault();
     }
   };
-  var handleHsAcknowledgementsChange = function (event) {
-    var hsAcknowledgementsFormGroup = getHsAcknowledgementsFormGroup();
+  var handleCheckboxChange = function (event) {
+    var hsAcknowledgementsFormGroup = getClosesFormGroup(event.target);
     var isError = hsAcknowledgementsFormGroup.classList.contains(
       HS_HAS_ERROR_CLASS
     );
-    var isNowValid = getIsAcknowledgementsValid(event.target);
+    var isNowValid = getIsCheckboxChecked(event.target);
 
     // When the form group still has an error label, but actually has a
     // valid value, remove the error value.
     if (isError && isNowValid) {
       hsAcknowledgementsFormGroup.classList.remove(HS_HAS_ERROR_CLASS);
+
+      if (event.target.id === HS_AGE_CHECK_INPUT_ID) {
+        // Toggle error messages
+        getAgeCheckError().style.display = "none";
+      }
     }
   };
   // --> Handlers
@@ -66,22 +97,25 @@
   document.addEventListener("DOMContentLoaded", function (event) {
     var registrationForm = getRegistrationForm();
     var hsAcknowledgementsInput = getHsAcknowledgementsInput();
+    var hsAgeCheckInput = getHsAgeCheckInput();
 
     if (registrationForm) {
       registrationForm.addEventListener("submit", handleRegistrationFormSubmit);
     }
 
     if (hsAcknowledgementsInput) {
-      hsAcknowledgementsInput.addEventListener(
-        "change",
-        handleHsAcknowledgementsChange
-      );
+      hsAcknowledgementsInput.addEventListener("change", handleCheckboxChange);
+    }
+
+    if (hsAgeCheckInput) {
+      hsAgeCheckInput.addEventListener("change", handleCheckboxChange);
     }
   });
 
   window.onunload = function () {
     var registrationForm = getRegistrationForm();
     var hsAcknowledgementsInput = getHsAcknowledgementsInput();
+    var hsAgeCheckInput = getHsAgeCheckInput();
 
     if (registrationForm) {
       registrationForm.removeEventListener(
@@ -93,8 +127,12 @@
     if (hsAcknowledgementsInput) {
       hsAcknowledgementsInput.removeEventListener(
         "change",
-        handleHsAcknowledgementsChange
+        handleCheckboxChange
       );
+    }
+
+    if (hsAgeCheckInput) {
+      hsAgeCheckInput.removeEventListener("change", handleCheckboxChange);
     }
   };
 })();

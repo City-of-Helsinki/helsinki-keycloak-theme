@@ -3,6 +3,13 @@
     <#if section = "header">
         ${msg("registerTitle")}
     <#elseif section = "form">
+        <div id="hs-age-check-error" class="${properties.hsAlertClass!} ${properties.hsAlertErrorClass!}" style="display: none;">
+            <div class="${properties.hsAlertLabelClass!}">
+                <span class="${properties.kcFeedbackErrorIcon!}"></span>
+                ${kcSanitize(msg("doAcknowledgeAgeError"))}
+            </div>
+        </div>
+
         <form id="kc-register-form" class="${properties.kcFormClass!}" action="${url.registrationAction}" method="post">
             <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('firstName',properties.kcFormGroupErrorClass!)}">
                 <div class="${properties.kcLabelWrapperClass!}">
@@ -100,13 +107,19 @@
             </div>
             </#if>
 
-            <!-- This element is only used with custom validation. Its value is ephemeral. -->
-            <!-- 1. It doesn't get saved into server -->
-            <!-- 2. It doesn't persist over page reloads -->
+            <!-- These elements are only used with custom validation. Their values are ephemeral. -->
+            <!-- 1. They doen't get saved into server -->
+            <!-- 2. They doen't persist over page reloads -->
             <div id="hs-acknowledgements-form-group" class="${properties.kcFormGroupClass!}">
                 <div class="hds-checkbox">
                     <input class="hds-checkbox__input" type="checkbox" name="acknowledgements" id="hs-acknowledgements" />
                     <label for="hs-acknowledgements" class="hds-checkbox__label">${msg("doAcknowledgeResources", kcSanitize(msg("doAcknowledgeResourcesPrivacyPolicyLink")), kcSanitize(msg("doAcknowledgeResourcesyDataProtectionLink")))?no_esc}</label>
+                </div>
+            </div>
+            <div id="hs-age-check-form-group" class="${properties.kcFormGroupClass!}">
+                <div class="hds-checkbox">
+                    <input class="hds-checkbox__input" type="checkbox" name="ageCheck" id="hs-age-check" />
+                    <label for="hs-acknowledgements" class="hds-checkbox__label">${kcSanitize(msg("doAcknowledgeAge"))}</label>
                 </div>
             </div>
 
