@@ -126,8 +126,8 @@
                     <#if message.type = 'error'><span class="${properties.kcFeedbackErrorIcon!}"></span></#if>
                     <#if message.type = 'info'><span class="${properties.kcFeedbackInfoIcon!}"></span></#if>
                     ${kcSanitize(message.summary)?no_esc}
-                    </div>
                 </div>
+              </div>
             </#if>
           </#if>
 
