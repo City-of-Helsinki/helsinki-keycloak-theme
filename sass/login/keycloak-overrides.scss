@@ -43,15 +43,6 @@
   max-width: 580px;
 }
 
-// Use correct whitespace for button container
-#kc-form-buttons {
-  margin-top: $spacing-layout-m;
-
-  &:not(:last-child) {
-    margin-bottom: $spacing-layout-xs;
-  }
-}
-
 // Unset text-align in order to ignore centered text
 .login-pf-page .login-pf-signup {
   text-align: unset;

@@ -1,18 +1,3 @@
-// CUSTOM STYLES
-
-// Helsinki logo
-.helsinki-logo {
-  max-height: 44px;
-  // width: 95px;
-  // This margin is 8px. the design has 6px, but it no such spacing
-  // exists
-  margin-bottom: $spacing-2-xs;
-  // Sets image within the img element to be anchored into the top left
-  // corner instead of centering.
-  object-fit: contain;
-  object-position: 0 0;
-}
-
 // Form group
 
 // Tee registration page has a longer form, which is why the designer

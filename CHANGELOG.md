@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Add script for packing project
 - Add scripts for managing translations
 - Add age check before registering
+- Add custom skin for account page
 
 ### Changed
 - Hide all other links except account and password
