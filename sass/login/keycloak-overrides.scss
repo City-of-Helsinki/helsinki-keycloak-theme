@@ -1,5 +1,5 @@
-@import 'theme';
-@import 'custom';
+@import '../theme';
+@import '../shared/custom';
 
 // Override the default background image with a solid color
 .login-pf {
@@ -41,15 +41,6 @@
 
 .card-pf {
   max-width: 580px;
-}
-
-// Use correct whitespace for button container
-#kc-form-buttons {
-  margin-top: $spacing-layout-m;
-
-  &:not(:last-child) {
-    margin-bottom: $spacing-layout-xs;
-  }
 }
 
 // Unset text-align in order to ignore centered text
@@ -104,21 +95,4 @@
 .login-pf a:hover {
   color: $color-primary;
   text-decoration: none;
-}
-
-// Ensure that patternfly does not set a bold font weight for checkbox
-// labels.
-label.hds-checkbox__label {
-  font-weight: normal;
-}
-
-// Make sure that button links get the correct font size.
-a.hds-button {
-  font-size: $fontsize-body-default;
-}
-
-// Make sure that patternfly doesn't add a margin to hds checkboxes
-// which break layout.
-input[type="checkbox"].hds-checkbox__input {
-  margin-top: 0;
 }

@@ -1,4 +1,4 @@
-@import 'theme';
+@import '../theme';
 
 // Override globally all text to use Helsinki font.
 * {
@@ -17,49 +17,12 @@ html {
 }
 
 
-// CUSTOM STYLES
-
-// Helsinki logo
-.helsinki-logo {
-  max-height: 44px;
-  // width: 95px;
-  // This margin is 8px. the design has 6px, but it no such spacing
-  // exists
-  margin-bottom: $spacing-2-xs;
-  // Sets image within the img element to be anchored into the top left
-  // corner instead of centering.
-  object-fit: contain;
-  object-position: 0 0;
-}
-
 // Form group
-
 // Sets whitespace according to HDS
 .hs-form-group {
   &:not(:last-child) {
     margin-bottom: $spacing-layout-s;
   }
-}
-
-// Tee registration page has a longer form, which is why the designer
-// has used a smaller spacing for it. Most forms in this app are short
-// so we are treating the condensed form as a special case.
-
-#kc-register-form .hs-form-group {
-  &:not(:last-child) {
-    margin-bottom: $spacing-layout-xs;
-  }
-}
-
-// Custom block 
-// On the login form that contains a password reset button.
-#hs-reset-password {
-  padding-bottom: $spacing-layout-xs;
-  // Overrides default margin for form-group. This may end up being a
-  // naive solution in the long run.
-  margin-bottom: $spacing-s;
-
-  border-bottom: 2px solid $color-black-20;
 }
 
 // Custom typography
@@ -83,11 +46,11 @@ html {
 // latter button is displayed first.
 .hs-button-row {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
 
   // Logic is reversed because the order is reversed. Normally we would
   // disabled margin for the last item.
-  & *:not(:first-child) {
+  & *:not(:last-child) {
     margin-bottom: $spacing-xs;
   }
 
@@ -95,7 +58,7 @@ html {
     flex-direction: row;
 
     // Remove bottom margin on non-mobile layout
-    & *:not(:first-child) {
+    & *:not(:last-child) {
       margin-bottom: unset;
     }
 
@@ -150,4 +113,17 @@ a {
   &:not(:last-child) {
     margin-bottom: $spacing-m;
   }
+}
+
+// Helsinki logo
+.helsinki-logo {
+  max-height: 44px;
+  // width: 95px;
+  // This margin is 8px. the design has 6px, but it no such spacing
+  // exists
+  margin-bottom: $spacing-2-xs;
+  // Sets image within the img element to be anchored into the top left
+  // corner instead of centering.
+  object-fit: contain;
+  object-position: 0 0;
 }
