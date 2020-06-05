@@ -1,6 +1,9 @@
 @import '../theme';
 @import '../shared/custom';
 
+$card-padding-mobile: $spacing-layout-xs;
+$card-padding-tablet: $spacing-layout-m;
+
 // Override the default background image with a solid color
 .login-pf {
   background: $page-background;
@@ -28,10 +31,10 @@
 
 // Use correct whitespace for login page
 .login-pf-page .card-pf {
-  padding: $spacing-layout-xs;
+  padding: $card-padding-mobile;
 
   @media (min-width: $breakpoint-tablet) {
-    padding: $spacing-layout-m;
+    padding: $card-padding-tablet;
   }
 }
 
@@ -95,4 +98,18 @@
 .login-pf a:hover {
   color: $color-primary;
   text-decoration: none;
+}
+
+// Stop language menu from creating unnecessary padding before title
+// and logo.
+// Set header as relative, so language menu can be positioned absolutely
+// in terms of it.
+.login-pf-header {
+  position: relative;
+}
+// Position language menu absolutely in the top right corner of header.
+#kc-locale {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
