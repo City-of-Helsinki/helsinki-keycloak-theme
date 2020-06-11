@@ -28,8 +28,7 @@ function exportTranslations() {
   config.MODULES.forEach((module) => {
     config.LANGUAGES.forEach((language) => {
       const name = "messages_" + language;
-      const source =
-        `./helsinki/${module}/messages/${name}.properties`;
+      const source = `./helsinki/${module}/messages/${name}.properties`;
       const output = `./${module}_${name}.csv`;
 
       exportMessages(source, output);

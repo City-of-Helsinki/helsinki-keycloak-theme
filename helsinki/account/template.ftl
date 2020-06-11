@@ -65,6 +65,7 @@
             <ul>
                 <li class="<#if active=='account'>active</#if>"><a href="${url.accountUrl}">${msg("account")}</a></li>
                 <#if features.passwordUpdateSupported><li class="<#if active=='password'>active</#if>"><a href="${url.passwordUrl}">${msg("password")}</a></li></#if>
+                <li><button type="button" id="hs-sign-out-tab-control">${msg("doSignOut")}</button></li>
                 <#-- The following menu items are all disabled for users when this theme is selected -->
                 <#--  <li class="<#if active=='totp'>active</#if>"><a href="${url.totpUrl}">${msg("authenticator")}</a></li>
                 <#if features.identityFederation><li class="<#if active=='social'>active</#if>"><a href="${url.socialUrl}">${msg("federatedIdentity")}</a></li></#if>
@@ -99,6 +100,14 @@
 
             <#nested "content">
         </div>
+    </div>
+
+    <!-- Used for fake signout page -->
+    <div style="visibility: hidden; display: none;">
+        <span id="hs-sign-out-page-description">${msg("signOutDescription")}</span>
+        <span id="hs-sign-out-href">${url.logoutUrl}</span>
+        <span id="hs-sign-out-page-sign-out-button-label">${msg("doSignOut")}</span>
+        <span id="hs-sign-out-page-sign-out-cancel-button-label">${msg("doCancel")}</span>
     </div>
 
 </body>

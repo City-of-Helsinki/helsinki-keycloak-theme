@@ -5,7 +5,7 @@ const { promisify } = require("util");
 const writeFile = promisify(fs.writeFile);
 
 function getPathToLocales(output, language) {
-  const [, lan] = language.split('_')
+  const [, lan] = language.split("_");
 
   return `${output}/messages_${lan}.properties`;
 }

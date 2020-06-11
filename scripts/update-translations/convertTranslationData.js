@@ -2,7 +2,6 @@ const csv = require("csvtojson/v2");
 const properties = require("properties");
 
 async function convertTranslationData(translationData, debug) {
-  const convertedTranslationData = {};
   const transforms = await Promise.all(
     Object.keys(translationData).map(async (key) => {
       if (debug) {
