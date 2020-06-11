@@ -30,25 +30,28 @@ h2 {
 .title,
 .tabs,
 .content {
-  padding: 0 $spacing-layout-s;
+  $mobile-padding: $spacing-layout-2-xs;
+  $tablet-padding: $spacing-layout-m;
+
+  padding: 0 $mobile-padding;
 
   &:first-child {
-    padding-top: $spacing-layout-s;
+    padding-top: $mobile-padding;
   }
 
   &:last-child {
-    padding-bottom: $spacing-layout-s;
+    padding-bottom: $mobile-padding;
   }
 
   @media (min-width: $breakpoint-tablet) {
-    padding: 0 $spacing-layout-m;
+    padding: 0 $tablet-padding;
 
     &:first-child {
-      padding-top: $spacing-layout-m;
+      padding-top: $tablet-padding;
     }
 
     &:last-child {
-      padding-bottom: $spacing-layout-m;
+      padding-bottom: $tablet-padding;
     }
   }
 }
@@ -65,19 +68,30 @@ h2 {
 
   & > ul > li {
     &:not(:first-child) {
-      margin-left: $spacing-m;
+      margin-left: $spacing-xs;
+
+      @media (min-width: $breakpoint-tablet) {
+        margin-left: $spacing-m;
+      }
     }
 
     & > a,
     & > button {
       position: relative;
       display: inline-block;
-      padding: $spacing-s $spacing-s;
+      padding: $spacing-xs;
 
+      font-size: $fontsize-body-default;
       font-weight: bold;
       color: $color-black-90;
 
       border-bottom: none !important;
+
+      @media (min-width: $breakpoint-tablet) {
+        margin-left: $spacing-s;
+
+        font-size: $fontsize-h-5;
+      }
 
       &:hover {
         text-decoration: none;
@@ -92,10 +106,6 @@ h2 {
         height: 3px;
         background-color: transparent;
       }
-    }
-
-    & > button {
-      font-size: $fontsize-h-5;
     }
 
     &.active > a::after,
