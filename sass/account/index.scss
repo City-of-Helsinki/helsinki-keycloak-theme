@@ -68,7 +68,8 @@ h2 {
       margin-left: $spacing-m;
     }
 
-    & > a {
+    & > a,
+    & > button {
       position: relative;
       display: inline-block;
       padding: $spacing-s $spacing-s;
@@ -77,23 +78,28 @@ h2 {
       color: $color-black-90;
 
       border-bottom: none !important;
+
+      &:hover {
+        text-decoration: none;
+      }
+
+      &::after {
+        content: " ";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 3px;
+        background-color: transparent;
+      }
     }
 
-    & > a:hover {
-      text-decoration: none;
+    & > button {
+      font-size: $fontsize-h-5;
     }
 
-    & > a::after {
-      content: " ";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 3px;
-      background-color: transparent;
-    }
-
-    &.active > a::after {
+    &.active > a::after,
+    &.active > button::after {
       background-color: $color-black-90;
     }
   }

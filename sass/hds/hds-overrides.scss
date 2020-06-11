@@ -53,3 +53,10 @@
   width: 1.4375em;
   height: 1.4375em;
 }
+
+//-- Button
+
+// Remove text decoration for links that are disguised as buttons.
+a.hds-button:hover {
+  text-decoration: none;
+}
