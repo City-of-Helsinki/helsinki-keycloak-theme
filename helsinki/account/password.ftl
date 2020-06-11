@@ -1,5 +1,5 @@
 <#import "template.ftl" as layout>
-<@layout.mainLayout active='password' bodyClass='password' showErrors=false; section>
+<@layout.mainLayout active='password' bodyClass='password' showErrors=true; section>
     <#if section = "header">
         ${msg("changePasswordHtmlTitle")}
     <#elseif section = "subtitle">
