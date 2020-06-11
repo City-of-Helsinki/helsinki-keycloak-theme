@@ -15,7 +15,7 @@
                   </div>
                   <div class="${properties.kcInputWrapperClass!}">
                       <div class="${properties.hsInputwrapperClass!}">
-                          <input type="text" id="password" class="${properties.kcInputClass!}" name="password" autofocus autocomplete="current-password" />
+                          <input type="password" id="password" class="${properties.kcInputClass!}" name="password" autofocus autocomplete="current-password" />
                       </div>
                       <#if messagesPerField.password != "">
                           <div class="${properties.hsInputHelperText!}">${messagesPerField.password}</div>
@@ -32,7 +32,7 @@
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
                     <div class="${properties.hsInputwrapperClass!}">
-                        <input type="text" id="password-new" class="${properties.kcInputClass!}" name="password-new" autocomplete="new-password" />
+                        <input type="password" id="password-new" class="${properties.kcInputClass!}" name="password-new" autocomplete="new-password" />
                     </div>
                     <#if messagesPerField.passwordNew != "">
                         <div class="${properties.hsInputHelperText!}">${messagesPerField.passwordNew}</div>
@@ -46,7 +46,7 @@
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
                     <div class="${properties.hsInputwrapperClass!}">
-                        <input type="text" id="password-confirm" class="${properties.kcInputClass!}" name="password-confirm" autocomplete="new-password" />
+                        <input type="password" id="password-confirm" class="${properties.kcInputClass!}" name="password-confirm" autocomplete="new-password" />
                     </div>
                     <#if messagesPerField.passwordNew != "">
                         <div class="${properties.hsInputHelperText!}">${messagesPerField.passwordNew}</div>
