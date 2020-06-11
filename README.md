@@ -13,6 +13,7 @@ Helsinki theme for Keycloaks IAM
 | `npm run make-pack` | Builds the project and packs the `/helsinki` folder into a `.tar.gz` file. The archive will be saved into project root with the name `helsinki.tag.gz`. |
 | `npm run export-translations` | Transforms message files into a csv format and saves them in project root in format `<module name>_<language>.csv`. |
 | `npm run update-translations` | Fetches current translations from a Google sheet source, parses them into `.properties` files and saves them under the correct module. |
+| `npm run lint` | Lints project with eslint. You can use `npm run lint -- --fix` to fix fixable errors. |
 
 To test this theme 1. Set up your local environment and then 2. build the theme.
 
@@ -20,7 +21,7 @@ To test this theme 1. Set up your local environment and then 2. build the theme.
 1. [Setting up a local environment](#setting-up-a-local-environment)
 1. [Building the theme](#building-the-theme)
 1. [Translations](#translations)
-1. [For future developers](#for-future-developers)
+1. [Linting](#linting)
 
 ## Setting up a local environment
 
@@ -146,6 +147,8 @@ This setup conforms to a pattern that was used in for instance with [City-of-Hel
 **Cons**  
 If you work on this theme alongside someone else, the translation spreadsheet may be edited from two different development branches at the same time. This may result in "dead" translations being pulled when making updates from the separate branches. Resolve these instances in the way you think is best.
 
-## For future developers
+## Linting
 
-The theme currently applies overrides to the HDS lib in order to reflect styles that are used in a newer iteration of the visual guidelines. These are located in the `sass/hds-overrides.scss` file and in `sass/theme.scss` files. Please do your best to remove these overrides when you are able.
+This project uses the recommended settings from `eslint` and `prettier` for linting. There are two `eslint` configs: root config and a separate config for scripts. The root `eslint` config targets the browser environment whereas the script config targets node.
+
+It's recommended to configure your development environment in a way where errors are fixed on save. This can be achieved, for instance, with the help of plugins or configurations.
