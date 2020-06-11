@@ -24,3 +24,5 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Fixed
 - Fix build script breaking on Windows
 - Fix language menu breaking page whitespace
+- Fix password fields showing typed passwords in account page
+- Fix missing errors on account password change page
