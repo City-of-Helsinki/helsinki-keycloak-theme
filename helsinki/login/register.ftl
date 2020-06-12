@@ -119,7 +119,7 @@
             <div id="hs-age-check-form-group" class="${properties.kcFormGroupClass!}">
                 <div class="hds-checkbox">
                     <input class="hds-checkbox__input" type="checkbox" name="ageCheck" id="hs-age-check" />
-                    <label for="hs-acknowledgements" class="hds-checkbox__label">${kcSanitize(msg("doAcknowledgeAge"))}</label>
+                    <label for="hs-age-check" class="hds-checkbox__label">${kcSanitize(msg("doAcknowledgeAge"))}</label>
                 </div>
             </div>
 
