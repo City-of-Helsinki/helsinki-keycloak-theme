@@ -60,3 +60,9 @@
 a.hds-button:hover {
   text-decoration: none;
 }
+
+// We are misusing the HDS button label class by directly applying it
+// to some buttons. These rules odd cases caused by this.
+.hds-button.hds-button__label:only-child {
+  margin: 0;
+}
