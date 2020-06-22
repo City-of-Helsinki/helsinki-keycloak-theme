@@ -15,7 +15,7 @@
                   </div>
                   <div class="${properties.kcInputWrapperClass!}">
                       <div class="${properties.hsInputwrapperClass!}">
-                          <input type="password" id="password" class="${properties.kcInputClass!}" name="password" autofocus autocomplete="current-password" />
+                          <input type="password" id="password" class="${properties.kcInputClass!}" name="password" autofocus autocomplete="new-password" />
                       </div>
                       <#if messagesPerField.password != "">
                           <div class="${properties.hsInputHelperText!}">${messagesPerField.password}</div>

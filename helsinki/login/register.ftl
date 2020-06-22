@@ -90,7 +90,7 @@
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
                     <div class="${properties.hsInputwrapperClass!}">
-                        <input type="password" id="password-confirm" class="${properties.kcInputClass!}" name="password-confirm" />
+                        <input type="password" id="password-confirm" class="${properties.kcInputClass!}" name="password-confirm" autocomplete="new-password" />
                     </div>
                     <#if messagesPerField["password-confirm"] != "">
                         <div class="${properties.hsInputHelperText!}">${messagesPerField["password-confirm"]}</div>
