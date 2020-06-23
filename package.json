@@ -15,8 +15,8 @@
     "lint": "./node_modules/.bin/eslint ."
   },
   "dependencies": {
-    "hds-core": "^0.6.3",
-    "hds-design-tokens": "^0.2.0",
+    "hds-core": "^0.11.3",
+    "hds-design-tokens": "^0.11.3",
     "npm-sass": "^2.3.0"
   },
   "devDependencies": {
