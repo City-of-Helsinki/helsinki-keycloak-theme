@@ -1,5 +1,5 @@
 <#import "template.ftl" as layout>
-<@layout.mainLayout active='account' bodyClass='user' showErrors=false; section>
+<@layout.mainLayout active='account' bodyClass='user' showErrors=true; section>
 
     <#if section = "header">
         ${msg("editAccountHtmlTitle")}
