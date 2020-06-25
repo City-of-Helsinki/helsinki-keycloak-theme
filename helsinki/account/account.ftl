@@ -1,5 +1,5 @@
 <#import "template.ftl" as layout>
-<@layout.mainLayout active='account' bodyClass='user' showErrors=true; section>
+<@layout.mainLayout active='account' bodyClass='user' showErrors=true showFeedbackLink=true; section>
 <!-- For some reason, in this view, the error a user receives when -->
 <!-- trying to change their email to one that's already attached to -->
 <!-- an account, is not  a field level error, but a "global error". -->

@@ -1,4 +1,4 @@
-<#macro registrationLayout bodyClass="" displayInfo=false displayMessage=true displayRequiredFields=false displayWide=false showAnotherWayIfPresent=true showAlerts=true showWarnings=true>
+<#macro registrationLayout bodyClass="" displayInfo=false displayMessage=true displayRequiredFields=false displayWide=false showAnotherWayIfPresent=true showAlerts=true showWarnings=true showFeedbackLink=false>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" class="${properties.kcHtmlClass!}">
 
@@ -154,9 +154,11 @@
         </div>
       </div>
 
-      <div class="hs-footer">
-        <a href="${msg('doGiveFeedbackLink')}" target="_blank" rel="noopener noreferrer">${msg("doGiveFeedback")}</a>
-      </div>
+      <#if showFeedbackLink>
+        <div class="hs-footer">
+            <a href="${msg('doGiveFeedbackLink')}" target="_blank" rel="noopener noreferrer">${msg("doGiveFeedback")}</a>
+        </div>
+      </#if>
     </div>
   </div>
 </body>

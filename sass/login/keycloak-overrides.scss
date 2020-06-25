@@ -44,8 +44,16 @@ $card-padding-tablet: $spacing-layout-m;
 .login-pf-page #kc-content {
   padding: 0 $card-padding-mobile;
 
+  &:last-child {
+    padding-bottom: $card-padding-mobile;
+  }
+
   @media (min-width: $breakpoint-tablet) {
     padding: 0 $card-padding-tablet;
+
+    &:last-child {
+      padding-bottom: $card-padding-tablet;
+    }
   }
 }
 
