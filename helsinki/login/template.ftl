@@ -154,6 +154,9 @@
         </div>
       </div>
 
+      <div class="hs-footer">
+        <a href="${msg('doGiveFeedbackLink')}" target="_blank" rel="noopener noreferrer">${msg("doGiveFeedback")}</a>
+      </div>
     </div>
   </div>
 </body>

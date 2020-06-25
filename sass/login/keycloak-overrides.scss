@@ -31,15 +31,22 @@ $card-padding-tablet: $spacing-layout-m;
 
 // Use correct whitespace for login page
 .login-pf-page .card-pf {
-  padding: $card-padding-mobile;
-
-  @media (min-width: $breakpoint-tablet) {
-    padding: $card-padding-tablet;
-  }
+  padding: 0;
 }
-
 .login-pf-page .login-pf-header {
   margin-bottom: 0;
+  padding: $card-padding-mobile $card-padding-mobile 0;
+
+  @media (min-width: $breakpoint-tablet) {
+    padding: $card-padding-tablet $card-padding-tablet 0;
+  }
+}
+.login-pf-page #kc-content {
+  padding: 0 $card-padding-mobile;
+
+  @media (min-width: $breakpoint-tablet) {
+    padding: 0 $card-padding-tablet;
+  }
 }
 
 .card-pf {
@@ -110,6 +117,11 @@ $card-padding-tablet: $spacing-layout-m;
 // Position language menu absolutely in the top right corner of header.
 #kc-locale {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: $card-padding-mobile;
+  right: $card-padding-mobile;
+
+  @media (min-width: $breakpoint-tablet) {
+    top: $card-padding-tablet;
+    right: $card-padding-tablet;
+  }
 }

@@ -51,7 +51,8 @@ h2 {
     }
 
     &:last-child {
-      padding-bottom: $tablet-padding;
+      // Offset with a single rem to make footer aligner better
+      padding-bottom: $tablet-padding  - 1rem;
     }
   }
 }
