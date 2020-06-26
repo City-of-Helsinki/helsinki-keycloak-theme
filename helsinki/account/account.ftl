@@ -1,5 +1,12 @@
 <#import "template.ftl" as layout>
 <@layout.mainLayout active='account' bodyClass='user' showErrors=true; section>
+<!-- For some reason, in this view, the error a user receives when -->
+<!-- trying to change their email to one that's already attached to -->
+<!-- an account, is not  a field level error, but a "global error". -->
+<!-- This behaviour is different compared to the registration form. -->
+<!-- For this reason, we can't omit the messages element from the -->
+<!-- account editing page. For now, errors are shown twice in the -->
+<!-- view. Once on top and once inline. -->
 
     <#if section = "header">
         ${msg("editAccountHtmlTitle")}
