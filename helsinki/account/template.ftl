@@ -1,4 +1,4 @@
-<#macro mainLayout active bodyClass showErrors=true showHeader=false>
+<#macro mainLayout active bodyClass showErrors=true showHeader=false showFeedbackLink=false>
 <!doctype html>
 <html>
 <head>
@@ -100,6 +100,12 @@
 
             <#nested "content">
         </div>
+
+        <#if showFeedbackLink>
+            <div class="hs-footer">
+                <a href="${msg('doGiveFeedbackLink')}" target="_blank" rel="noopener noreferrer">${msg("doGiveFeedback")}</a>
+            </div>
+        </#if>
     </div>
 
     <!-- Used for fake signout page -->

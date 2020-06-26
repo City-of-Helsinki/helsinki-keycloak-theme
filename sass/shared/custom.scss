@@ -96,6 +96,7 @@ a {
     color: $color-primary;
 
     border-bottom-color: transparent;
+    text-decoration: none;
   }
 }
 
@@ -126,4 +127,22 @@ a {
   // corner instead of centering.
   object-fit: contain;
   object-position: 0 0;
+}
+
+// A footer for the login pane that houses the feedback link
+.hs-footer {
+  $mobile-v-whitespace: $spacing-layout-2-xs;
+  $tablet-v-whitespace: $spacing-layout-m;
+
+  display: flex;
+  justify-content: flex-end;
+  margin: $spacing-layout-s $mobile-v-whitespace 0;
+  padding: $spacing-s 0 $spacing-s;
+
+  border-top: 1px solid $color-black-20;
+
+  @media (min-width: $breakpoint-tablet) {
+    margin: $spacing-layout-s $tablet-v-whitespace 0;
+    padding: $spacing-s 0 $spacing-m;
+  }
 }
