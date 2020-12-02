@@ -3,9 +3,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" class="${properties.kcHtmlClass!}">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="robots" content="noindex, nofollow">
+    <meta name="robots" content="noindex, nofollow" />
 
     <#if properties.meta?has_content>
         <#list properties.meta?split(' ') as meta>
@@ -66,8 +66,11 @@
                     </div>
                 </div>
             <#else>
-                <img class="${properties.hsLogo!}" src="${url.resourcesPath}/img/${msg("helsinkiLogo")}.svg">
+                <div class="logo-with-profile-text">
+                  <img class="${properties.hsLogo!}" src="${url.resourcesPath}/img/${msg("helsinkiLogo")}.svg" alt="Helsinki logo"/><span>${msg("profile")}</span>
+                </div>
                 <h1 id="kc-page-title"><#nested "header"></h1>
+                
             </#if>
         <#else>
             <#if displayRequiredFields>

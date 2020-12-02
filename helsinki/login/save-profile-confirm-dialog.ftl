@@ -1,16 +1,32 @@
 <#import "template.ftl" as layout>
 <@layout.registrationLayout; section>
     <#if section = "header">
-        Your data will be stored
+      ${msg("profileHeader")}
     <#elseif section = "form">
 		<div id="kc-terms-text">
-			Your personal data will be stored to Profile. 
-
+      ${msg("profileTermsText")?no_esc}
+      <#list msg("collectedUserData")?split(", ")>
+          <div class="checked-list-title">${msg("userDataListTitle")}</div>
+          <ul class="checked-list">
+          <#items as dataItem>
+            <li>${dataItem}</li>
+          </#items>
+          </ul>
+      </#list>
 		</div>
-		<form class="form-actions" action="${url.loginAction}" method="POST">
-			<input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonLargeClass!}" name="response" id="kc-accept" type="submit" value="accept"/>
-			<input class="${properties.kcButtonClass!} ${properties.kcButtonDefaultClass!} ${properties.kcButtonLargeClass!}" name="response" id="kc-decline" type="submit" value="decline"/>
-		</form>
+		<form class="form-actions" id="kc-create-profile-form" action="${url.loginAction}" method="post">
+      <div id="hs-acknowledgements-form-group" class="${properties.kcFormGroupClass!}">
+        <div class="hds-checkbox">
+            <input class="hds-checkbox__input" type="checkbox" name="acknowledgements" id="hs-acknowledgements" />
+            <label class="hds-checkbox__label" for="hs-acknowledgements">${msg("doAcknowledgeResources", kcSanitize(msg("doAcknowledgeResourcesPrivacyPolicyLink")), kcSanitize(msg("doAcknowledgeResourcesyDataProtectionLink")), 'target="_blank" rel="noopener noreferrer"')?no_esc}</label>
+        </div>
+      </div>
+      <div class="wide-buttons">
+			  <button class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonLargeClass!}" id="kc-accept" type="button" value="accept">${msg("profileAcceptButtonText")}</button>
+			  <button class="${properties.kcButtonClass!} ${properties.kcButtonDefaultClass!} ${properties.kcButtonLargeClass!}" id="kc-decline" type="button" value="decline">${msg("profileDeclineButtonText")}</button>
+        <input type="hidden" name="response" id="kc-response" value="" />
+      </div>
+    </form>
 		<div class="clearfix"></div>
     </#if>
 </@layout.registrationLayout>

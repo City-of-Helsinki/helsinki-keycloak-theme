@@ -2,7 +2,9 @@
 @import '../shared/custom';
 
 $card-padding-mobile: $spacing-layout-2-xs;
+$card-padding-mobile-vertical: $spacing-layout-l;
 $card-padding-tablet: $spacing-layout-m;
+$card-padding-tablet-vertical: $spacing-layout-xl;
 
 // Override the default background image with a solid color
 .login-pf {
@@ -35,10 +37,11 @@ $card-padding-tablet: $spacing-layout-m;
 }
 .login-pf-page .login-pf-header {
   margin-bottom: 0;
-  padding: $card-padding-mobile $card-padding-mobile 0;
-
+  padding: $card-padding-mobile-vertical $card-padding-mobile 0;
+  background-image: url('../img/koros.svg');
+  background-repeat: repeat-x;
   @media (min-width: $breakpoint-tablet) {
-    padding: $card-padding-tablet $card-padding-tablet 0;
+    padding: $card-padding-tablet-vertical $card-padding-tablet 0;
   }
 }
 .login-pf-page #kc-content {
@@ -125,11 +128,13 @@ $card-padding-tablet: $spacing-layout-m;
 // Position language menu absolutely in the top right corner of header.
 #kc-locale {
   position: absolute;
-  top: $card-padding-mobile;
+  top: $card-padding-mobile-vertical;
   right: $card-padding-mobile;
+  //align with logo and additional logo text
+  margin-top: 5px;
 
   @media (min-width: $breakpoint-tablet) {
-    top: $card-padding-tablet;
+    top: $card-padding-tablet-vertical;
     right: $card-padding-tablet;
   }
 }
