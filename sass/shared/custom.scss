@@ -146,3 +146,48 @@ a {
     padding: $spacing-s 0 $spacing-m;
   }
 }
+
+// There's new "Profiili" -text beside logo
+.logo-with-profile-text{
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  padding-bottom:$spacing-layout-s;
+  img{
+    height:44px;
+  }
+  span{
+    padding: 0 $spacing-layout-xs;
+    color: rgb(26, 26, 26);
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 42px;
+  }
+}
+
+.checked-list-title{
+  font-weight: bold;
+  padding:$spacing-layout-2-xs 0 ;
+}
+
+// list of user data with checkboxes 
+.checked-list{
+  list-style: none;
+  padding: 0 0 $spacing-layout-2-xs 0;
+  li{
+    background: url('../img/check.svg');
+    background-repeat: no-repeat;
+    background-position: -2px 50%;
+    background-size: 23px 23px;
+    // not using spacing-layout because values depend on icon size.
+    padding:4px 10px 4px 35px;
+  }
+}
+
+// buttons that are 100% wide
+.wide-buttons{
+  button{
+    width:100%;
+    margin-bottom: 10px;
+  }
+}
