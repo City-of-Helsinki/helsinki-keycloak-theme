@@ -15,6 +15,13 @@
       </#list>
 		</div>
 		<form class="form-actions" id="kc-create-profile-form" action="${url.loginAction}" method="post">
+      <div id="hs-email-form-group" class="${properties.kcFormGroupClass!}">
+        <div class="hds-text-input" id="hs-email-form-group" class="${properties.kcFormGroupClass!}">
+            <label class="hds-text-input__label" for="hs-email">${msg("emailLabel")}</label>
+            <input class="hds-text-input__input" type="text" name="email" id="hs-email" placeholder="${msg("emailPlaceholder")}"/>
+            <span class="hs-error-message" role="alert">${msg("emailError")}</span>
+        </div>
+      </div>
       <div id="hs-acknowledgements-form-group" class="${properties.kcFormGroupClass!}">
         <div class="hds-checkbox">
             <input class="hds-checkbox__input" type="checkbox" name="acknowledgements" id="hs-acknowledgements" />
