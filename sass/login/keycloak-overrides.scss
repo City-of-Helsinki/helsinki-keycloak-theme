@@ -34,6 +34,9 @@ $card-padding-tablet-vertical: $spacing-layout-xl;
 // Use correct whitespace for login page
 .login-pf-page .card-pf {
   padding: 0;
+  p{
+    color: $color-black-90;
+  }
 }
 .login-pf-page .login-pf-header {
   margin-bottom: 0;
