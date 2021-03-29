@@ -4,15 +4,20 @@
       ${msg("profileHeader")}
     <#elseif section = "form">
 		<div id="kc-terms-text">
-      ${msg("profileTermsText")?no_esc}
-      <#list msg("collectedUserData")?split(", ")>
-          <div class="checked-list-title">${msg("userDataListTitle")}</div>
-          <ul class="checked-list">
-          <#items as dataItem>
-            <li>${dataItem}</li>
-          </#items>
-          </ul>
-      </#list>
+      <p>${msg("profileTermsText")?no_esc}</p>
+      <#if msg("collectedUserData") != ''>
+        <#list msg("collectedUserData")?split(", ")>
+            <div class="checked-list-title">${msg("userDataListTitle")}</div>
+            <ul class="checked-list">
+            <#items as dataItem>
+              <li>${dataItem}</li>
+            </#items>
+            </ul>
+        </#list>
+      </#if>
+      <#if msg("securitySideNote") != ''>
+        <span class="hs-side-note">${msg("securitySideNote")}</span>
+      </#if>
 		</div>
 		<form class="form-actions" id="kc-create-profile-form" action="${url.loginAction}" method="post">
       <div id="hs-email-form-group" class="${properties.kcFormGroupClass!}">
