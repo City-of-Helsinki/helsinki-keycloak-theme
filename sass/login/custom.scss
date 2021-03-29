@@ -20,3 +20,15 @@
 
   border-bottom: 2px solid $color-black-20;
 }
+
+.hs-error-message{
+  display: none;
+  color: $color-error;
+  padding: $spacing-s 0 0;
+}
+
+.hs-has-error{
+  .hs-error-message{
+    display: inline-block;
+  }
+}
