@@ -27,6 +27,7 @@
             <input class="hds-checkbox__input" type="checkbox" name="acknowledgements" id="hs-acknowledgements" />
             <label class="hds-checkbox__label" for="hs-acknowledgements">${msg("doAcknowledgeResources", kcSanitize(msg("doAcknowledgeResourcesPrivacyPolicyLink")), kcSanitize(msg("doAcknowledgeResourcesyDataProtectionLink")), 'target="_blank" rel="noopener noreferrer"')?no_esc}</label>
         </div>
+        <span class="hs-error-message" role="alert">${msg("acknowledgementsError")}</span>
       </div>
       <div class="wide-buttons">
 			  <button class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonLargeClass!}" id="kc-accept" type="button" value="accept">${msg("profileAcceptButtonText")}</button>
