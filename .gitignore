@@ -8,7 +8,3 @@ npm-debug.log*
 
 # Dependency directories
 node_modules
-
-# Built files
-helsinki/login/resources/css/
-helsinki/account/resources/css/
