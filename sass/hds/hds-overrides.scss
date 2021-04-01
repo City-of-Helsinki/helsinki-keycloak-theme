@@ -3,10 +3,12 @@
 //-- Form
 
 // Apply error colours to checkboxes
-.hs-has-error.hs-form-group .hds-checkbox .hds-checkbox__label {
+.hs-has-error.hs-form-group .hds-checkbox .hds-checkbox__label,
+.hs-has-error.hs-form-group .hds-text-input .hds-text-input__label {
   color: $color-error;
 }
-.hs-has-error.hs-form-group .hds-checkbox .hds-checkbox__label::after {
+.hs-has-error.hs-form-group .hds-checkbox .hds-checkbox__label::after,
+.hs-has-error.hs-form-group .hds-text-input .hds-text-input__input {
   border-color: $color-error;
 }
 

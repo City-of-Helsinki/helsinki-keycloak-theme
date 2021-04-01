@@ -4,22 +4,35 @@
       ${msg("profileHeader")}
     <#elseif section = "form">
 		<div id="kc-terms-text">
-      ${msg("profileTermsText")?no_esc}
-      <#list msg("collectedUserData")?split(", ")>
-          <div class="checked-list-title">${msg("userDataListTitle")}</div>
-          <ul class="checked-list">
-          <#items as dataItem>
-            <li>${dataItem}</li>
-          </#items>
-          </ul>
-      </#list>
+      <p>${msg("profileTermsText")?no_esc}</p>
+      <#if msg("collectedUserData") != ''>
+        <#list msg("collectedUserData")?split(", ")>
+            <div class="checked-list-title">${msg("userDataListTitle")}</div>
+            <ul class="checked-list">
+            <#items as dataItem>
+              <li>${dataItem}</li>
+            </#items>
+            </ul>
+        </#list>
+      </#if>
+      <#if msg("securitySideNote") != ''>
+        <span class="hs-side-note">${msg("securitySideNote")}</span>
+      </#if>
 		</div>
 		<form class="form-actions" id="kc-create-profile-form" action="${url.loginAction}" method="post">
+      <div id="hs-email-form-group" class="${properties.kcFormGroupClass!}">
+        <div class="hds-text-input" id="hs-email-form-group" class="${properties.kcFormGroupClass!}">
+            <label class="hds-text-input__label" for="hs-email">${msg("emailLabel")}</label>
+            <input class="hds-text-input__input" type="email" name="email" id="hs-email" placeholder="${msg("emailPlaceholder")}"/>
+            <span class="hs-error-message" role="alert">${msg("emailError")}</span>
+        </div>
+      </div>
       <div id="hs-acknowledgements-form-group" class="${properties.kcFormGroupClass!}">
         <div class="hds-checkbox">
             <input class="hds-checkbox__input" type="checkbox" name="acknowledgements" id="hs-acknowledgements" />
             <label class="hds-checkbox__label" for="hs-acknowledgements">${msg("doAcknowledgeResources", kcSanitize(msg("doAcknowledgeResourcesPrivacyPolicyLink")), kcSanitize(msg("doAcknowledgeResourcesyDataProtectionLink")), 'target="_blank" rel="noopener noreferrer"')?no_esc}</label>
         </div>
+        <span class="hs-error-message" role="alert">${msg("acknowledgementsError")}</span>
       </div>
       <div class="wide-buttons">
 			  <button class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonLargeClass!}" id="kc-accept" type="button" value="accept">${msg("profileAcceptButtonText")}</button>

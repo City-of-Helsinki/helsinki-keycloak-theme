@@ -1,0 +1,115 @@
+#kc-form-buttons {
+  margin-top: 3rem; }
+  #kc-form-buttons:not(:last-child) {
+    margin-bottom: 1.5rem; }
+
+* {
+  font-family: HelsinkiGrotesk, Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; }
+
+html, body {
+  font-size: 16px; }
+
+html {
+  color: #1a1a1a; }
+
+.hs-form-group:not(:last-child) {
+  margin-bottom: 2rem; }
+
+.hs-subtitle {
+  display: inline-block;
+  font-size: 1.125rem;
+  color: #1a1a1a; }
+  .hs-subtitle:not(:last-child) {
+    margin-bottom: 1rem; }
+
+.hs-button-row {
+  display: flex;
+  flex-direction: column; }
+  .hs-button-row *:not(:last-child) {
+    margin-bottom: 0.75rem; }
+  @media (min-width: 768px) {
+    .hs-button-row {
+      flex-direction: row; }
+      .hs-button-row *:not(:last-child) {
+        margin-bottom: unset; }
+      .hs-button-row *:first-child {
+        margin-right: 0.375rem; }
+      .hs-button-row *:last-child {
+        margin-left: 0.375rem; }
+      .hs-button-row *:only-child {
+        margin: 0; } }
+
+.hs-link,
+a.hs-link,
+a {
+  padding-bottom: 1px;
+  font-size: 1.125rem;
+  font-weight: normal;
+  color: #0000bf;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor; }
+  .hs-link:hover,
+  a.hs-link:hover,
+  a:hover {
+    color: #0000bf;
+    border-bottom-color: transparent;
+    text-decoration: none; }
+
+.hs-p,
+.login-pf-page .card-pf .hs-p {
+  margin-bottom: 0;
+  font-size: 1.125rem;
+  color: #1a1a1a;
+  line-height: 1.5; }
+  .hs-p:not(:last-child),
+  .login-pf-page .card-pf .hs-p:not(:last-child) {
+    margin-bottom: 1.5rem; }
+
+.helsinki-logo {
+  max-height: 44px;
+  margin-bottom: 0.5rem;
+  object-fit: contain;
+  object-position: 0 0; }
+
+.hs-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin: 2rem 1rem 0;
+  padding: 1rem 0 1rem;
+  border-top: 1px solid #cccccc; }
+  @media (min-width: 768px) {
+    .hs-footer {
+      margin: 2rem 3rem 0;
+      padding: 1rem 0 1.5rem; } }
+
+.logo-with-profile-text {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 2rem; }
+  .logo-with-profile-text img {
+    height: 44px; }
+  .logo-with-profile-text span {
+    padding: 0 1.5rem;
+    color: #1a1a1a;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 42px; }
+
+.checked-list-title {
+  font-weight: bold;
+  padding: 1rem 0; }
+
+.checked-list {
+  list-style: none;
+  padding: 0 0 1rem 0; }
+  .checked-list li {
+    background: url("../img/check.svg");
+    background-repeat: no-repeat;
+    background-position: -2px 50%;
+    background-size: 23px 23px;
+    padding: 4px 10px 4px 35px; }
+
+.wide-buttons button {
+  width: 100%;
+  margin-bottom: 10px; }
