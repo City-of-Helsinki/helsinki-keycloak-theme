@@ -5,6 +5,9 @@
     <#elseif section = "form">
 		<div id="kc-terms-text">
       <p>${msg("profileTermsText")?no_esc}</p>
+      <#if (validationErrors.email)?? >
+        <p>--- THE EMAIL HAS ERRORS ${validationErrors.email} ---</p>
+      </#if>
       <#if msg("collectedUserData") != ''>
         <#list msg("collectedUserData")?split(", ")>
             <div class="checked-list-title">${msg("userDataListTitle")}</div>
