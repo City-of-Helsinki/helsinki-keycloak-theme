@@ -54,60 +54,10 @@
                 </div>
             </div>
         </#if>
-        <#if !(auth?has_content && auth.showUsername() && !auth.showResetCredentials())>
-            <#if displayRequiredFields>
-                <div class="${properties.kcContentWrapperClass!}">
-                    <div class="${properties.kcLabelWrapperClass!} subtitle">
-                        <span class="subtitle"><span class="required">*</span> ${msg("requiredFields")}</span>
-                    </div>
-                    <div class="col-md-10">
-                        <img class="${properties.hsLogo!}" src="${url.resourcesPath}/img/${msg("helsinkiLogo")}.svg">
-                        <h1 id="kc-page-title"><#nested "header"></h1>
-                    </div>
-                </div>
-            <#else>
-                <div class="logo-with-profile-text">
-                  <img class="${properties.hsLogo!}" src="${url.resourcesPath}/img/${msg("helsinkiLogo")}.svg" alt="Helsinki logo"/><span>${msg("profile")}</span>
-                </div>
-                <h1 id="kc-page-title"><#nested "header"></h1>
-                
-            </#if>
-        <#else>
-            <#if displayRequiredFields>
-                <div class="${properties.kcContentWrapperClass!}">
-                    <div class="${properties.kcLabelWrapperClass!} subtitle">
-                        <span class="subtitle"><span class="required">*</span> ${msg("requiredFields")}</span>
-                    </div>
-                    <div class="col-md-10">
-                        <#nested "show-username">
-                        <div class="${properties.kcFormGroupClass!}">
-                            <div id="kc-username">
-                                <label id="kc-attempted-username">${auth.attemptedUsername}</label>
-                                <a id="reset-login" href="${url.loginRestartFlowUrl}">
-                                    <div class="kc-login-tooltip">
-                                        <i class="${properties.kcResetFlowIcon!}"></i>
-                                        <span class="kc-tooltip-text">${msg("restartLoginTooltip")}</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <#else>
-                <#nested "show-username">
-                <div class="${properties.kcFormGroupClass!}">
-                    <div id="kc-username">
-                        <label id="kc-attempted-username">${auth.attemptedUsername}</label>
-                        <a id="reset-login" href="${url.loginRestartFlowUrl}">
-                            <div class="kc-login-tooltip">
-                                <i class="${properties.kcResetFlowIcon!}"></i>
-                                <span class="kc-tooltip-text">${msg("restartLoginTooltip")}</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </#if>
-        </#if>
+        <div class="logo-with-profile-text">
+          <img class="${properties.hsLogo!}" src="${url.resourcesPath}/img/${msg("helsinkiLogo")}.svg" alt="Helsinki logo"/><span>${msg("profile")}</span>
+        </div>
+        <h1 id="kc-page-title"><#nested "header"></h1>
       </header>
       <div id="kc-content">
         <div id="kc-content-wrapper">
