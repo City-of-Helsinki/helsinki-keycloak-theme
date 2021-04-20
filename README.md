@@ -22,6 +22,7 @@ To test this theme 1. Set up your local environment and then 2. build the theme.
 1. [Building the theme](#building-the-theme)
 1. [Translations](#translations)
 1. [Linting](#linting)
+1. [Developing for helsinki-tunnistus keycloak](#developing-for-helsinki-tunnistus-keycloak)
 
 ## Setting up a local environment
 
@@ -152,3 +153,43 @@ If you work on this theme alongside someone else, the translation spreadsheet ma
 This project uses the recommended settings from `eslint` and `prettier` for linting. There are two `eslint` configs: root config and a separate config for scripts. The root `eslint` config targets the browser environment whereas the script config targets node.
 
 It's recommended to configure your development environment in a way where errors are fixed on save. This can be achieved, for instance, with the help of plugins or configurations.
+
+## Developing for helsinki-tunnistus keycloak
+
+Developing theme while running local instance of helsinki-tunnistus docker image is not very convenient.
+
+First, run the image with instructions in helsinki-tunnistus repo. Get the container id with 
+```bash
+docker ps
+```
+This example uses `abcdef123`
+
+Second, bypass the cache. Keycloak caches js and HTML. Settings are in keycloak server's folder. Copy it to your local machine:
+```bash
+docker cp abcdef123:/opt/jboss/keycloak/standalone/configuration/standalone-ha.xml /tmp
+```
+
+Change following nodes:
+```xml
+<staticMaxAge>-1</staticMaxAge>
+<cacheThemes>false</cacheThemes>
+<cacheTemplates>false</cacheTemplates>
+```
+
+Copy file back to docker container:
+```bash
+docker cp /tmp/standalone-ha.xml abcdef123:/opt/jboss/keycloak/standalone/configuration/standalone-ha.xml
+```
+
+Copy your theme to docker container
+```bash
+docker cp /local-path-to-theme/helsinki-keycloak-theme/helsinki/. abcdef123:/opt/jboss/keycloak/themes/helsinki
+```
+
+Restart the container. It takes about a 30-60 seconds to get the server back online.
+```bash
+docker restart abcdef123
+```
+
+Theme must be copied and docker restarted after every change. 
+

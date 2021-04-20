@@ -1,5 +1,6 @@
 (function () {
   // <-- Constants
+  // match following class with kcFormGroupHasErrorClass in login/theme.properties
   var HS_HAS_ERROR_CLASS = "hs-has-error";
   var KC_CREATE_PROFILE_FORM_ID = "kc-create-profile-form";
   var KC_UPDATE_PROFILE_FORM_ID = "kc-update-profile-form";
