@@ -158,15 +158,11 @@ It's recommended to configure your development environment in a way where errors
 
 Developing theme while running local instance of helsinki-tunnistus docker image is not very convenient.
 
-First, run the image with instructions in helsinki-tunnistus repo. Get the container id with 
-```bash
-docker ps
-```
-This example uses `abcdef123`
+First, run the image with instructions in helsinki-tunnistus repo.
 
 Second, bypass the cache. Keycloak caches js and HTML. Settings are in keycloak server's folder. Copy it to your local machine:
 ```bash
-docker cp abcdef123:/opt/jboss/keycloak/standalone/configuration/standalone-ha.xml /tmp
+docker cp keycloak_test:/opt/jboss/keycloak/standalone/configuration/standalone-ha.xml /tmp
 ```
 
 Change following nodes:
@@ -178,17 +174,24 @@ Change following nodes:
 
 Copy file back to docker container:
 ```bash
-docker cp /tmp/standalone-ha.xml abcdef123:/opt/jboss/keycloak/standalone/configuration/standalone-ha.xml
+docker cp /tmp/standalone-ha.xml keycloak_test:/opt/jboss/keycloak/standalone/configuration/standalone-ha.xml
 ```
 
 Copy your theme to docker container
 ```bash
-docker cp /local-path-to-theme/helsinki-keycloak-theme/helsinki/. abcdef123:/opt/jboss/keycloak/themes/helsinki
+docker cp /local-path-to-theme/helsinki-keycloak-theme/helsinki/. keycloak_test:/opt/jboss/keycloak/themes/helsinki
 ```
 
 Restart the container. It takes about a 30-60 seconds to get the server back online.
 ```bash
-docker restart abcdef123
+docker restart keycloak_test
+```
+
+Or restart the server inside the container.
+
+```bash
+docker exec -it keycloak_test /bin/bash
+/opt/jboss/keycloak/bin/./jboss-cli.sh --connect command=:reload
 ```
 
 Theme must be copied and docker restarted after every change. 
