@@ -45,7 +45,7 @@
         <span class="hs-side-note">${msg("securitySideNote")}</span>
       </#if>
 		</div>
-		<form class="form-actions" id="kc-create-profile-form" action="${url.loginAction}" method="post">
+		<form class="form-actions" id="kc-save-profile-confirm-form" action="${url.loginAction}" method="post">
       <div id="hs-email-form-group" class="${properties.kcFormGroupClass!} ${emailErrorClassname}">
         <div class="hds-text-input" id="hs-email-form-group" class="${properties.kcFormGroupClass!}">
             <label class="hds-text-input__label" for="hs-email">${msg("emailLabel")}</label>
