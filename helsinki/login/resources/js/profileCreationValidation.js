@@ -2,15 +2,15 @@
   // <-- Constants
   // match following class with kcFormGroupHasErrorClass in login/theme.properties
   var HS_HAS_ERROR_CLASS = "hs-has-error";
-  var KC_CREATE_PROFILE_FORM_ID = "kc-create-profile-form";
-  var KC_UPDATE_PROFILE_FORM_ID = "kc-update-profile-form";
+  var KC_SAVE_PROFILE_CONFIRM_FORM_ID = "kc-save-profile-confirm-form";
+  var KC_UPDATE_PROFILE_CONFIRM_FORM_ID = "kc-update-profile-confirm-form";
   var HS_ACKNOWLEDGEMENTS_INPUT_ID = "hs-acknowledgements";
   var HS_ACKNOWLEDGEMENTS_FORM_GROUP_ID = "hs-acknowledgements-form-group";
   var SUBMIT_BUTTONS_SELECTOR =
     "#" +
-    KC_CREATE_PROFILE_FORM_ID +
+    KC_SAVE_PROFILE_CONFIRM_FORM_ID +
     " button, #" +
-    KC_UPDATE_PROFILE_FORM_ID +
+    KC_UPDATE_PROFILE_CONFIRM_FORM_ID +
     " button";
   var RESPONSE_INPUT_ID = "kc-response";
   var HS_EMAIL_INPUT_ID = "hs-email";
@@ -45,7 +45,7 @@
   // <-- Selectors
 
   function getCreateProfileForm() {
-    return document.getElementById(KC_CREATE_PROFILE_FORM_ID);
+    return document.getElementById(KC_SAVE_PROFILE_CONFIRM_FORM_ID);
   }
 
   function getHsAcknowledgementsFormGroup() {
@@ -73,7 +73,7 @@
   }
 
   function getUpdateProfileForm() {
-    return document.getElementById(KC_UPDATE_PROFILE_FORM_ID);
+    return document.getElementById(KC_UPDATE_PROFILE_CONFIRM_FORM_ID);
   }
 
   // --> Selectors

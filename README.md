@@ -1,7 +1,9 @@
 # helsinki-keycloak-theme
+
 Helsinki theme for Keycloaks IAM
 
-**Requirements**  
+**Requirements**
+
 - npm
 - node
 
@@ -18,6 +20,7 @@ Helsinki theme for Keycloaks IAM
 To test this theme 1. Set up your local environment and then 2. build the theme.
 
 **Table of Contents**
+
 1. [Setting up a local environment](#setting-up-a-local-environment)
 1. [Building the theme](#building-the-theme)
 1. [Translations](#translations)
@@ -26,36 +29,37 @@ To test this theme 1. Set up your local environment and then 2. build the theme.
 
 ## Setting up a local environment
 
-**1. Clone this repository**  
+**1. Clone this repository**
+
 ```
 git clone https://github.com/City-of-Helsinki/helsinki-keycloak-theme.git
 ```
 
-**2. Obtain a local keycloak instance**  
+**2. Obtain a local keycloak instance**
 
 Find instructions here:
 https://www.keycloak.org/docs/latest/getting_started/
 
 Please also create an account for yourself.
 
-**3. Create a new realm**  
+**3. Create a new realm**
 
 For instance with the name of `locale-dev`
 
-**4. Change login settings for your new realm**  
+**4. Change login settings for your new realm**
 
 New Realm > Realm Settings > Login
 
-| Setting | Value |
-|:-|:-|
-| User registration | true |
-| Email as username  | true |
-| Edit username | false |
-| Forgot password | true |
-| Remember me | false |
-| Verify email | false |
-| Login with email | true |
-| Require SSL | external request |
+| Setting           | Value            |
+| :---------------- | :--------------- |
+| User registration | true             |
+| Email as username | true             |
+| Edit username     | false            |
+| Forgot password   | true             |
+| Remember me       | false            |
+| Verify email      | false            |
+| Login with email  | true             |
+| Require SSL       | external request |
 
 New Realm > Realm Settings > Email
 
@@ -63,7 +67,7 @@ _Example settings for gmail with only the set settings as listed_
 | Setting | Value |
 |:-|:-|
 | Host | smtp.gmail.com |
-| Port  | 465 |
+| Port | 465 |
 | From Display Name | local-dev-keycloak |
 | From | local-dev-keycloak@somemail.com |
 | Enable SSL | true |
@@ -71,8 +75,7 @@ _Example settings for gmail with only the set settings as listed_
 | Username | your-gmail-username |
 | Password | your-gmail-password |
 
-
-**5. Disable caching for themes**  
+**5. Disable caching for themes**
 
 `<Keycloak folder>/standalone/configuration/standalone.xml`
 
@@ -86,7 +89,7 @@ _Example settings for gmail with only the set settings as listed_
 +    <cacheTemplates>false</cacheTemplates>
 ```
 
-**6. Symlink helsinki theme into theme folder**  
+**6. Symlink helsinki theme into theme folder**
 
 When you are in `<Keycloak folder>/themes`
 
@@ -94,12 +97,12 @@ When you are in `<Keycloak folder>/themes`
 ln -s ~/path/to/helsinki-keycloak-theme/helsinki
 ```
 
-**7. Use helsinki theme**  
+**7. Use helsinki theme**
 
 New Realm > Realm Settings > Theme
 
-| Setting | Value |
-|:-|:-|
+| Setting     | Value    |
+| :---------- | :------- |
 | Login Theme | helsinki |
 
 ## Building the theme
@@ -110,7 +113,7 @@ First, install `npm` dependencies
 npm install
 ```
 
-Then, build the project 
+Then, build the project
 
 ```bash
 npm run build
@@ -158,18 +161,16 @@ It's recommended to configure your development environment in a way where errors
 
 Developing theme while running local instance of helsinki-tunnistus docker image is not very convenient.
 
-First, run the image with instructions in helsinki-tunnistus repo. Get the container id with 
-```bash
-docker ps
-```
-This example uses `abcdef123`
+First, run the image with instructions in helsinki-tunnistus repo.
 
 Second, bypass the cache. Keycloak caches js and HTML. Settings are in keycloak server's folder. Copy it to your local machine:
+
 ```bash
-docker cp abcdef123:/opt/jboss/keycloak/standalone/configuration/standalone-ha.xml /tmp
+docker cp keycloak_test:/opt/jboss/keycloak/standalone/configuration/standalone-ha.xml /tmp
 ```
 
 Change following nodes:
+
 ```xml
 <staticMaxAge>-1</staticMaxAge>
 <cacheThemes>false</cacheThemes>
@@ -177,19 +178,28 @@ Change following nodes:
 ```
 
 Copy file back to docker container:
+
 ```bash
-docker cp /tmp/standalone-ha.xml abcdef123:/opt/jboss/keycloak/standalone/configuration/standalone-ha.xml
+docker cp /tmp/standalone-ha.xml keycloak_test:/opt/jboss/keycloak/standalone/configuration/standalone-ha.xml
 ```
 
 Copy your theme to docker container
+
 ```bash
-docker cp /local-path-to-theme/helsinki-keycloak-theme/helsinki/. abcdef123:/opt/jboss/keycloak/themes/helsinki
+docker cp /local-path-to-theme/helsinki-keycloak-theme/helsinki/. keycloak_test:/opt/jboss/keycloak/themes/helsinki
 ```
 
 Restart the container. It takes about a 30-60 seconds to get the server back online.
+
 ```bash
-docker restart abcdef123
+docker restart keycloak_test
 ```
 
-Theme must be copied and docker restarted after every change. 
+Or restart the server inside the container.
 
+```bash
+docker exec -it keycloak_test /bin/bash
+/opt/jboss/keycloak/bin/./jboss-cli.sh --connect command=:reload
+```
+
+Theme must be copied and docker restarted after every change.

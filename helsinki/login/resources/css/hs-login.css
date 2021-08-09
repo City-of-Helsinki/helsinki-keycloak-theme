@@ -198,7 +198,7 @@ a {
       top: 6rem;
       right: 3rem; } }
 
-#kc-register-form .hs-form-group:not(:last-child) {
+#kc-custom-register-form .hs-form-group:not(:last-child) {
   margin-bottom: 1.5rem; }
 
 #hs-reset-password {
