@@ -1,7 +1,7 @@
 (function () {
   // <-- Constants
   var HS_HAS_ERROR_CLASS = "hs-has-error";
-  var KC_REGISTER_FORM_ID = "kc-register-form";
+  var KC_REGISTER_FORM_ID = "kc-custom-register-form";
   var HS_ACKNOWLEDGEMENTS_FORM_GROUP_ID = "hs-acknowledgements-form-group";
   var HS_ACKNOWLEDGEMENTS_INPUT_ID = "hs-acknowledgements";
   var HS_AGE_CHECK_FORM_GROUP_ID = "hs-age-check-form-group";
