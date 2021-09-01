@@ -8,7 +8,7 @@
       <div id="hs-verification-code-form-group">
         <div class="hds-text-input" id="hs-verification-code-form-group" class="${properties.kcFormGroupClass!}">
             <label class="hds-text-input__label" for="hs-verification-code">Verification Code</label>
-            <input class="hds-text-input__input" type="text" name="verification-code" id="hs-verification-code" placeholder="1234" value=""/>
+            <input class="hds-text-input__input" type="text" name="code" id="hs-verification-code" placeholder="1234" value=""/>
         </div>
       </div>
       <div class="wide-buttons">
