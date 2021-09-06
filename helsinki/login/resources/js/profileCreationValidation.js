@@ -4,6 +4,7 @@
   var HS_HAS_ERROR_CLASS = "hs-has-error";
   var KC_SAVE_PROFILE_CONFIRM_FORM_ID = "kc-save-profile-confirm-form";
   var KC_UPDATE_PROFILE_CONFIRM_FORM_ID = "kc-update-profile-confirm-form";
+  var KC_PROVIDE_PLAIN_EMAIL_FORM_ID = "kc-provide-plain-email-form";
   var HS_ACKNOWLEDGEMENTS_INPUT_ID = "hs-acknowledgements";
   var HS_ACKNOWLEDGEMENTS_FORM_GROUP_ID = "hs-acknowledgements-form-group";
   var SUBMIT_BUTTONS_SELECTOR =
@@ -11,6 +12,8 @@
     KC_SAVE_PROFILE_CONFIRM_FORM_ID +
     " button, #" +
     KC_UPDATE_PROFILE_CONFIRM_FORM_ID +
+    " button, #" +
+    KC_PROVIDE_PLAIN_EMAIL_FORM_ID +
     " button";
   var RESPONSE_INPUT_ID = "kc-response";
   var HS_EMAIL_INPUT_ID = "hs-email";
@@ -76,6 +79,10 @@
     return document.getElementById(KC_UPDATE_PROFILE_CONFIRM_FORM_ID);
   }
 
+  function getProvidePlainEmailForm() {
+    return document.getElementById(KC_PROVIDE_PLAIN_EMAIL_FORM_ID);
+  }
+
   // --> Selectors
 
   // <-- Utils
@@ -106,6 +113,10 @@
 
   function isUpdateTemplate() {
     return !!getUpdateProfileForm();
+  }
+
+  function isPlainEmailProviderTemplate() {
+    return !!getProvidePlainEmailForm();
   }
 
   function getAndShowErrors() {
@@ -142,6 +153,14 @@
     event.preventDefault();
     var responseInput = getResponseInput();
     responseInput.setAttribute("value", event.target.getAttribute("value"));
+    if (isPlainEmailProviderTemplate()) {
+      const emailIsValid = isEmailValid();
+      toggleEmailError(emailIsValid);
+      if (emailIsValid) {
+        getProvidePlainEmailForm().submit();
+      }
+      return;
+    }
     if (isUpdateTemplate()) {
       getUpdateProfileForm().submit();
       return;
