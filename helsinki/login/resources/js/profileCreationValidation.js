@@ -5,6 +5,7 @@
   var KC_SAVE_PROFILE_CONFIRM_FORM_ID = "kc-save-profile-confirm-form";
   var KC_UPDATE_PROFILE_CONFIRM_FORM_ID = "kc-update-profile-confirm-form";
   var KC_PROVIDE_PLAIN_EMAIL_FORM_ID = "kc-provide-plain-email-form";
+  var KC_EMAIL_VERIFICATION_CODE_FORM_ID = "kc-email-verification-code-form";
   var HS_ACKNOWLEDGEMENTS_INPUT_ID = "hs-acknowledgements";
   var HS_ACKNOWLEDGEMENTS_FORM_GROUP_ID = "hs-acknowledgements-form-group";
   var SUBMIT_BUTTONS_SELECTOR =
@@ -14,9 +15,12 @@
     KC_UPDATE_PROFILE_CONFIRM_FORM_ID +
     " button, #" +
     KC_PROVIDE_PLAIN_EMAIL_FORM_ID +
+    " button, #" +
+    KC_EMAIL_VERIFICATION_CODE_FORM_ID +
     " button";
   var RESPONSE_INPUT_ID = "kc-response";
   var HS_EMAIL_INPUT_ID = "hs-email";
+  var HS_VERIFICATION_CODE_INPUT_ID = "hs-verification-code";
   var HS_EMAIL_FORM_GROUP_ID = "hs-email-form-group";
   // --> Constants
 
@@ -71,6 +75,10 @@
     return document.getElementById(HS_EMAIL_INPUT_ID);
   }
 
+  function getHsVerificationFormInput() {
+    return document.getElementById(HS_VERIFICATION_CODE_INPUT_ID);
+  }
+
   function getEmailFormGroup() {
     return document.getElementById(HS_EMAIL_FORM_GROUP_ID);
   }
@@ -81,6 +89,10 @@
 
   function getProvidePlainEmailForm() {
     return document.getElementById(KC_PROVIDE_PLAIN_EMAIL_FORM_ID);
+  }
+
+  function getEmailVerificationForm() {
+    return document.getElementById(KC_EMAIL_VERIFICATION_CODE_FORM_ID);
   }
 
   // --> Selectors
@@ -94,6 +106,11 @@
   function isEmailValid() {
     const inputElement = getHsEmailInput();
     return isTextValidEmail(inputElement.value);
+  }
+
+  function cleanVerificationCode() {
+    const inputElement = getHsVerificationFormInput();
+    inputElement.value = String(inputElement.value).replace(/\D/g, "");
   }
 
   function isDeclined() {
@@ -117,6 +134,10 @@
 
   function isPlainEmailProviderTemplate() {
     return !!getProvidePlainEmailForm();
+  }
+
+  function isEmailVerificationForm() {
+    return !!getEmailVerificationForm();
   }
 
   function getAndShowErrors() {
@@ -153,6 +174,11 @@
     event.preventDefault();
     var responseInput = getResponseInput();
     responseInput.setAttribute("value", event.target.getAttribute("value"));
+    if (isEmailVerificationForm()) {
+      cleanVerificationCode();
+      getEmailVerificationForm().submit();
+      return;
+    }
     if (isPlainEmailProviderTemplate()) {
       const emailIsValid = isEmailValid();
       toggleEmailError(emailIsValid);
