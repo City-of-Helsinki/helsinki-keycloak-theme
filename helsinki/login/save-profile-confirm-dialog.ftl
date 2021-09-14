@@ -53,6 +53,43 @@
             <span class="hs-error-message" role="alert">${msg("emailError")}</span>
         </div>
       </div>
+
+            <div class="${properties.kcFormGroupClass!}">
+                <div class="${properties.kcLabelWrapperClass!}">
+                    <label for="firstName" class="${properties.kcLabelClass!}">${msg("firstName")}</label>
+                </div>
+                <div class="${properties.kcInputWrapperClass!}">
+                    <input type="text" id="firstName" name="firstName" value="${(user.attributes.firstName!'')}"
+                           class="${properties.kcInputClass!}"
+                           aria-invalid="<#if messagesPerField.existsError('firstName')>true</#if>"
+                    />
+
+                    <#if messagesPerField.existsError('firstName')>
+                        <span id="input-error-firstname" class="${properties.kcInputErrorMessageClass!}" aria-live="polite">
+                            ${kcSanitize(messagesPerField.get('firstName'))?no_esc}
+                        </span>
+                    </#if>
+                </div>
+            </div>
+
+            <div class="${properties.kcFormGroupClass!}">
+                <div class="${properties.kcLabelWrapperClass!}">
+                    <label for="lastName" class="${properties.kcLabelClass!}">${msg("lastName")}</label>
+                </div>
+                <div class="${properties.kcInputWrapperClass!}">
+                    <input type="text" id="lastName" name="lastName" value="${(user.attributes.lastName!'')}"
+                           class="${properties.kcInputClass!}"
+                           aria-invalid="<#if messagesPerField.existsError('lastName')>true</#if>"
+                    />
+
+                    <#if messagesPerField.existsError('lastName')>
+                        <span id="input-error-lastname" class="${properties.kcInputErrorMessageClass!}" aria-live="polite">
+                            ${kcSanitize(messagesPerField.get('lastName'))?no_esc}
+                        </span>
+                    </#if>
+                </div>
+            </div>
+
       <div id="hs-acknowledgements-form-group" class="${properties.kcFormGroupClass!} ${acknowledgementsErrorClassname}">
         <div class="hds-checkbox">
             <input class="hds-checkbox__input" type="checkbox" name="acknowledgements" id="hs-acknowledgements" ${acknowledgementsCheckedAttribute}/>
