@@ -5,10 +5,10 @@
   <#elseif section = "form">
 
     <#assign verificationCodeErrorClassname=((validationErrors.code)??)?then(properties.kcFormGroupHasErrorClass,'') />
-    
+    <p>Verification code sent to <b>${(email!'')}</b></p>
     <div>
       <p>${msg("verificationCodeFormText")}</p>
-		</div>
+    </div>
     <form class="form-actions" id="kc-email-verification-code-form" action="${url.loginAction}" method="post">
       <div class="${properties.kcFormGroupClass!} ${verificationCodeErrorClassname}">
         <div class="hds-text-input">
@@ -19,6 +19,7 @@
       </div>
       <div class="wide-buttons">
         <button class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonLargeClass!}" id="kc-accept" type="submit" value="accept">${msg("continue")}</button>
+        <button class="${properties.kcButtonClass!} ${properties.kcButtonDefaultClass!} ${properties.kcButtonLargeClass!}" id="kc-decline" type="button" value="decline">${msg("profileDeclineButtonText")}</button>
         <input type="hidden" name="response" id="kc-response" value="" />
       </div>
     </form>
