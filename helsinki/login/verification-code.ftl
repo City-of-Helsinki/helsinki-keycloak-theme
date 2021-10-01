@@ -5,7 +5,7 @@
   <#elseif section = "form">
 
     <#assign verificationCodeErrorClassname=((validationErrors.code)??)?then(properties.kcFormGroupHasErrorClass,'') />
-    <p>Verification code sent to <b>${(email!'')}</b></p>
+    <p>${msg("verificationCodeWasSentTo")} <b>${(email!'')}</b></p>
     <div>
       <p>${msg("verificationCodeFormText")}</p>
     </div>
