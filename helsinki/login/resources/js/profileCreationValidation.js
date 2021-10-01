@@ -5,6 +5,8 @@
   var KC_SAVE_PROFILE_CONFIRM_FORM_ID = "kc-save-profile-confirm-form";
   var KC_UPDATE_PROFILE_CONFIRM_FORM_ID = "kc-update-profile-confirm-form";
   var KC_PROVIDE_PLAIN_EMAIL_FORM_ID = "kc-provide-plain-email-form";
+  var KC_PROVIDE_PLAIN_EMAIL_AGAIN_FORM_ID =
+    "kc-provide-plain-email-again-form";
   var KC_EMAIL_VERIFICATION_CODE_FORM_ID = "kc-email-verification-code-form";
   var HS_ACKNOWLEDGEMENTS_INPUT_ID = "hs-acknowledgements";
   var HS_ACKNOWLEDGEMENTS_FORM_GROUP_ID = "hs-acknowledgements-form-group";
@@ -17,7 +19,10 @@
     KC_PROVIDE_PLAIN_EMAIL_FORM_ID +
     " button, #" +
     KC_EMAIL_VERIFICATION_CODE_FORM_ID +
+    " button, #" +
+    KC_PROVIDE_PLAIN_EMAIL_AGAIN_FORM_ID +
     " button";
+
   var RESPONSE_INPUT_ID = "kc-response";
   var HS_EMAIL_INPUT_ID = "hs-email";
   var HS_VERIFICATION_CODE_INPUT_ID = "hs-verification-code";
@@ -88,7 +93,10 @@
   }
 
   function getProvidePlainEmailForm() {
-    return document.getElementById(KC_PROVIDE_PLAIN_EMAIL_FORM_ID);
+    return (
+      document.getElementById(KC_PROVIDE_PLAIN_EMAIL_FORM_ID) ||
+      document.getElementById(KC_PROVIDE_PLAIN_EMAIL_AGAIN_FORM_ID)
+    );
   }
 
   function getEmailVerificationForm() {
