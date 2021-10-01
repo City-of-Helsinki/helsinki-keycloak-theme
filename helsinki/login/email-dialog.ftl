@@ -19,7 +19,7 @@
 		<div id="kc-email-text">
       <p>${msg("plainEmailFormText")}</p>
 		</div>
-		<form class="form-actions" id="kc-provide-plain-email-form"" action="${url.loginAction}" method="post">
+		<form class="form-actions" id="kc-provide-plain-email-form" action="${url.loginAction}" method="post">
       <div id="hs-email-form-group" class="${properties.kcFormGroupClass!} ${emailErrorClassname}">
         <div class="hds-text-input">
             <label class="hds-text-input__label" for="hs-email">${msg("email")}</label>
