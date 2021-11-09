@@ -1,5 +1,5 @@
-@import '../theme';
-@import '../shared/custom';
+@import "../theme";
+@import "../shared/custom";
 
 $card-padding-mobile: $spacing-layout-2-xs;
 $card-padding-mobile-vertical: $spacing-layout-l;
@@ -34,14 +34,14 @@ $card-padding-tablet-vertical: $spacing-layout-xl;
 // Use correct whitespace for login page
 .login-pf-page .card-pf {
   padding: 0;
-  p{
+  p {
     color: $color-black-90;
   }
 }
 .login-pf-page .login-pf-header {
   margin-bottom: 0;
   padding: $card-padding-mobile-vertical $card-padding-mobile 0;
-  background-image: url('../img/koros.svg');
+  background-image: url("../img/koros.svg");
   background-repeat: repeat-x;
   @media (min-width: $breakpoint-tablet) {
     padding: $card-padding-tablet-vertical $card-padding-tablet 0;
@@ -84,7 +84,7 @@ $card-padding-tablet-vertical: $spacing-layout-xl;
   margin: unset;
 }
 
-// Ignore margin that breaks padding. It's on an element that should be 
+// Ignore margin that breaks padding. It's on an element that should be
 // the last element on pages. If it ends up not being that, set a margin
 // with &:not(:last-child).
 #kc-registration {
@@ -119,6 +119,11 @@ $card-padding-tablet-vertical: $spacing-layout-xl;
 .login-pf a:hover {
   color: $color-primary;
   text-decoration: none;
+}
+
+// Override button-like link hover color
+.login-pf a.hds-button:hover {
+  color: $color-white;
 }
 
 // Stop language menu from creating unnecessary padding before title

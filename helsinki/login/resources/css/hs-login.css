@@ -185,6 +185,9 @@ a {
   color: #0000bf;
   text-decoration: none; }
 
+.login-pf a.hds-button:hover {
+  color: #ffffff; }
+
 .login-pf-header {
   position: relative; }
 
