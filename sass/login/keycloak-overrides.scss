@@ -65,6 +65,7 @@ $card-padding-tablet-vertical: $spacing-layout-xl;
 
 .card-pf {
   max-width: 580px;
+  border: 0;
 }
 
 // Unset text-align in order to ignore centered text
@@ -144,5 +145,27 @@ $card-padding-tablet-vertical: $spacing-layout-xl;
   @media (min-width: $breakpoint-tablet) {
     top: $card-padding-tablet-vertical;
     right: $card-padding-tablet;
+  }
+}
+
+#kc-locale-links {
+  position: absolute;
+  top: $card-padding-mobile-vertical;
+  right: calc(#{$card-padding-mobile} - var(--spacing-2-xs));
+  margin-top: 8px;
+  a {
+    padding: var(--spacing-2-xs);
+    margin-left: var(--spacing-2-xs);
+    text-decoration: none;
+    font-size: $fontsize-body-small;
+    border: 0;
+    &:hover {
+      background-color: $color-primary;
+      color: $color-white;
+    }
+  }
+  @media (min-width: $breakpoint-tablet) {
+    top: $card-padding-tablet-vertical;
+    right: calc(#{$card-padding-tablet} - var(--spacing-2-xs));
   }
 }

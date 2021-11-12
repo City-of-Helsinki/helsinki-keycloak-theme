@@ -40,17 +40,14 @@
     </#if>
     <div class="${properties.kcFormCardClass!} <#if displayWide>${properties.kcFormCardAccountClass!}</#if>">
       <header class="${properties.kcFormHeaderClass!}">
-        <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
-            <div id="kc-locale">
-                <div id="kc-locale-wrapper" class="${properties.kcLocaleWrapperClass!}">
-                    <div class="kc-dropdown" id="kc-locale-dropdown">
-                        <a href="#" id="kc-current-locale-link">${locale.current}</a>
-                        <ul>
-                            <#list locale.supported as l>
-                                <li class="kc-dropdown-item"><a href="${l.url}">${l.label}</a></li>
-                            </#list>
-                        </ul>
-                    </div>
+        <#if realm.internationalizationEnabled && locale.supported?size gt 1>
+            <div id="kc-locale-links">
+                <div id="kc-locale-links-wrapper" class="${properties.kcLocaleWrapperClass!}">
+                  <#list locale.supported as l>
+                      <#if l.label != locale.current>
+                        <a tabindex="0" lang="${l.languageTag}" aria-label="${msg("locale_${l.languageTag}.languageChangeAriaLabel")}" href="${l.url}">${msg("locale_${l.languageTag}.languageLinkTitle")}</a>
+                      </#if>
+                  </#list>
                 </div>
             </div>
         </#if>
