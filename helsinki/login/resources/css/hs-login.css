@@ -153,7 +153,8 @@ a {
         padding-bottom: 3rem; } }
 
 .card-pf {
-  max-width: 580px; }
+  max-width: 580px;
+  border: 0; }
 
 .login-pf-page .login-pf-signup {
   text-align: unset; }
@@ -200,6 +201,25 @@ a {
     #kc-locale {
       top: 6rem;
       right: 3rem; } }
+
+#kc-locale-links {
+  position: absolute;
+  top: 4rem;
+  right: calc(1rem - var(--spacing-2-xs));
+  margin-top: 8px; }
+  #kc-locale-links a {
+    padding: var(--spacing-2-xs);
+    margin-left: var(--spacing-2-xs);
+    text-decoration: none;
+    font-size: 0.875rem;
+    border: 0; }
+    #kc-locale-links a:hover {
+      background-color: #0000bf;
+      color: #ffffff; }
+  @media (min-width: 768px) {
+    #kc-locale-links {
+      top: 6rem;
+      right: calc(3rem - var(--spacing-2-xs)); } }
 
 #kc-custom-register-form .hs-form-group:not(:last-child) {
   margin-bottom: 1.5rem; }
