@@ -1,6 +1,6 @@
 <#macro registrationLayout bodyClass="" displayInfo=false displayMessage=true displayRequiredFields=false displayWide=false showAnotherWayIfPresent=true showAlerts=true showWarnings=true showFeedbackLink=false>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" class="${properties.kcHtmlClass!}">
+<html xmlns="http://www.w3.org/1999/xhtml" class="${properties.kcHtmlClass!}" lang="${(locale.currentLanguageTag)!realm.getDefaultLocale()}">
 
 <head>
     <meta charset="utf-8" />
@@ -56,7 +56,7 @@
         </div>
         <h1 id="kc-page-title"><#nested "header"></h1>
       </header>
-      <div id="kc-content">
+      <div id="kc-content" role="main">
         <div id="kc-content-wrapper">
 
           <#-- App-initiated actions should not see warning messages about the need to complete the action -->
