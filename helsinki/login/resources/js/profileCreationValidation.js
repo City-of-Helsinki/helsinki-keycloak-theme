@@ -28,6 +28,8 @@
   var HS_VERIFICATION_CODE_INPUT_ID = "hs-verification-code";
   var HS_EMAIL_FORM_GROUP_ID = "hs-email-form-group";
   var HS_EMAIL_ERROR_MESSAGE_SELECTOR = "form .hs-email-error-message";
+  var HS_ACKNOWLEDGEMENTS_ERROR_MESSAGE_SELECTOR =
+    "form .hs-acknowledgements-error-message";
   // --> Constants
 
   function isTextValidEmail(email) {
@@ -131,6 +133,11 @@
       HS_HAS_ERROR_CLASS,
       !isValid
     );
+    toggleErrorMessageToScreenReader(
+      HS_ACKNOWLEDGEMENTS_ERROR_MESSAGE_SELECTOR,
+      !isValid
+    );
+    toggleAriaInvalid(getHsAcknowledgementsInput(), isValid);
   }
 
   function toggleEmailError(isValid) {

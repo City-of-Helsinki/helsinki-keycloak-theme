@@ -26,10 +26,18 @@
 
     <#assign acknowledgementsCheckedAttribute=shouldCheckBoxBeChecked()?then('checked','') />
     <#assign emailAddress=getEmailAddress() />
-    <#assign acknowledgementsErrorClassname=((validationErrors.acknowledgements)??)?then(properties.kcFormGroupHasErrorClass,'') />
-    <#assign emailErrorClassname=((validationErrors.email)??)?then(properties.kcFormGroupHasErrorClass,'') />
+    <#assign hasAcknowledgementsError=((validationErrors.acknowledgements)??)?then(true,false) />
+    <#assign hasEmailValidationError=((validationErrors.email)??)?then(true,false) />
     
-		<div id="kc-terms-text">
+    <#assign acknowledgementsErrorClassname=hasAcknowledgementsError?then(properties.kcFormGroupHasErrorClass,'') />
+    <#assign acknowledgementsInputAriaInvalid=hasAcknowledgementsError?then('true','false') />
+    <#assign acknowledgementsErrorMessageRole=hasAcknowledgementsError?then('alert','') />
+    
+    <#assign emailErrorClassname=hasEmailValidationError?then(properties.kcFormGroupHasErrorClass,'') />
+    <#assign emailInputAriaInvalid=hasEmailValidationError?then('true','false') />
+    <#assign emailErrorMessageRole=hasEmailValidationError?then('alert','') />
+		
+    <div id="kc-terms-text">
       <p>${msg("profileTermsText")?no_esc}</p>
       <#if msg("collectedUserData") != ''>
         <#list msg("collectedUserData")?split(", ")>
@@ -49,8 +57,8 @@
       <div id="hs-email-form-group" class="${properties.kcFormGroupClass!} ${emailErrorClassname}">
         <div class="hds-text-input" id="hs-email-form-group" class="${properties.kcFormGroupClass!}">
             <label class="hds-text-input__label" for="hs-email">${msg("emailLabel")}</label>
-            <input class="hds-text-input__input" type="email" name="email" id="hs-email" placeholder="${msg("emailPlaceholder")}" value="${emailAddress}"/>
-            <span class="hs-error-message" role="alert">${msg("emailError")}</span>
+            <input class="hds-text-input__input" type="email" name="email" id="hs-email" placeholder="${msg("emailPlaceholder")}" value="${emailAddress}" aria-invalid="${emailInputAriaInvalid}"/>
+            <span class="hs-error-message hs-email-error-message" role="${emailErrorMessageRole}">${msg("emailError")}</span>
         </div>
       </div>
             <div class="${properties.kcFormGroupClass!}">
@@ -79,10 +87,10 @@
 
       <div id="hs-acknowledgements-form-group" class="${properties.kcFormGroupClass!} ${acknowledgementsErrorClassname}">
         <div class="hds-checkbox">
-            <input class="hds-checkbox__input" type="checkbox" name="acknowledgements" id="hs-acknowledgements" ${acknowledgementsCheckedAttribute}/>
+            <input class="hds-checkbox__input" type="checkbox" name="acknowledgements" id="hs-acknowledgements" ${acknowledgementsCheckedAttribute} aria-invalid="${acknowledgementsInputAriaInvalid}" />
             <label class="hds-checkbox__label" for="hs-acknowledgements">${msg("doAcknowledgeResources", kcSanitize(msg("doAcknowledgeResourcesPrivacyPolicyLink")), kcSanitize(msg("doAcknowledgeResourcesyDataProtectionLink")), 'target="_blank" rel="noopener noreferrer"')?no_esc}</label>
         </div>
-        <span class="hs-error-message" role="alert">${msg("acknowledgementsError")}</span>
+        <span class="hs-error-message hs-acknowledgements-error-message" role="${acknowledgementsErrorMessageRole}">${msg("acknowledgementsError")}</span>
       </div>
       <div class="wide-buttons">
 			  <button class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonLargeClass!}" id="kc-accept" type="button" value="accept">${msg("profileAcceptButtonText")}</button>
