@@ -55,7 +55,7 @@
 		</div>
 		<form class="form-actions" id="kc-save-profile-confirm-form" action="${url.loginAction}" method="post">
       <div id="hs-email-form-group" class="${properties.kcFormGroupClass!} ${emailErrorClassname}">
-        <div class="hds-text-input" id="hs-email-form-group" class="${properties.kcFormGroupClass!}">
+        <div class="hds-text-input">
             <label class="hds-text-input__label" for="hs-email">${msg("emailLabel")}</label>
             <input class="hds-text-input__input" type="email" name="email" id="hs-email" placeholder="${msg("emailPlaceholder")}" value="${emailAddress}" aria-invalid="${emailInputAriaInvalid}"/>
             <span class="hs-error-message hs-email-error-message" role="${emailErrorMessageRole}">${msg("emailError")}</span>
