@@ -4,7 +4,9 @@
       ${msg("verificationCodeFormTitle")}
   <#elseif section = "form">
 
-    <#assign verificationCodeErrorClassname=((validationErrors.code)??)?then(properties.kcFormGroupHasErrorClass,'') />
+    <#assign hasValidationErrors=((validationErrors.code)??)?then(true,false) />
+    <#assign verificationCodeErrorClassname=hasValidationErrors?then(properties.kcFormGroupHasErrorClass,'') />
+    <#assign ariaInvalid=hasValidationErrors?then('true','false') />
     <p>${msg("verificationCodeWasSentTo")} <b>${(email!'')}</b></p>
     <div>
       <p>${msg("verificationCodeFormText")}</p>
@@ -13,7 +15,7 @@
       <div class="${properties.kcFormGroupClass!} ${verificationCodeErrorClassname}">
         <div class="hds-text-input">
           <label class="hds-text-input__label" for="hs-verification-code">${msg("verificationCodeFormLabel")}</label>
-          <input class="hds-text-input__input" type="text" name="code" id="hs-verification-code" placeholder="123456" value=""/>
+          <input class="hds-text-input__input" type="text" name="code" id="hs-verification-code" placeholder="123456" value="" aria-invalid="${ariaInvalid}"/>
           <span class="hs-error-message" role="alert">${msg("verificationCodeFormError")}</span>
         </div>
       </div>
