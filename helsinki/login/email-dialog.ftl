@@ -14,7 +14,10 @@
     </#function>
 
     <#assign emailAddress=getEmailAddress() />
-    <#assign emailErrorClassname=((validationErrors.email)??)?then(properties.kcFormGroupHasErrorClass,'') />
+    <#assign hasValidationErrors=((validationErrors.email)??)?then(true,false) />
+    <#assign emailErrorClassname=hasValidationErrors?then(properties.kcFormGroupHasErrorClass,'') />
+    <#assign ariaInvalid=hasValidationErrors?then('true','false') />
+    <#assign errorMessageRole=hasValidationErrors?then('alert','') />
     
 		<div id="kc-email-text">
       <p>${msg("plainEmailFormText")}</p>
@@ -23,8 +26,8 @@
       <div id="hs-email-form-group" class="${properties.kcFormGroupClass!} ${emailErrorClassname}">
         <div class="hds-text-input">
             <label class="hds-text-input__label" for="hs-email">${msg("email")}</label>
-            <input class="hds-text-input__input" type="email" name="email" id="hs-email" placeholder="${msg("emailPlaceholder")}" value="${emailAddress}"/>
-            <span class="hs-error-message" role="alert">${msg("emailError")}</span>
+            <input class="hds-text-input__input" type="email" name="email" id="hs-email" placeholder="${msg("emailPlaceholder")}" value="${emailAddress}" aria-invalid="${ariaInvalid}"/>
+            <span class="hs-error-message hs-email-error-message" role="${errorMessageRole}">${msg("emailError")}</span>
         </div>
       </div>
       <div class="wide-buttons">
