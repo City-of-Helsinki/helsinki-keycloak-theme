@@ -1,15 +1,14 @@
 {
   "name": "helsinki-keycloak-theme",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "scripts": {
     "make-pack": "npm run build && node ./scripts/pack-theme",
     "build": "npm run build:sass",
-    "build:sass": "npm run build:sass:login && npm run build:sass:account",
+    "build:sass": "npm run build:sass:login",
     "build:sass:hds": "npm-sass sass/hds/index.scss >",
     "build:sass:shared": "npm-sass sass/shared/index.scss >",
     "build:sass:login": "mkdirp helsinki/login/resources/css && npm run build:sass:hds -- helsinki/login/resources/css/hds.css && npm run build:sass:shared -- helsinki/login/resources/css/shared.css && npm-sass sass/login/index.scss > helsinki/login/resources/css/hs-login.css",
-    "build:sass:account": "mkdirp helsinki/account/resources/css && npm run build:sass:hds -- helsinki/account/resources/css/hds.css && npm run build:sass:shared -- helsinki/account/resources/css/shared.css && npm-sass sass/account/index.scss > helsinki/account/resources/css/hs-account.css",
-    "clean": "rm -rf helsinki/login/resources/css helsinki/account/resources/css",
+    "clean": "rm -rf helsinki/login/resources/css",
     "export-translations": "node ./scripts/export-translations",
     "update-translations": "node ./scripts/update-translations",
     "lint": "./node_modules/.bin/eslint ."
