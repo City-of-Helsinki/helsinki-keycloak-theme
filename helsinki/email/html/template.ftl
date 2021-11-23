@@ -1,4 +1,5 @@
 <#macro emailLayout>
+<#assign imagePath="${baseUrl}${url.resourcesPath}/img" />
 <!DOCTYPE html>
 <html lang="${msg("emailLangCode")}" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
   <head>
@@ -19,7 +20,7 @@
   <body style="margin:0;padding:0;">
       <table role="presentation" style="width:100%;background:#ffffff;color:#1d1d1d;${properties.tableResetStyle}" border="0" cellpadding="0" cellspacing="0">
           <tr>
-              <td align="left" valign="top" style="background:url('https://i.ibb.co/XFTzQ4f/koros.png');background-repeat:repeat-x;width:100%;line-height:47px;height:47px;${properties.emptyCellResetStyle}">
+              <td align="left" valign="top" style="background:url('${imagePath}/koros.png');background-repeat:repeat-x;width:100%;line-height:47px;height:47px;${properties.emptyCellResetStyle}">
                 &nbsp;
               </td>
           </tr>
@@ -33,7 +34,7 @@
                   <table style="${properties.tableResetStyle}" border="0" cellpadding="0" cellspacing="0">
                     <tr>
                       <td align="left" valign="middle" style="line-height:0px;height:44px;${properties.emptyCellResetStyle}">
-                          <img src="https://i.ibb.co/qDmRmpc/${msg("logoImage")}.png" height="44" alt="Logo" style="width:auto;display:block;" >
+                          <img src="${imagePath}/${msg("logoImage")}" height="44" alt="Logo" style="width:auto;display:block;" >
                       </td>
                       <td align="left" valign="middle" style="height:44px;padding:0px 0px 8px 14px;${properties.fontAdjustmentsTextStyle}font-size:22px;line-height:44px;">
                           ${msg("profile")}
