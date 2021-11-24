@@ -1,6 +1,6 @@
 {
   "name": "helsinki-keycloak-theme",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "scripts": {
     "make-pack": "npm run build && node ./scripts/pack-theme",
     "build": "npm run build:sass",
