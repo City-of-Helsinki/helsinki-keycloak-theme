@@ -151,6 +151,50 @@ This setup conforms to a pattern that was used in for instance with [City-of-Hel
 **Cons**  
 If you work on this theme alongside someone else, the translation spreadsheet may be edited from two different development branches at the same time. This may result in "dead" translations being pulled when making updates from the separate branches. Resolve these instances in the way you think is best.
 
+**New lines**
+If 'enter' is used in Google Sheets, the result is '\\n' in the translations. Line breaks can also be marked manually with '\\n'. But in downloaded translations that is '\\\\n'. Both work in Keycloak.
+
+**Validation**
+
+validateTranslations.js was added to help validating html-code in translations. Validation also includes curly brace -checks and HTML-attribute -checks between translations.
+
+Curly braces are checked for matching opening "{" and closing "}" braces and the keys in curly braches must be in same order in all translations.
+
+If Finnish text has "Tämä on {0}, {1}, {2}" then English should have same order of keys and not "This is {1}, {0}, {2}". If someday there is a translation that have different order, remove this check.
+
+HTML is validated with a validator, but also checked that all translations have same attributes in same order. If someday there is a translation that have different attributes, remove this check.
+
+Curly brace and HTML-attribute checking is done by stripping content outside tags and curly braces and comparing results between translations
+
+```html
+<p>
+  Click the <a href="{1}" target="_blank">link</a>.
+  <span class="style {4}">It is {2} with {3}.</span>
+</p>
+```
+
+will become
+
+```html
+'
+<p><a href="" target=""></a><span class=""></span></p>
+{1}{4}{2}{3}'
+```
+
+First stripped HTML, then curly braces in found order. All translations should have same stripped result
+
+Validation also warns, if untranslated keys are found. A translation is marked as untranslated, if it has "EN:" or "SV:"
+
+- as first characters
+- as first characters in a tag. Example: "<p>EN: "
+- anywhere with a preceding space. Example " SV:"
+
+If validation fails, translations are not updated. The console will show an error text.
+
+Validation fails, if HTML is invalid or curly braces do not have matching "{" and "}". Other validation processes raise only warnings.
+
+Translation keys should only include letters a-z, numbers and characters ".", "\_" and "-"
+
 ## Linting
 
 This project uses the recommended settings from `eslint` and `prettier` for linting. There are two `eslint` configs: root config and a separate config for scripts. The root `eslint` config targets the browser environment whereas the script config targets node.
