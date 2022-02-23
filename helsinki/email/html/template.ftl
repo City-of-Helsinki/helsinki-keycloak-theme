@@ -1,5 +1,5 @@
 <#macro emailLayout>
-<#assign imagePath="${baseUrl}${url.resourcesPath}/img" />
+<#assign imagePath="${baseUrl!}${url.resourcesPath}/img" />
 <!DOCTYPE html>
 <html lang="${msg("emailLangCode")}" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
   <head>
