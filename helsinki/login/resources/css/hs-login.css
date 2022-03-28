@@ -240,3 +240,7 @@ a {
 .hs-side-note {
   color: #666666;
   font-size: 12px; }
+
+.hs-required-field-note {
+  padding: 1rem 0 0;
+  margin: 0; }
