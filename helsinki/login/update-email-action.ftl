@@ -26,7 +26,7 @@
       <div id="hs-email-form-group" class="${properties.kcFormGroupClass!} ${emailErrorClassname}">
         <div class="hds-text-input">
             <label class="hds-text-input__label" for="hs-email">${msg("email")}</label>
-            <input class="hds-text-input__input" type="email" name="email" id="hs-email" placeholder="${msg("emailPlaceholder")}" value="${emailAddress}" aria-invalid="${ariaInvalid}"/>
+            <input class="hds-text-input__input" type="email" name="email" id="hs-email" placeholder="${msg("emailPlaceholder")}" value="${emailAddress}" aria-invalid="${ariaInvalid}" aria-required="true"/>
             <span class="hs-error-message hs-email-error-message" role="${errorMessageRole}">${msg("emailError")}</span>
         </div>
       </div>
