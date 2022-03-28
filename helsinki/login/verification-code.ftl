@@ -15,7 +15,7 @@
       <div class="${properties.kcFormGroupClass!} ${verificationCodeErrorClassname}">
         <div class="hds-text-input">
           <label class="hds-text-input__label" for="hs-verification-code">${msg("verificationCodeFormLabel")}</label>
-          <input class="hds-text-input__input" type="text" name="code" id="hs-verification-code" placeholder="123456" value="" aria-invalid="${ariaInvalid}"/>
+          <input class="hds-text-input__input" type="text" name="code" id="hs-verification-code" placeholder="123456" value="" aria-invalid="${ariaInvalid}" aria-required="true"/>
           <span class="hs-error-message" role="alert">${msg("verificationCodeFormError")}</span>
         </div>
       </div>
