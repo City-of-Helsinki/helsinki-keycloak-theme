@@ -243,7 +243,7 @@
     }
 
     if (hsEmailInput) {
-      hsEmailInput.addEventListener("keyup", handleEmailChange);
+      hsEmailInput.addEventListener("input", handleEmailChange);
     }
 
     if (submitButtons) {
@@ -271,7 +271,7 @@
     }
 
     if (hsEmailInput) {
-      hsEmailInput.removeEventListener("keyup", handleEmailChange);
+      hsEmailInput.removeEventListener("input", handleEmailChange);
     }
 
     if (submitButtons) {
