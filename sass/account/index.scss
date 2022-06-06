@@ -8,7 +8,7 @@ h2 {
   margin-top: 0;
   margin-bottom: $spacing-layout-xs;
 
-  font-size: $fontsize-h-2;
+  font-size: $fontsize-heading-l;
   font-weight: bold;
 }
 
@@ -18,9 +18,9 @@ h2 {
   padding: 0;
   margin: 0;
   height: initial;
-  
+
   background: $color-white;
-  
+
   @media (min-width: $breakpoint-tablet) {
     margin: $spacing-layout-xs auto;
     max-width: 580px;
@@ -81,14 +81,14 @@ h2 {
       display: inline-block;
       padding: $spacing-xs;
 
-      font-size: $fontsize-body-default;
+      font-size: $fontsize-body-m;
       font-weight: bold;
       color: $color-black-90;
 
       border-bottom: none !important;
 
       @media (min-width: $breakpoint-tablet) {
-        font-size: $fontsize-h-5;
+        font-size: $fontsize-heading-xs;
       }
 
       &:hover {

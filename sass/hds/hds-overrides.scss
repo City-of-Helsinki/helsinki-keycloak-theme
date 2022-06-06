@@ -14,7 +14,7 @@
 
 // Synchronize font size of anchors inside labels
 .hds-checkbox__label a {
-  font-size: $fontsize-body-default;
+  font-size: $fontsize-body-m;
 }
 
 //-- Notification
@@ -28,7 +28,7 @@
   border-left-width: 0;
 }
 .hds-notification__label {
-  font-size: $fontsize-h-5;
+  font-size: $fontsize-heading-xs;
   font-weight: bold;
 
   // This hack adds extra padding to allow multi row titles to span

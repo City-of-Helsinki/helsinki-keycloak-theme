@@ -19,7 +19,7 @@ $card-padding-tablet-vertical: $spacing-layout-xl;
   margin-top: 0;
   margin-bottom: $spacing-layout-xs;
 
-  font-size: $fontsize-h-2;
+  font-size: $fontsize-heading-l;
   font-weight: bold;
   text-align: unset;
 }
@@ -157,7 +157,7 @@ $card-padding-tablet-vertical: $spacing-layout-xl;
     padding: var(--spacing-2-xs);
     margin-left: var(--spacing-2-xs);
     text-decoration: none;
-    font-size: $fontsize-body-small;
+    font-size: $fontsize-body-s;
     border: 0;
     &:hover {
       background-color: $color-primary;

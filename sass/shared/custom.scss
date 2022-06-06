@@ -30,7 +30,7 @@ html {
 .hs-subtitle {
   display: inline-block;
 
-  font-size: $fontsize-h-5;
+  font-size: $fontsize-heading-xs;
   color: $color-black-90;
 
   &:not(:last-child) {
@@ -85,7 +85,7 @@ a.hs-link,
 a {
   padding-bottom: 1px;
 
-  font-size: $fontsize-h-5;
+  font-size: $fontsize-heading-xs;
   font-weight: normal;
   color: $color-primary;
   text-decoration: none;
@@ -107,7 +107,7 @@ a {
 .login-pf-page .card-pf .hs-p {
   margin-bottom: 0;
 
-  font-size: $fontsize-h-5;
+  font-size: $fontsize-heading-xs;
   color: $color-black-90;
   line-height: 1.5;
 
