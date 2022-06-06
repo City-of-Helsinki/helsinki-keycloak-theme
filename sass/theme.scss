@@ -1,11 +1,11 @@
-@import 'node_modules/hds-design-tokens/lib/color/brand.scss';
-@import 'node_modules/hds-design-tokens/lib/color/ui.scss';
-@import 'node_modules/hds-design-tokens/lib/spacing/all.scss';
-@import 'node_modules/hds-design-tokens/lib/typography/all.scss';
+@import "node_modules/hds-design-tokens/lib/color/brand.scss";
+@import "node_modules/hds-design-tokens/lib/color/ui.scss";
+@import "node_modules/hds-design-tokens/lib/spacing/all.scss";
+@import "node_modules/hds-design-tokens/lib/typography/all.scss";
 
 $hel-grotesk: $font-default, Arial, -apple-system, BlinkMacSystemFont,
-'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
-'Droid Sans', 'Helvetica Neue', sans-serif;
+  "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+  "Droid Sans", "Helvetica Neue", sans-serif;
 
 // Fonts
 $font-family-base: $hel-grotesk;

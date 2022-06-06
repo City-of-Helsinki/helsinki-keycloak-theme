@@ -1,13 +1,14 @@
-@import '../theme';
+@import "../theme";
 
 // Override globally all text to use Helsinki font.
 * {
   font-family: $font-family-base;
 }
 
-// Set root font size to a value that HDS expects. Apply to body to 
+// Set root font size to a value that HDS expects. Apply to body to
 // override a default font size patternfly applies to some elements.
-html, body {
+html,
+body {
   font-size: 16px;
 }
 
@@ -15,7 +16,6 @@ html, body {
 html {
   color: $color-black-90;
 }
-
 
 // Form group
 // Sets whitespace according to HDS
@@ -54,7 +54,7 @@ html {
     margin-bottom: $spacing-xs;
   }
 
-  @media (min-width: $breakpoint-tablet) {  
+  @media (min-width: $breakpoint-tablet) {
     flex-direction: row;
 
     // Remove bottom margin on non-mobile layout
@@ -148,15 +148,15 @@ a {
 }
 
 // There's new "Profiili" -text beside logo
-.logo-with-profile-text{
-  width:100%;
+.logo-with-profile-text {
+  width: 100%;
   display: flex;
   flex-direction: row;
-  padding-bottom:$spacing-layout-s;
-  img{
-    height:44px;
+  padding-bottom: $spacing-layout-s;
+  img {
+    height: 44px;
   }
-  span{
+  span {
     padding: 0 $spacing-layout-xs;
     color: rgb(26, 26, 26);
     font-size: 20px;
@@ -165,29 +165,29 @@ a {
   }
 }
 
-.checked-list-title{
+.checked-list-title {
   font-weight: bold;
-  padding:$spacing-layout-2-xs 0 ;
+  padding: $spacing-layout-2-xs 0;
 }
 
-// list of user data with checkboxes 
-.checked-list{
+// list of user data with checkboxes
+.checked-list {
   list-style: none;
   padding: 0 0 $spacing-layout-2-xs 0;
-  li{
-    background: url('../img/check.svg');
+  li {
+    background: url("../img/check.svg");
     background-repeat: no-repeat;
     background-position: -2px 50%;
     background-size: 23px 23px;
     // not using spacing-layout because values depend on icon size.
-    padding:4px 10px 4px 35px;
+    padding: 4px 10px 4px 35px;
   }
 }
 
 // buttons that are 100% wide
-.wide-buttons{
-  button{
-    width:100%;
+.wide-buttons {
+  button {
+    width: 100%;
     margin-bottom: 10px;
   }
 }

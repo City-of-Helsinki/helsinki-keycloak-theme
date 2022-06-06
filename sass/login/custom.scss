@@ -10,7 +10,7 @@
   }
 }
 
-// Custom block 
+// Custom block
 // On the login form that contains a password reset button.
 #hs-reset-password {
   padding-bottom: $spacing-layout-xs;
@@ -21,18 +21,18 @@
   border-bottom: 2px solid $color-black-20;
 }
 
-.hs-error-message{
+.hs-error-message {
   display: none;
   color: $color-error;
   padding: $spacing-s 0 0;
 }
 
-.hs-has-error{
-  .hs-error-message{
+.hs-has-error {
+  .hs-error-message {
     display: inline-block;
   }
 }
-.hs-side-note{
+.hs-side-note {
   color: $color-black-60;
   font-size: 12px;
 }
