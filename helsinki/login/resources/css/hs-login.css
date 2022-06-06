@@ -1,7 +1,8 @@
 * {
-  font-family: HelsinkiGrotesk, Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; }
+  font-family: HelsinkiGrotesk, Arial, sans-serif, Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; }
 
-html, body {
+html,
+body {
   font-size: 16px; }
 
 html {
