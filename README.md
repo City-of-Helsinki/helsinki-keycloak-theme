@@ -2,10 +2,14 @@
 
 Helsinki theme for Keycloaks IAM
 
-**Requirements**
+**Development requirements**
 
 - npm
 - node
+
+**Test requirements**
+
+- running keycloak server
 
 **Commands**  
 | Name | Description |
@@ -17,17 +21,18 @@ Helsinki theme for Keycloaks IAM
 | `npm run update-translations` | Fetches current translations from a Google sheet source, parses them into `.properties` files and saves them under the correct module. |
 | `npm run lint` | Lints project with eslint. You can use `npm run lint -- --fix` to fix fixable errors. |
 
-To test this theme 1. Set up your local environment and then 2. build the theme.
+To test this theme you need to set up your local environment
 
 **Table of Contents**
 
-1. [Setting up a local environment](#setting-up-a-local-environment)
+1. [Setting up a local environment with standalone Keycloak](#setting-up-a-local-environment-with-standalone-keycloak)
+1. [Setting up a local environment with Docker](#setting-up-a-local-environment-with-docker)
 1. [Building the theme](#building-the-theme)
 1. [Translations](#translations)
 1. [Linting](#linting)
 1. [Developing for helsinki-tunnistus keycloak](#developing-for-helsinki-tunnistus-keycloak)
 
-## Setting up a local environment
+## Setting up a local environment with standalone Keycloak
 
 **1. Clone this repository**
 
@@ -38,15 +43,30 @@ git clone https://github.com/City-of-Helsinki/helsinki-keycloak-theme.git
 **2. Obtain a local keycloak instance**
 
 Find instructions here:
-https://www.keycloak.org/docs/latest/getting_started/
+https://www.keycloak.org/guides#getting-started
+
+And here:
+https://www.novatec-gmbh.de/en/blog/keycloak-with-quarkus-better-together/
 
 Please also create an account for yourself.
 
-**3. Create a new realm**
+**3. Disable caching for themes**
+
+See the [manual](https://www.keycloak.org/docs/latest/server_development/#_themes).
+
+In short, run Keycloak with the following options:
+
+```
+bin/kc.[sh|bat] start --spi-theme-static-max-age=-1 --spi-theme-cache-themes=false --spi-theme-cache-templates=false
+```
+
+**4. Create a new realm**
 
 For instance with the name of `locale-dev`
 
-**4. Change login settings for your new realm**
+Login to the admin: http://localhost:<port>/auth/admin/master/console/
+
+**5. Change login settings for your new realm**
 
 New Realm > Realm Settings > Login
 
@@ -61,7 +81,26 @@ New Realm > Realm Settings > Login
 | Login with email  | true             |
 | Require SSL       | external request |
 
-New Realm > Realm Settings > Email
+[More about configuration](http://www.mastertheboss.com/keycloak/getting-started-with-keycloak-powered-by-quarkus/)
+
+**6. Copy the theme into theme folder**
+"Themes can be deployed to Keycloak by copying the theme directory to themes or it can be deployed as an archive."
+
+More info: https://www.keycloak.org/docs/latest/server_development/#deploying-themes
+
+**7. Use helsinki theme**
+
+New Realm > Realm Settings > Theme
+
+| Setting     | Value    |
+| :---------- | :------- |
+| Login Theme | helsinki |
+
+**8. Set up the email server**
+
+Not necessary, but you'll get errors when attempting to send emails.
+
+_New Realm > Realm Settings > Email_
 
 _Example settings for gmail with only the set settings as listed_
 | Setting | Value |
@@ -75,37 +114,29 @@ _Example settings for gmail with only the set settings as listed_
 | Username | your-gmail-username |
 | Password | your-gmail-password |
 
-**5. Disable caching for themes**
+## Setting up a local environment with Docker
 
-`<Keycloak folder>/standalone/configuration/standalone.xml`
+To test the theme with its intented use, helsinki-tunnistus, see its [README](https://dev.azure.com/City-of-Helsinki/helsinki-tunnistus/_git/helsinki-tunnistus?path=/README.md). There are instructions how to set up Postgres and Keycloak with Docker.
 
-```diff
-<theme>
--    <staticMaxAge>2592000</staticMaxAge>
-+    <staticMaxAge>-1</staticMaxAge>
--    <cacheThemes>true</cacheThemes>
-+    <cacheThemes>false</cacheThemes>
--    <cacheTemplates>true</cacheTemplates>
-+    <cacheTemplates>false</cacheTemplates>
-```
+### Updating theme to the Docker
 
-**6. Symlink helsinki theme into theme folder**
-
-When you are in `<Keycloak folder>/themes`
+Copy your theme to docker container
 
 ```bash
-ln -s ~/path/to/helsinki-keycloak-theme/helsinki
+docker cp /local-path-to-theme/helsinki-keycloak-theme/helsinki/. keycloak_test:/opt/keycloak/themes/helsinki
 ```
 
-**7. Use helsinki theme**
+If cache is not disabled, you need to restart the server. It takes about a 30-60 seconds to get the server back online.
 
-New Realm > Realm Settings > Theme
+```bash
+docker restart keycloak_test
+```
 
-| Setting     | Value    |
-| :---------- | :------- |
-| Login Theme | helsinki |
+Or stop and start the server inside the container. There is no command for stopping it except kill the process.
 
 ## Building the theme
+
+Needed only, if stylesheets change.
 
 First, install `npm` dependencies
 
@@ -200,50 +231,3 @@ Translation keys should only include letters a-z, numbers and characters ".", "\
 This project uses the recommended settings from `eslint` and `prettier` for linting. There are two `eslint` configs: root config and a separate config for scripts. The root `eslint` config targets the browser environment whereas the script config targets node.
 
 It's recommended to configure your development environment in a way where errors are fixed on save. This can be achieved, for instance, with the help of plugins or configurations.
-
-## Developing for helsinki-tunnistus keycloak
-
-Developing theme while running local instance of helsinki-tunnistus docker image is not very convenient.
-
-First, run the image with instructions in helsinki-tunnistus repo.
-
-Second, bypass the cache. Keycloak caches js and HTML. Settings are in keycloak server's folder. Copy it to your local machine:
-
-```bash
-docker cp keycloak_test:/opt/jboss/keycloak/standalone/configuration/standalone-ha.xml /tmp
-```
-
-Change following nodes:
-
-```xml
-<staticMaxAge>-1</staticMaxAge>
-<cacheThemes>false</cacheThemes>
-<cacheTemplates>false</cacheTemplates>
-```
-
-Copy file back to docker container:
-
-```bash
-docker cp /tmp/standalone-ha.xml keycloak_test:/opt/jboss/keycloak/standalone/configuration/standalone-ha.xml
-```
-
-Copy your theme to docker container
-
-```bash
-docker cp /local-path-to-theme/helsinki-keycloak-theme/helsinki/. keycloak_test:/opt/jboss/keycloak/themes/helsinki
-```
-
-Restart the container. It takes about a 30-60 seconds to get the server back online.
-
-```bash
-docker restart keycloak_test
-```
-
-Or restart the server inside the container.
-
-```bash
-docker exec -it keycloak_test /bin/bash
-/opt/jboss/keycloak/bin/./jboss-cli.sh --connect command=:reload
-```
-
-Theme must be copied and docker restarted after every change.
