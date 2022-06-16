@@ -29,6 +29,36 @@
             <script src="${script}" type="text/javascript"></script>
         </#list>
     </#if>
+    <script>
+        function getCookie(name) {
+            var dc = document.cookie;
+            var prefix = name + "=";
+            var begin = dc.indexOf("; " + prefix);
+            if (begin == -1) {
+                begin = dc.indexOf(prefix);
+                if (begin != 0) return null;
+            }
+            else
+            {
+                begin += 2;
+                var end = document.cookie.indexOf(";", begin);
+                if (end == -1) {
+                    end = dc.length;
+                }
+            }
+            // because unescape has been deprecated, replaced with decodeURI
+            //return unescape(dc.substring(begin + prefix.length, end));
+            return decodeURI(dc.substring(begin + prefix.length, end));
+        }
+
+
+        var myCookie = getCookie("KEYCLOAK_LOCALE");
+        if (myCookie == null) {
+            document.cookie = "KEYCLOAK_LOCALE=fi";
+            window.location.reload();
+        }
+    </script>
+
 </head>
 
 <body class="${properties.kcBodyClass!}">
@@ -44,7 +74,7 @@
             <div id="kc-locale-links">
                 <div id="kc-locale-links-wrapper" class="${properties.kcLocaleWrapperClass!}">
                   <#list locale.supported as l>
-                      <#if l.label != locale.current>
+                      <#if l.label != locale.current>${locale.currentLanguageTag!}
                         <a tabindex="0" lang="${l.languageTag}" aria-label="${msg("locale_${l.languageTag}.languageChangeAriaLabel")}" href="${l.url}">${msg("locale_${l.languageTag}.languageLinkTitle")}</a>
                       </#if>
                   </#list>
