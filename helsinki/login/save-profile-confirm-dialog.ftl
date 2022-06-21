@@ -49,9 +49,6 @@
             </ul>
         </#list>
       </#if>
-      <#if msg("securitySideNote") != ''>
-        <span class="hs-side-note">${msg("securitySideNote")?no_esc}</span>
-      </#if>
       <p class="hs-required-field-note">${msg("requiredFieldIndication")}</p>
 		</div>
 		<form class="form-actions" id="kc-save-profile-confirm-form" action="${url.loginAction}" method="post">
