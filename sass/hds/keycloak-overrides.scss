@@ -1,25 +1,6 @@
 @import "../theme";
 
-// Ensure that patternfly does not set a bold font weight for checkbox
-// labels.
-label.hds-checkbox__label {
-  font-weight: normal;
-}
-
 // Make sure that button links get the correct font size.
 a.hds-button {
   font-size: $fontsize-body-m;
-}
-
-// Make sure that patternfly doesn't add a margin to hds checkboxes
-// which break layout.
-input[type="checkbox"].hds-checkbox__input {
-  margin-top: 0;
-}
-// Fix ghost checkbox issue when checkbox/radio has focus
-// HDS changes input position to absolute and hides actual input
-// which causes weird issues with patternfly's (keycloak base css) outline declarations
-input[type="checkbox"].hds-checkbox__input:focus,
-input[type="radio"].hds-checkbox__input:focus {
-  outline: none;
 }

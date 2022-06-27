@@ -2484,18 +2484,8 @@ we can not use this position for the actual button as it's in incorrect source o
   font-style: italic;
   text-rendering: optimizeLegibility; }
 
-label.hds-checkbox__label {
-  font-weight: normal; }
-
 a.hds-button {
   font-size: 1rem; }
-
-input[type="checkbox"].hds-checkbox__input {
-  margin-top: 0; }
-
-input[type="checkbox"].hds-checkbox__input:focus,
-input[type="radio"].hds-checkbox__input:focus {
-  outline: none; }
 
 .hs-has-error.hs-form-group .hds-checkbox .hds-checkbox__label,
 .hs-has-error.hs-form-group .hds-text-input .hds-text-input__label {
