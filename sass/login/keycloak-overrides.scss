@@ -6,6 +6,19 @@ $card-padding-mobile-vertical: $spacing-layout-l;
 $card-padding-tablet: $spacing-layout-m;
 $card-padding-tablet-vertical: $spacing-layout-xl;
 
+.login-pf-page {
+  padding-top: $spacing-layout-xs;
+}
+
+.login-pf-page .card-pf {
+  margin-bottom: 0;
+}
+
+.login-pf-page .login-pf-header {
+  display: flex;
+  flex-direction: column;
+}
+
 // Override the default background image with a solid color
 .login-pf {
   background: $page-background;
