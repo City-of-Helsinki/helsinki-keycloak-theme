@@ -4,6 +4,7 @@
   var HS_HAS_ERROR_CLASS = "hs-has-error";
   var KC_SAVE_PROFILE_CONFIRM_FORM_ID = "kc-save-profile-confirm-form";
   var KC_UPDATE_PROFILE_CONFIRM_FORM_ID = "kc-update-profile-confirm-form";
+  var KC_UPDATE_SERVICE_CONNECTION_CONFIRM_FORM_ID = "kc-update-service-connection-confirm-form";
   var KC_PROVIDE_PLAIN_EMAIL_FORM_ID = "kc-provide-plain-email-form";
   var KC_PROVIDE_PLAIN_EMAIL_AGAIN_FORM_ID =
     "kc-provide-plain-email-again-form";
@@ -15,6 +16,8 @@
     KC_SAVE_PROFILE_CONFIRM_FORM_ID +
     " button, #" +
     KC_UPDATE_PROFILE_CONFIRM_FORM_ID +
+    " button, #" +
+    KC_UPDATE_SERVICE_CONNECTION_CONFIRM_FORM_ID +
     " button, #" +
     KC_PROVIDE_PLAIN_EMAIL_FORM_ID +
     " button, #" +
@@ -95,6 +98,10 @@
     return document.getElementById(KC_UPDATE_PROFILE_CONFIRM_FORM_ID);
   }
 
+  function getUpdateServiceConnectionForm() {
+    return document.getElementById(KC_UPDATE_SERVICE_CONNECTION_CONFIRM_FORM_ID);
+  }
+
   function getProvidePlainEmailForm() {
     return (
       document.getElementById(KC_PROVIDE_PLAIN_EMAIL_FORM_ID) ||
@@ -111,12 +118,20 @@
   // <-- Utils
   function getIsCheckboxChecked() {
     const checkboxElement = getHsAcknowledgementsInput();
-    return checkboxElement.checked === true;
+    if (checkboxElement !== null) {
+      return checkboxElement.checked === true;
+    } else {
+      return true;
+    }
   }
 
   function isEmailValid() {
     const inputElement = getHsEmailInput();
-    return isTextValidEmail(inputElement.value);
+    if (inputElement !== null) {
+      return isTextValidEmail(inputElement.value);
+    } else {
+      return true;
+    }
   }
 
   function cleanVerificationCode() {
@@ -175,8 +190,8 @@
     const declined = isDeclined();
     const checkboxesAreValid = declined || getIsCheckboxChecked();
     const emailIsValid = declined || isEmailValid();
-    toggleAcknowledgementsErrors(checkboxesAreValid);
-    toggleEmailError(emailIsValid);
+    checkboxesAreValid ? true : toggleAcknowledgementsErrors(checkboxesAreValid);
+    emailIsValid ? true : toggleEmailError(emailIsValid);
     return !checkboxesAreValid || !emailIsValid;
   }
 
@@ -203,6 +218,7 @@
 
   var handleSubmitButtonClick = function (event) {
     event.preventDefault();
+    var profileForm = getCreateProfileForm() || getUpdateProfileForm() || getUpdateServiceConnectionForm();
     var responseInput = getResponseInput();
     responseInput.setAttribute("value", event.target.getAttribute("value"));
     if (isEmailVerificationForm()) {
@@ -224,13 +240,13 @@
     }
     const hasErrors = getAndShowErrors();
     if (!hasErrors) {
-      getCreateProfileForm().submit();
+      profileForm.submit();
     }
   };
   // --> Handlers
 
   document.addEventListener("DOMContentLoaded", function () {
-    var profileForm = getCreateProfileForm() || getUpdateProfileForm();
+    var profileForm = getCreateProfileForm() || getUpdateProfileForm() || getUpdateServiceConnectionForm();
     var hsAcknowledgementsInput = getHsAcknowledgementsInput();
     var hsEmailInput = getHsEmailInput();
     var submitButtons = getSubmitButtons();
@@ -254,7 +270,10 @@
   });
 
   window.onunload = function () {
-    var profileForm = getCreateProfileForm() || getUpdateProfileForm();
+    var profileForm =
+      getCreateProfileForm() ||
+      getUpdateProfileForm() ||
+      getUpdateServiceConnectionForm();
     var hsAcknowledgementsInput = getHsAcknowledgementsInput();
     var hsEmailInput = getHsEmailInput();
     var submitButtons = getSubmitButtons();
