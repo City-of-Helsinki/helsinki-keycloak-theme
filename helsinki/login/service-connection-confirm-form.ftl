@@ -3,6 +3,14 @@
     <#if section = "header">
         FIXME: header
     <#elseif section = "form">
+        <div>Service: ${serviceName}</div>
+        <div>
+            <ul>
+            <#list serviceAllowedData as item>
+                <li>${item}</li>
+            </#list>
+            </ul>
+        </div>
         <form id="kc-service-connection-confirm-form" action="${url.loginAction}" method="post">
             <div>
                 <button id="kc-accept" type="submit" name="response" value="accept">${msg("profileAcceptButtonText")}</button>
