@@ -39,15 +39,17 @@
 		
     <div id="kc-terms-text">
       <p>${msg("profileTermsText")?no_esc}</p>
-      <#if msg("collectedUserData") != ''>
-        <#list msg("collectedUserData")?split(", ")>
-            <div class="checked-list-title">${msg("userDataListTitle")}</div>
-            <ul class="checked-list">
-            <#items as dataItem>
-              <li>${dataItem}</li>
-            </#items>
-            </ul>
-        </#list>
+      <#if (serviceAccessRestricted)>
+          <div class="checked-list-title">${msg("userDataListTitle")}</div>
+          <#if msg("collectedUserData") != ''>
+              <#list msg("collectedUserData")?split(", ")>
+                  <ul class="checked-list">
+                      <#items as dataItem>
+                          <li>${dataItem}</li>
+                      </#items>
+                  </ul>
+              </#list>
+          </#if>
       </#if>
       <p class="hs-required-field-note">${msg("requiredFieldIndication")}</p>
 		</div>
