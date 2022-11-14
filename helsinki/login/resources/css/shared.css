@@ -122,7 +122,6 @@ html {
 a.hs-link,
 a {
   padding-bottom: 1px;
-  font-size: 1.125rem;
   font-weight: normal;
   color: #0000bf;
   text-decoration: none;
@@ -181,7 +180,7 @@ a {
 
 .checked-list {
   list-style: none;
-  padding: 0 0 1rem 0; }
+  padding: 0; }
   .checked-list li {
     background: url("../img/check.svg");
     background-repeat: no-repeat;

@@ -84,7 +84,6 @@ a.hs-link,
 a {
   padding-bottom: 1px;
 
-  font-size: $fontsize-heading-xs;
   font-weight: normal;
   color: $color-primary;
   text-decoration: none;
@@ -172,7 +171,7 @@ a {
 // list of user data with checkboxes
 .checked-list {
   list-style: none;
-  padding: 0 0 $spacing-layout-2-xs 0;
+  padding: 0;
   li {
     background: url("../img/check.svg");
     background-repeat: no-repeat;

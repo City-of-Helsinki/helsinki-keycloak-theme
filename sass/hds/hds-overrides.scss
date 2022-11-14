@@ -67,3 +67,12 @@ a.hds-button:hover {
 .hds-button.hds-button__label:only-child {
   margin: 0;
 }
+
+.hds-icon-container {
+  width: 1.1em;
+  height: 1.5em;
+  margin-left: $spacing-3-xs;
+}
+.hds-icon-after-link {
+  color: $color-primary;
+}
