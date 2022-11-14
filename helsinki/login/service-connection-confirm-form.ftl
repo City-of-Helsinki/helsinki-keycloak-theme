@@ -3,7 +3,7 @@
     <#if section = "header">
       ${msg("weUseInformationTitle")}
     <#elseif section = "form">
-      <p>${kcSanitize(msg("serviceDataUsageListTitleOldUser",serviceName))}</p>
+      <p>${msg("serviceDataUsageListTitleOldUser", serviceName)?no_esc}</p>
       <ul class="checked-list content-before-buttons">
         <#list serviceAllowedDataFields as item>
           <li>${item}</li>
