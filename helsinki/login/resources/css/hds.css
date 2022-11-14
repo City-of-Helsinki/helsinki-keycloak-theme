@@ -2420,6 +2420,10 @@ we can not use this position for the actual button as it's in incorrect source o
   mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Crect width='24' height='24'/%3E %3Cpolygon fill='currentColor' points='10 5.5 11.5 7 7.5 11 20 11 20 13 7.5 13 11.5 17 10 18.5 3.5 12'/%3E %3C/g%3E %3C/svg%3E");
   -webkit-mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Crect width='24' height='24'/%3E %3Cpolygon fill='currentColor' points='10 5.5 11.5 7 7.5 11 20 11 20 13 7.5 13 11.5 17 10 18.5 3.5 12'/%3E %3C/g%3E %3C/svg%3E"); }
 
+.hds-icon--link-external {
+  mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 24 24' role='img' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M0 0h24v24H0z'/%3E%3Cpath d='M10 3v2H5v14h14v-5h2v7H3V3h7zm11 0v8h-2V6.413l-7 7.001L10.586 12l6.999-7H13V3h8z' fill='currentColor'/%3E%3C/g%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 24 24' role='img' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M0 0h24v24H0z'/%3E%3Cpath d='M10 3v2H5v14h14v-5h2v7H3V3h7zm11 0v8h-2V6.413l-7 7.001L10.586 12l6.999-7H13V3h8z' fill='currentColor'/%3E%3C/g%3E%3C/svg%3E"); }
+
 @font-face {
   font-family: "HelsinkiGrotesk";
   font-display: swap;
@@ -2521,3 +2525,11 @@ a.hds-button:hover {
 
 .hds-button.hds-button__label:only-child {
   margin: 0; }
+
+.hds-icon-container {
+  width: 1.1em;
+  height: 1.5em;
+  margin-left: 0.25rem; }
+
+.hds-icon-after-link {
+  color: #0000bf; }
