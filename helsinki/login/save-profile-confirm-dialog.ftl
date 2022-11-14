@@ -28,26 +28,22 @@
     <#assign emailAddress=getEmailAddress() />
     <#assign hasAcknowledgementsError=((validationErrors.acknowledgements)??)?then(true,false) />
     <#assign hasEmailValidationError=((validationErrors.email)??)?then(true,false) />
-    
     <#assign acknowledgementsErrorClassname=hasAcknowledgementsError?then(properties.kcFormGroupHasErrorClass,'') />
     <#assign acknowledgementsInputAriaInvalid=hasAcknowledgementsError?then('true','false') />
     <#assign acknowledgementsErrorMessageRole=hasAcknowledgementsError?then('alert','') />
-    
     <#assign emailErrorClassname=hasEmailValidationError?then(properties.kcFormGroupHasErrorClass,'') />
     <#assign emailInputAriaInvalid=hasEmailValidationError?then('true','false') />
     <#assign emailErrorMessageRole=hasEmailValidationError?then('alert','') />
-		
+
     <div id="kc-terms-text">
       <p>${msg("profileTermsText")?no_esc}</p>
-      <#if msg("collectedUserData") != ''>
-        <#list msg("collectedUserData")?split(", ")>
-            <div class="checked-list-title">${msg("userDataListTitle")}</div>
-            <ul class="checked-list">
-            <#items as dataItem>
-              <li>${dataItem}</li>
-            </#items>
-            </ul>
-        </#list>
+      <#if (serviceName)??>
+        <p>${msg("serviceDataUsageListTitle", serviceName)?no_esc}</p>
+        <ul class="checked-list">
+          <#list serviceAllowedDataFields as item>
+            <li>${item}</li>
+          </#list> 
+        </ul>
       </#if>
       <p class="hs-required-field-note">${msg("requiredFieldIndication")}</p>
 		</div>
@@ -65,7 +61,7 @@
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
                     <input type="text" id="firstName" name="firstName" value="${(user.attributes.firstName!'')}" class="${properties.kcInputClass!}" aria-invalid="<#if messagesPerField.existsError('firstName')>true</#if>" />
-                    <#if messagesPerField.existsError('firstName')> 
+                    <#if messagesPerField.existsError('firstName')>
                       <span id="input-error-firstname" class="${properties.kcInputErrorMessageClass!}" aria-live="polite"> ${kcSanitize(messagesPerField.get('firstName'))?no_esc} </span>
                     </#if>
                 </div>
@@ -83,10 +79,15 @@
                 </div>
             </div>
 
+      <div class="${properties.kcFormGroupClass!}">
+          <p>${msg("dataHandlingNote")}</p>
+          <p>${msg("readHelsinkiDocs", kcSanitize(msg("doAcknowledgeResourcesPrivacyPolicyLink")), kcSanitize(msg("doAcknowledgeResourcesyDataProtectionLink")), 'target="_blank" rel="noopener noreferrer"','<span class="hds-icon hds-icon--link-external hds-icon-container hds-icon-after-link">&nbsp;</span>')?no_esc}</p>
+      </div>
+
       <div id="hs-acknowledgements-form-group" class="${properties.kcFormGroupClass!} ${acknowledgementsErrorClassname}">
         <div class="hds-checkbox">
             <input class="hds-checkbox__input" type="checkbox" name="acknowledgements" id="hs-acknowledgements" ${acknowledgementsCheckedAttribute} aria-invalid="${acknowledgementsInputAriaInvalid}" aria-required="true"/>
-            <label class="hds-checkbox__label" for="hs-acknowledgements">${msg("doAcknowledgeResources", kcSanitize(msg("doAcknowledgeResourcesPrivacyPolicyLink")), kcSanitize(msg("doAcknowledgeResourcesyDataProtectionLink")), 'target="_blank" rel="noopener noreferrer"')?no_esc}${properties.kcAriaHiddenRequiredFieldMarker?no_esc}</label>
+            <label class="hds-checkbox__label" for="hs-acknowledgements">${msg("doAcknowledgeResourcesNoLinks")}${properties.kcAriaHiddenRequiredFieldMarker?no_esc}</label>
         </div>
         <span class="hs-error-message hs-acknowledgements-error-message" role="${acknowledgementsErrorMessageRole}">${msg("acknowledgementsError")}</span>
       </div>
