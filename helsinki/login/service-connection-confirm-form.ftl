@@ -6,7 +6,7 @@
         <div>Service: ${serviceName}</div>
         <div>
             <ul>
-            <#list serviceAllowedData as item>
+            <#list serviceAllowedDataFields as item>
                 <li>${item}</li>
             </#list>
             </ul>
