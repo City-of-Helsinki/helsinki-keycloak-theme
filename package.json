@@ -3,11 +3,7 @@
   "version": "0.2.1",
   "scripts": {
     "make-pack": "npm run build && node ./scripts/pack-theme",
-    "build": "npm run build:sass",
-    "build:sass": "npm run build:sass:login",
-    "build:sass:hds": "npm-sass sass/hds/index.scss >",
-    "build:sass:shared": "npm-sass sass/shared/index.scss >",
-    "build:sass:login": "mkdirp helsinki/login/resources/css && npm run build:sass:hds -- helsinki/login/resources/css/hds.css && npm run build:sass:shared -- helsinki/login/resources/css/shared.css && npm-sass sass/login/index.scss > helsinki/login/resources/css/hs-login.css",
+    "build": "gulp",
     "clean": "rm -rf helsinki/login/resources/css",
     "export-translations": "node ./scripts/export-translations",
     "update-translations": "node ./scripts/update-translations",
