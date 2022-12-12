@@ -5,6 +5,7 @@ const sass = require("gulp-sass")(require("sass"));
 const rename = require("gulp-rename");
 const gulpRev = require("gulp-rev-all");
 const collectFiles = require("./scripts/gulp/collect-files");
+const replace = require("gulp-replace");
 
 const SASS_FILES = {
   "sass/hds/index.scss": { basename: "hds" },
@@ -45,4 +46,18 @@ function processStyleFiles() {
     .pipe(gulp.dest("./helsinki/login/resources/css"));
 }
 
-exports.default = processStyleFiles;
+function updateStylesInThemeProperties() {
+  const versionedFileNames = collectFiles.get().map((file) => {
+    return `${file.basename}?v=${file.revHash.substring(0, 8)}`;
+  });
+  // Include login.css from the Keycloak base theme
+  const cssFileNames = ["login.css"].concat(versionedFileNames);
+  const cssFilePaths = cssFileNames.map((f) => `css/${f}`).join(" ");
+
+  return gulp
+    .src("helsinki/login/theme.properties")
+    .pipe(replace(/^styles=.+$/m, `styles=${cssFilePaths}`))
+    .pipe(gulp.dest("helsinki/login"));
+}
+
+exports.default = gulp.series(processStyleFiles, updateStylesInThemeProperties);
