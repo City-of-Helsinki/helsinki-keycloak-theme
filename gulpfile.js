@@ -4,6 +4,7 @@ const gulp = require("gulp");
 const sass = require("gulp-sass")(require("sass"));
 const rename = require("gulp-rename");
 const gulpRev = require("gulp-rev-all");
+const collectFiles = require("./scripts/gulp/collect-files");
 
 const SASS_FILES = {
   "sass/hds/index.scss": { basename: "hds" },
@@ -40,6 +41,7 @@ function processStyleFiles() {
         path.basename = SASS_FILES[originalFileName].basename;
       })
     )
+    .pipe(collectFiles.collector())
     .pipe(gulp.dest("./helsinki/login/resources/css"));
 }
 
