@@ -3,6 +3,7 @@
 const gulp = require("gulp");
 const sass = require("gulp-sass")(require("sass"));
 const rename = require("gulp-rename");
+const gulpRev = require("gulp-rev-all");
 
 const SASS_FILES = {
   "sass/hds/index.scss": { basename: "hds" },
@@ -21,6 +22,13 @@ function processStyleFiles() {
     .src(sourceFiles)
     .pipe(sass.sync().on("error", sass.logError))
     .pipe(
+      gulpRev.revision({
+        transformFilename: (file) => {
+          return file.basename;
+        },
+      })
+    )
+    .pipe(
       rename((path, file) => {
         const originalFullPath = file.history[0];
         const originalFileName = trimFromStart(
@@ -28,6 +36,7 @@ function processStyleFiles() {
           `${file.cwd}/`
         );
 
+        path.dirname = "";
         path.basename = SASS_FILES[originalFileName].basename;
       })
     )
