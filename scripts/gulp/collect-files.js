@@ -1,16 +1,18 @@
 const through2 = require("through2");
 
-const collectedFiles = [];
+const collectedFiles = {};
 
-function collector() {
+function collector(namespace) {
+  const namedCollectedFiles = (collectedFiles[namespace] = []);
+
   return through2.obj(function (file, _, cb) {
-    collectedFiles.push(file);
+    namedCollectedFiles.push(file);
     cb(null, file);
   });
 }
 
-function get() {
-  return collectedFiles;
+function get(namespace) {
+  return collectedFiles[namespace];
 }
 
 module.exports = { collector, get };

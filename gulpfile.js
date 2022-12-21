@@ -12,6 +12,7 @@ const SASS_FILES = {
   "sass/shared/index.scss": { basename: "shared" },
   "sass/login/index.scss": { basename: "hs-login" },
 };
+const STYLES_THEME_PROPERTIES_KEY = "styles";
 
 function trimFromStart(str, prefix) {
   return str.startsWith(prefix) ? str.substring(prefix.length) : str;
@@ -42,14 +43,16 @@ function processStyleFiles() {
         path.basename = SASS_FILES[originalFileName].basename;
       })
     )
-    .pipe(collectFiles.collector())
+    .pipe(collectFiles.collector(STYLES_THEME_PROPERTIES_KEY))
     .pipe(gulp.dest("./helsinki/login/resources/css"));
 }
 
 function updateStylesInThemeProperties() {
-  const versionedFileNames = collectFiles.get().map((file) => {
-    return `${file.basename}?v=${file.revHash.substring(0, 8)}`;
-  });
+  const versionedFileNames = collectFiles
+    .get(STYLES_THEME_PROPERTIES_KEY)
+    .map((file) => {
+      return `${file.basename}?v=${file.revHash.substring(0, 8)}`;
+    });
   // Include login.css from the Keycloak base theme
   const cssFileNames = ["login.css"].concat(versionedFileNames);
   const cssFilePaths = cssFileNames.map((f) => `css/${f}`).join(" ");
