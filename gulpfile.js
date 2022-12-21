@@ -47,20 +47,30 @@ function processStyleFiles() {
     .pipe(gulp.dest("./helsinki/login/resources/css"));
 }
 
-function updateStylesInThemeProperties() {
-  const versionedFileNames = collectFiles
-    .get(STYLES_THEME_PROPERTIES_KEY)
-    .map((file) => {
-      return `${file.basename}?v=${file.revHash.substring(0, 8)}`;
-    });
-  // Include login.css from the Keycloak base theme
-  const cssFileNames = ["login.css"].concat(versionedFileNames);
-  const cssFilePaths = cssFileNames.map((f) => `css/${f}`).join(" ");
+function updateThemeProperties(fileType, filePath, prependedFileNames = []) {
+  const versionedFileNames = collectFiles.get(fileType).map((file) => {
+    return `${file.basename}?v=${file.revHash.substring(0, 8)}`;
+  });
+
+  const allFileNames = prependedFileNames.concat(versionedFileNames);
+  const allFilePaths = allFileNames.map((f) => `${filePath}/${f}`).join(" ");
 
   return gulp
     .src("helsinki/login/theme.properties")
-    .pipe(replace(/^styles=.+$/m, `styles=${cssFilePaths}`))
+    .pipe(
+      replace(
+        new RegExp(`^${fileType}=.+$`, "m"),
+        `${fileType}=${allFilePaths}`
+      )
+    )
     .pipe(gulp.dest("helsinki/login"));
+}
+
+function updateStylesInThemeProperties() {
+  // Include login.css from the Keycloak base theme
+  return updateThemeProperties(STYLES_THEME_PROPERTIES_KEY, "css", [
+    "login.css",
+  ]);
 }
 
 exports.default = gulp.series(processStyleFiles, updateStylesInThemeProperties);
