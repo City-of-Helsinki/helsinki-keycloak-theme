@@ -14,6 +14,8 @@ const SASS_FILES = {
 };
 const STYLES_THEME_PROPERTIES_KEY = "styles";
 
+const SCRIPTS_THEME_PROPERTIES_KEY = "scripts";
+
 function trimFromStart(str, prefix) {
   return str.startsWith(prefix) ? str.substring(prefix.length) : str;
 }
@@ -47,6 +49,19 @@ function processStyleFiles() {
     .pipe(gulp.dest("./helsinki/login/resources/css"));
 }
 
+function processScriptFiles() {
+  return gulp
+    .src("helsinki/login/resources/js/*")
+    .pipe(
+      gulpRev.revision({
+        transformFilename: (file) => {
+          return file.basename;
+        },
+      })
+    )
+    .pipe(collectFiles.collector(SCRIPTS_THEME_PROPERTIES_KEY));
+}
+
 function updateThemeProperties(fileType, filePath, prependedFileNames = []) {
   const versionedFileNames = collectFiles.get(fileType).map((file) => {
     return `${file.basename}?v=${file.revHash.substring(0, 8)}`;
@@ -73,4 +88,12 @@ function updateStylesInThemeProperties() {
   ]);
 }
 
-exports.default = gulp.series(processStyleFiles, updateStylesInThemeProperties);
+function updateScriptsInThemeProperties() {
+  return updateThemeProperties(SCRIPTS_THEME_PROPERTIES_KEY, "js");
+}
+
+exports.default = gulp.series(
+  gulp.parallel(processStyleFiles, processScriptFiles),
+  updateStylesInThemeProperties,
+  updateScriptsInThemeProperties
+);
