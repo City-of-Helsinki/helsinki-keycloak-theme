@@ -11,11 +11,7 @@
       <#elseif requiredActionsValues == "UPDATE_PASSWORD">
         ${kcSanitize(msg("infoUpdatePasswordTitle"))?no_esc}
       <#else>
-        <#if messageHeader??>
-          ${messageHeader}
-        <#else>
-          ${message.summary}
-        </#if>
+        ${kcSanitize(msg("emailVerifiedMessage"))?no_esc}
       </#if>
     <#elseif section = "form">
     <div id="kc-info-message">
@@ -30,23 +26,7 @@
           <a class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" href="${actionUri}">${kcSanitize(msg("infoUpdatePasswordLinkText"))?no_esc}</a>
         </p>
       <#else>
-        <p class="instruction">${message.summary}: <b>${requiredActionsText}</b></p>
-        <#if skipLink??>
-        <#else>
-            <#if pageRedirectUri?has_content>
-                <p>
-                  <a href="${pageRedirectUri}">${kcSanitize(msg("backToApplication"))?no_esc}</a>
-                </p>
-            <#elseif actionUri?has_content>
-                <p>
-                  <a class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" href="${actionUri}">${kcSanitize(msg("proceedWithAction"))?no_esc}</a>
-                </p>
-            <#elseif (client.baseUrl)?has_content>
-                <p>
-                  <a href="${client.baseUrl}">${kcSanitize(msg("backToApplication"))?no_esc}</a>
-                </p>
-            </#if>
-        </#if>
+        ${kcSanitize(msg("windowCanBeClosed"))?no_esc}
       </#if>
     </div>
     </#if>
