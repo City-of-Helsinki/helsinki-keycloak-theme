@@ -14,7 +14,7 @@ Helsinki theme for Keycloaks IAM
 **Commands**  
 | Name | Description |
 |:-|:-|
-| `npm run build` | Builds css files from scss sources |
+| `npm run build` | Builds the theme |
 | `npm run clean` | Removes files generated during build |
 | `npm run make-pack` | Builds the project and packs the `/helsinki` folder into a `.tar.gz` file. The archive will be saved into project root with the name `helsinki.tag.gz`. |
 | `npm run export-translations` | Transforms message files into a csv format and saves them in project root in format `<module name>_<language>.csv`. |
@@ -136,7 +136,7 @@ Or stop and start the server inside the container. There is no command for stopp
 
 ## Building the theme
 
-Needed only, if stylesheets change.
+Needed only, when stylesheets or JavaScript files change.
 
 First, install `npm` dependencies
 
