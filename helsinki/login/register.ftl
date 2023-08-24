@@ -53,7 +53,7 @@
                 </div>
             </div>
 
-          <#if !realm.registrationEmailAsUsername>
+          <#if !realm.registrationEmailAsUsername && !noUsername??>
             <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('username',properties.kcFormGroupErrorClass!)}">
                 <div class="${properties.kcLabelWrapperClass!}">
                     <label for="username" class="${properties.kcLabelClass!}">${msg("username")}</label>
