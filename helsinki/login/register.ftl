@@ -3,6 +3,18 @@
     <#if section = "header">
         ${msg("registerTitle")}
     <#elseif section = "form">
+        <div id="kc-terms-text">
+            <p>${msg("registerTermsText")?no_esc}</p>
+            <#if (serviceName)??>
+                <p>${msg("serviceDataUsageListTitle", serviceName)?no_esc}</p>
+                <ul class="checked-list">
+                <#list serviceAllowedDataFields as item>
+                    <li>${item}</li>
+                </#list>
+                </ul>
+            </#if>
+       </div>
+
         <div id="hs-age-check-error" class="${properties.hsAlertClass!} ${properties.hsAlertErrorClass!}" style="display: none;">
             <div class="${properties.hsAlertLabelClass!}">
                 <span class="${properties.kcFeedbackErrorIcon!}"></span>
