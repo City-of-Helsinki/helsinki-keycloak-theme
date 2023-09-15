@@ -11,7 +11,7 @@ function getPathToLocales(output, language) {
 }
 
 function writeJSONFile(filePath, data) {
-  return writeFile(filePath, `# encoding: utf-8\n${data}`, "utf8");
+  return writeFile(filePath, `# encoding: utf-8\n${data}\n`, "utf8");
 }
 
 async function writeTranslations(output, translationData, debug) {
