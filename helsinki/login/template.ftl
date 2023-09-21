@@ -1,4 +1,4 @@
-<#macro registrationLayout bodyClass="" displayInfo=false displayMessage=true displayRequiredFields=false displayWide=false showAnotherWayIfPresent=true showAlerts=true showWarnings=true showFeedbackLink=false>
+<#macro registrationLayout bodyClass="" displayInfo=false displayMessage=true displayRequiredFields=false displayWide=false showAnotherWayIfPresent=true showAlerts=true showWarnings=true showFeedbackLink=false showLocaleSelector=false>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" class="${properties.kcHtmlClass!}" lang="${(locale.currentLanguageTag)!realm.getDefaultLocale()}">
 
@@ -40,7 +40,7 @@
     </#if>
     <div class="${properties.kcFormCardClass!} <#if displayWide>${properties.kcFormCardAccountClass!}</#if>">
       <header class="${properties.kcFormHeaderClass!}">
-        <#if realm.internationalizationEnabled && locale.supported?size gt 1>
+        <#if showLocaleSelector && realm.internationalizationEnabled && locale.supported?size gt 1>
             <div id="kc-locale-links">
                 <div id="kc-locale-links-wrapper" class="${properties.kcLocaleWrapperClass!}">
                   <#list locale.supported as l>
